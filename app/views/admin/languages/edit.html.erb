@@ -1,0 +1,22 @@
+<% content_for :header do -%>
+	Editar linguagem para <%= configatron.site_name %>
+<% end -%>
+
+<% content_for :sidebar do -%>
+	<p>
+	<h2 class="help"><img src="/images/icons/lightbulb.png" class="icon"/><strong>Ajuda</strong></h2>
+	</p>	
+
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali.
+	</p>
+<% end -%>
+
+<%= error_messages_for :language %>
+
+<% form_for @language, :url => admin_languages_path do |f| -%>
+	<%= render :partial=> "form", :locals=>{:f=>f}%>
+	<p><%= submit_tag 'Actualizar' %></p>
+<% end -%>
+
+<%= link_to 'Voltar', admin_languages_path %>

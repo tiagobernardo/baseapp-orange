@@ -1,0 +1,31 @@
+<% content_for :header do -%>
+	Ver pagina de <%= configatron.site_name %>
+<% end -%>
+
+<% content_for :sidebar do -%>
+	<p>
+	<h2 class="help"><img src="/images/icons/lightbulb.png" class="icon"/><strong>Ajuda</strong></h2>
+	</p>	
+
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali.
+	</p>
+<% end -%>
+
+<table class="overview">
+	<%= cell "ID", h(@page.id) %>
+	<%= cell "Permalink", h(@page.permalink) %>
+	<%= cell_separator %>
+
+	<%= cell "Nome", h(@page.name) %>
+	<%= cell "Estado", h(@page.state) %>
+	<%= cell "Corpo da página", h(@page.body) %>
+
+	<%= cell_separator %>
+	
+	<%= cell "Data Criação", @page.created_at.to_s(:long) %>
+	<%= cell "Última actualização", @page.updated_at.to_s(:long) %>
+</table>
+
+<%= link_to 'Edit', edit_admin_page_path(@page) %> | <%= link_to 'Voltar ', admin_pages_path %>
+

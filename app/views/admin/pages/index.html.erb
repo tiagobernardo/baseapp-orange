@@ -1,0 +1,31 @@
+<% content_for :header do -%>
+	<%= configatron.site_name %> Páginas
+<% end -%>
+
+<% content_for :sidebar do -%>
+	<p>
+		<%= link_to 'Nova Página', new_admin_page_path %>
+	</p>
+<% end -%>
+
+<table class="index" id="pagestree">
+  <tr id="node-0">
+	<th>Nome</th>
+	<th>Estado</th>
+	<th>Linguagem</th>
+	<th>Data Criação</th>
+  </tr>
+<% for page in @pages %>
+	<%= draw_table_for_childs_of page %>
+<% end %>
+</table>
+
+<%= will_paginate @pages %>
+
+<script type="text/javascript">
+  
+$(document).ready(function()  {
+  $("#pagestree").treeTable();
+});
+  
+</script>
