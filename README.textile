@@ -1,7 +1,26 @@
-h1. Welcome to BaseApp
+h1. Welcome to BaseApp-PTx2
+
+Before you start. This is a fork from BaseApp in attempt to make it a more suitable backoffice and structure for my own projects but it might have something you like, so why not contribute?
+Main diferences from BaseApp:
+* Pages (and infinite sub-pages) with drag and drop sorting and expand/colapse rows in the admin
+* News (not yet implemented)
+* Events (not yet implemented)
+* Multi-Language (not yet fully implemented)
+* Snippets
+
+* Other plugins included
+** Jrails for (jQuery support)
+** Bundle-fu instead of asset_packager
+** FckEditor to edit pages with image file upload support
+** WillPaginate Gem
+** Paperclip for uploading files
+** Permalink-fu for generating erm, permalinks?
+
+
+This is a very very very early build, recomended just for curiosity.
+No decent tests yet.
 
 BaseApp is a default Ruby on Rails project that kick-starts your next Rails project.
-
 Read the next paragraph for a quickstart. Head over to "http://baseapp.org":http://baseapp.org for more detailed documentation or "http://baseapp.lighthouseapp.com":http://baseapp.lighthouseapp.com to report bugs and request features.
 
 h2. Quickstart

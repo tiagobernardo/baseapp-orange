@@ -9,7 +9,51 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081023115224) do
+ActiveRecord::Schema.define(:version => 20090303203600) do
+
+  create_table "contents", :force => true do |t|
+    t.string   "name"
+    t.string   "permalink"
+    t.text     "body"
+    t.string   "state"
+    t.integer  "language_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.string   "permalink"
+    t.text     "body"
+    t.text     "lead"
+    t.string   "state"
+    t.integer  "position"
+    t.datetime "date"
+    t.integer  "language_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "languages", :force => true do |t|
+    t.string   "name"
+    t.string   "permalink"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news", :force => true do |t|
+    t.string   "name"
+    t.string   "permalink"
+    t.text     "body"
+    t.text     "lead"
+    t.string   "state"
+    t.integer  "position"
+    t.datetime "date"
+    t.integer  "language_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
@@ -21,9 +65,22 @@ ActiveRecord::Schema.define(:version => 20081023115224) do
   end
 
   create_table "open_id_authentication_nonces", :force => true do |t|
-    t.integer "timestamp",                  :null => false
+    t.integer "timestamp",  :null => false
     t.string  "server_url"
-    t.string  "salt",       :default => "", :null => false
+    t.string  "salt",       :null => false
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "name"
+    t.string   "permalink"
+    t.text     "body"
+    t.string   "state"
+    t.integer  "language_id"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "profiles", :force => true do |t|
@@ -65,7 +122,7 @@ ActiveRecord::Schema.define(:version => 20081023115224) do
     t.string   "activation_code",           :limit => 40
     t.string   "state",                                    :default => "passive"
     t.datetime "remember_token_expires_at"
-    t.string   "password_reset_cod"
+    t.string   "password_reset_code"
     t.datetime "activated_at"
     t.datetime "deleted_at"
     t.datetime "created_at"

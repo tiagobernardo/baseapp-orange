@@ -1,14 +1,19 @@
 <% content_for :header do -%>
-	<%= configatron.site_name %> Users
+	<%= configatron.site_name %> Utilizadores
 <% end -%>
 
 <% content_for :sidebar do -%>
+<p>
+	<%= link_to 'Novo Utilizador', new_admin_user_path %>
+</p>
+
+	<h2>Acesso Rápido</h2>
 	<ul>
-		<li><%= link_to "All users", admin_users_url %></li>
-		<li><%= link_to "Active users only", active_admin_users_url %></li>
-		<li><%= link_to "Suspended users only", suspended_admin_users_url %></li>
-		<li><%= link_to "Pending users only", pending_admin_users_url %></li>
-		<li><%= link_to "Deleted users only", deleted_admin_users_url %></li>
+		<li><%= link_to "Ver Todos", admin_users_url %></li>
+		<li><%= link_to "Utilizadores Activos", active_admin_users_url %></li>
+		<li><%= link_to "Utilizadores suspensos", suspended_admin_users_url %></li>
+		<li><%= link_to "Utilizadores pendentes", pending_admin_users_url %></li>
+		<li><%= link_to "Utilizadores apagados", deleted_admin_users_url %></li>
 	</ul>
 <% end -%>
 
@@ -16,8 +21,8 @@
   <tr>
 	<th>ID</th>
 	<th>Login</th>
-	<th>Email</th>
-	<th>Status</th>
+	<th>E-mail</th>
+	<th>Estado</th>
   </tr>
 
 <% # TODO: (base_app) Add some sort of search feature to easily find users %>
@@ -29,19 +34,19 @@
 	<td><%=h user.state %></td>
     <td class="actions">
 		<% if user.pending? %>
-			<%= link_to 'activate', activate_admin_user_url(user), :method => :put %>
-			<%= link_to 'suspend', suspend_admin_user_url(user), :method => :put %>
-			<%= link_to 'delete', admin_user_url(user), :method => :delete, :confirm => "Are you sure?" %>
+			<%= link_to 'Activar', activate_admin_user_url(user), :method => :put %>
+			<%= link_to 'Suspender', suspend_admin_user_url(user), :method => :put %>
+			<%= link_to 'Apagar', admin_user_url(user), :method => :delete, :confirm => "Are you sure?" %>
 		<% elsif user.passive? %>
-			<%= link_to 'activate', activate_admin_user_url(user), :method => :put %>
-			<%= link_to 'suspend', suspend_admin_user_url(user), :method => :put %>
-			<%= link_to 'delete', admin_user_url(user), :method => :delete, :confirm => "Are you sure?" %>
+			<%= link_to 'Activar', activate_admin_user_url(user), :method => :put %>
+			<%= link_to 'Suspender', suspend_admin_user_url(user), :method => :put %>
+			<%= link_to 'Apagar', admin_user_url(user), :method => :delete, :confirm => "Are you sure?" %>
 		<% elsif user.active? %>
-			<%= link_to 'suspend', suspend_admin_user_url(user), :method => :put %>
-			<%= link_to 'delete', admin_user_url(user), :method => :delete, :confirm => "Are you sure?" %>
+			<%= link_to 'Suspender', suspend_admin_user_url(user), :method => :put %>
+			<%= link_to 'Apagar', admin_user_url(user), :method => :delete, :confirm => "Are you sure?" %>
 		<% elsif user.suspended? %>
-			<%= link_to 'unsuspend', unsuspend_admin_user_url(user), :method => :put %>
-			<%= link_to 'delete', admin_user_url(user), :method => :delete, :confirm => "Are you sure?" %>		
+			<%= link_to 'Ressuscitar', unsuspend_admin_user_url(user), :method => :put %>
+			<%= link_to 'Apagar', admin_user_url(user), :method => :delete, :confirm => "Are you sure?" %>		
 		<% end %>
 	</td>
   </tr>
@@ -50,6 +55,3 @@
 
 <%= will_paginate @users %>
 
-<p>
-	<%= link_to 'New user', new_admin_user_path %>
-</p>

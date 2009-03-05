@@ -1,8 +1,12 @@
 <ul>
 	<% if Setting.count > 0 %>
-	<li style="float: right;"><%= tab_to "Settings", [{:controller => "admin/settings"}] %></li>
+	<li style="float: right;"><%= tab_to "Definições", [{:controller => "admin/settings"}] %></li>
 	<% end %>
 	
 	<li><%= tab_to "Dashboard", [{:controller => "admin/dashboard"}] %></li>
-	<li><%= tab_to "Users", [{:controller => "admin/users"}] %></li>
+	<li><%= tab_to "Páginas", [{:controller => "admin/pages"}] %></li>
+	<li><%= tab_to "Notícias", [{:controller => "admin/news"}] %></li>
+	<li><%= tab_to "Conteúdos", [{:controller => "admin/contents"}] %></li>
+	<li><%= tab_to "Linguagens", [{:controller => "admin/languages"}] %></li>
+	<li><%= tab_to "Utilizadores", [{:controller => "admin/users"}] %></li>
 </ul>
