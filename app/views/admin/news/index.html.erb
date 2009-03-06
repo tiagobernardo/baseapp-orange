@@ -1,0 +1,33 @@
+<% content_for :header do -%>
+	 Notícias de <%= configatron.site_name %>
+<% end -%>
+
+<% content_for :sidebar do -%>
+	<p>
+		<%= link_to 'Nova Notícia', new_admin_newsclip_path %>
+	</p>
+<% end -%>
+
+<table class="index">
+  <tr>
+	<th>ID</th>
+	<th>Nome</th>
+	<th>Linguagem</th>
+	<th>Data Criação</th>
+  </tr>
+
+<% for news in @news %>
+  <tr>
+	<td><%=h news.id %></td>
+	<td><%= link_to h(news.name), admin_newsclip_url(news) %></td>
+	<td><%=h news.language.name %></td>
+	<td><%=h news.created_at %></td>
+	<td class="actions">
+		<%= link_to 'Apagar', admin_newsclip_url(news), :method => :delete, :confirm => "Tem a certeza?" %>		
+	</td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @news %>
+

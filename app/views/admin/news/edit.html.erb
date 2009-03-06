@@ -1,5 +1,5 @@
 <% content_for :header do -%>
-	Editar página de <%= configatron.site_name %>
+	Editar notícia de <%= configatron.site_name %>
 <% end -%>
 
 <% content_for :sidebar do -%>
@@ -12,11 +12,11 @@
 	</p>
 <% end -%>
 
-<%= error_messages_for :page %>
+<%= error_messages_for :news	 %>
 
-<% form_for @page, :url => admin_page_path do |f| -%>
+<% form_for @news, :url => admin_news_path do |f| -%>
 	<%= render :partial=> "form", :locals=>{:f=>f}%>
 	<p><%= submit_tag 'Gravar' %></p>
 <% end -%>
 
-<%= link_to 'Voltar', admin_pages_path %>
+<%= link_to 'Voltar', admin_news_path %>

@@ -14,9 +14,9 @@
 
 <%= error_messages_for :language %>
 
-<% form_for @language, :url => admin_languages_path do |f| -%>
+<% form_for @language, :url => admin_language_path do |f| -%>
 	<%= render :partial=> "form", :locals=>{:f=>f}%>
-	<p><%= submit_tag 'Actualizar' %></p>
+	<p><%= submit_tag 'Gravar' %></p>
 <% end -%>
 
 <%= link_to 'Voltar', admin_languages_path %>

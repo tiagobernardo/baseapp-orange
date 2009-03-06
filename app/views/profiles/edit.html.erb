@@ -1,19 +1,19 @@
 <% if @profile.nil? -%>
 	<% content_for :header do -%>
-		Profile not be found
+		Perfil não existe.
 	<% end -%>
 	
-	<p>The profile you requested does not exist.</p>
+	<p>O perfil que pediu não existe.</p>
 <% else -%>
 	<% content_for :header do -%>
-		Editing my profile
+		Editar o meu perfil
 	<% end -%>
 
 	<%= render :partial => 'profiles/my_account' if current_user == @user %>
 
 	<% unless @profile.user.not_using_openid? %>
 	<p>
-		This is your <%= configatron.site_name %> profile. It's not related to your OpenID Identity.
+		Este é o perfil do site <%= configatron.site_name %>. Não está relacionado com o seu perfil OpenId.
 	</p>
 	<% end %>
 	
@@ -25,7 +25,7 @@
 		</p>
 	<% end -%>
 	
-	<%= submit_tag "Save changes" %>
+	<%= submit_tag "Guardar alterações" %>
 	
 	<% end %>
 <% end -%>

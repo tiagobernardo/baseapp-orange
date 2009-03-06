@@ -1,0 +1,33 @@
+<% content_for :header do -%>
+	<%= configatron.site_name %> Conteúdos
+<% end -%>
+
+<% content_for :sidebar do -%>
+	<p>
+		<%= link_to 'Novo Conteúdo', new_admin_content_path %>
+	</p>
+<% end -%>
+
+<table class="index">
+  <tr>
+	<th>ID</th>
+	<th>Nome</th>
+	<th>Linguagem</th>
+	<th>Data Criação</th>
+  </tr>
+
+<% for content in @contents %>
+  <tr>
+	<td><%=h content.id %></td>
+	<td><%= link_to h(content.name), admin_content_url(content) %></td>
+	<td><%=h content.language.name %></td>
+	<td><%=h content.created_at %></td>
+	<td class="actions">
+		<%= link_to 'Apagar', admin_content_url(content), :method => :delete, :confirm => "Tem a certeza?" %>		
+	</td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @contents %>
+

@@ -37,6 +37,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :languages
     admin.resources :pages
     admin.resources :contents
+    admin.resources :news, :singular => 'newsclip' 
     admin.resources :events
     admin.resources :users, :member => { :suspend   => :put,
                                          :unsuspend => :put,
