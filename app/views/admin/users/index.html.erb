@@ -3,8 +3,8 @@
 <% end -%>
 
 <% content_for :sidebar do -%>
-<p>
-	<%= link_to 'Novo Utilizador', new_admin_user_path %>
+<p class="cssbutton">
+	<%= link_to '<span>Novo Utilizador</span>', new_admin_user_path %>
 </p>
 
 	<h2>Acesso Rápido</h2>
@@ -18,7 +18,7 @@
 <% end -%>
 
 <table class="index">
-  <tr>
+  <tr class="tablehead">
 	<th>ID</th>
 	<th>Login</th>
 	<th>E-mail</th>

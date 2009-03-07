@@ -1,12 +1,9 @@
-.icon{border:0px;float:none;margin:0px 0px 0px 0px;padding:0;vertical-align: middle;padding-right: 1px;}
-.iconborder{	border: 1px solid #D3D3D3;}
+body{background:#DFE4EA;}
 
-#header {
-	background: #4B4B4B url(/images/admin/header_black.png) repeat-x bottom left;
-}
-#tabs {
-	height: 28px;
-}
+/* header
+ * ------------------------------------------------------------------------- */
+#header {background: #4B4B4B;}
+#tabs {	height: 28px;}
 #tabs a {
 	color: #fff;
 	background-color:transparent;
@@ -16,27 +13,55 @@
 	-webkit-border-radius-topright: 3px; -webkit-border-radius-topleft: 3px;
 	border-radius: 3px;
 }
-#tabs li a:hover {
-	color: #fff;
- 	background: #4B4B4B url(/images/admin/bar.png) repeat-x bottom left;
-}
-#tabs li a.current {
-	color: #6A99AD;
-	background-color: #F2F2F2;
-}
-body{background-color:#F2F2F2;}
+#tabs li a:hover {color:#4B4B4B;background: #DFE4EA;}
+#tabs li a.current {color: #6A99AD;background-color: #DFE5FF;}
 
-#right{background-color:#fff;		padding: 0 0 1em 0; margin-left:1.5em;}
+/* left and right columns
+ * ------------------------------------------------------------------------- */
+#left{border: 2px solid #D1D4DF;}
+#left h2.head{ color:#fff; background: #024B77 url(/images/admin/bar.png) repeat-x top left; }
+
+#right{border: 2px solid #D1D4DF;background-color:#fff;	padding: 0 0 1em 0; margin-left:1.5em;}
 #right h2{background-color:#D3DBFF;	padding: 0.5em;  }
 #right h2.help{background-color:#F6E172;}
+#right a:hover {	color: #204CA0; }
+#right li{line-height:1.6em;} 
 
 
+/* buttons and links
+ * ------------------------------------------------------------------------- */
+
+.icon{border:0px;float:none;margin:0px 0px 0px 0px;padding:0;vertical-align: middle;padding-right: 1px;}
+.iconborder{	border: 1px solid #D3D3D3;}
+
+.cssbutton{
+	margin:0px;
+	background: #024B77 url(/images/admin/bar.png) repeat-x top left;
+	height:45px;
+} 
+.cssbutton a{   
+	padding: 5px 8px 7px 8px;
+	-moz-border-radius: 3px;
+	text-decoration:none;
+	line-height:45px;
+	background-color:#E0E3EF;
+}
+.cssbutton span{
+	background: transparent url(/images/icons/add.png) no-repeat top left;
+	padding-left:18px;
+} 
+
+
+.stateflag{float:left; font-size:12px; color:#fff;}
+.stateflag span{float:left;padding:4px;}
+.stateflag .aberto{background:#00BADF;}
+.stateflag .comrespostas{background:#FF9900; }
+.stateflag .adjudicado{background:#91AD1C; }
+.stateflag .concluido{background:#42921F; }
+.stateflag .anulado{background:#FF0000;}
 
 
 /* jQuery TreeTable Core 2.0 stylesheet
- *
- * This file contains styles that are used to display the tree table. Each tree
- * table is assigned the +treeTable+ class.
  * ========================================================================= */
 
 /* jquery.treeTable.collapsible

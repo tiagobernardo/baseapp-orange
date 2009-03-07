@@ -9,26 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090303203600) do
+ActiveRecord::Schema.define(:version => 20090307105515) do
 
   create_table "contents", :force => true do |t|
     t.string   "name"
     t.string   "permalink"
     t.text     "body"
     t.string   "state"
-    t.integer  "language_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "events", :force => true do |t|
-    t.string   "name"
-    t.string   "permalink"
-    t.text     "body"
-    t.text     "lead"
-    t.string   "state"
-    t.integer  "position"
-    t.datetime "date"
     t.integer  "language_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -53,6 +40,8 @@ ActiveRecord::Schema.define(:version => 20090303203600) do
     t.integer  "language_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "meta_description"
+    t.text     "meta_keywords"
   end
 
   create_table "open_id_authentication_associations", :force => true do |t|
@@ -81,6 +70,8 @@ ActiveRecord::Schema.define(:version => 20090303203600) do
     t.integer  "rgt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "meta_description"
+    t.text     "meta_keywords"
   end
 
   create_table "profiles", :force => true do |t|

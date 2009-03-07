@@ -1,7 +1,7 @@
 body {
 	font-family: "Lucida Grande", verdana, arial, helvetica, sans-serif;
 	color: #000;
-	background-color: #d4d4d4;
+	background:#DFE4EA;
 	margin: 0;
 	padding: 0;
 	font-size: 0.8em;
@@ -50,16 +50,15 @@ label {
 	background-color: #fff;
 	margin: 0 auto;
 	width: 36em;
-	border: 8px solid #ccc;
+	border: 8px solid #D1D7DF;
 }
 #left .head {
-	color: #204ca0;
 	font-weight: normal;
-	background-color: #d3dbff;
 	padding: 0.7em 1em;
 	margin: 0;
 	font-size: 1.8em;
 	text-align: center;
+	color:#fff; background: #024B77 url(/images/admin/bar.png) repeat-x top left;
 }
 #left #screen {
 	padding: 0 1.5em 1.5em;

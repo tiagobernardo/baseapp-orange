@@ -1,5 +1,5 @@
 <% content_for :header do -%>
-	<%= configatron.site_name %> Administration
+	<%= configatron.site_name %> Dashboard
 <% end -%>
 
 <% content_for :sidebar do -%>
@@ -9,5 +9,23 @@
 <% # TODO: Add your own overview widgets here. Show some statistics etc. %>
 
 <p>
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	Bemvindo à área de administração do site <%= configatron.site_name %>. <br/>No menu em cima poderá encontrar as áreas que pode editar e em baixo pode visionar as últimas notícias e utilizadores registados no site.
 </p>
+
+<h3>Últimas notícias e utilizadores</h3>
+<table class="index">
+<% for news in @news %>
+  <tr>
+	<td><div class="stateflag"><span class='aberto'>Notícia</span></div></td>
+	<td><%= link_to h(news.name), admin_newsclip_url(news) %></td>
+	<td><%= data_pt news.created_at %></td>
+  </tr>
+<% end %>
+<% for user in @users %>
+  <tr>
+	<td><div class="stateflag"><span class='comrespostas'>Utilizador</span></div></td>
+	<td><%= link_to h(user.login), admin_user_url(user) %></td>
+	<td><%= data_pt user.created_at %></td>
+  </tr>
+<% end %>
+</table>

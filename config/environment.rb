@@ -14,6 +14,7 @@ Rails::Initializer.run do |config|
   # Gems
   config.gem "capistrano-ext", :lib => "capistrano"
   config.gem "configatron"
+  config.gem "mbleigh-acts-as-taggable-on", :source => "http://gems.github.com", :lib => "acts-as-taggable-on"
 
   # Make Time.zone default to the specified zone, and make Active Record store time values
   # in the database in UTC, and return them converted to the specified local zone.

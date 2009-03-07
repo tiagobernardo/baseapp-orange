@@ -1,27 +1,24 @@
 <% content_for :header do -%>
-	Application Settings
+	Definições do site
 <% end -%>
 
 <% content_for :sidebar do -%>
 	<p>
-		These are site-wide settings. They will be used through-out your application.
-	</p>
-	<p>
-		To add new settings, simple create a new row in the 'settings' table. 
+		Estas são as definições do site.
 	</p>
 <% end -%>
 
 <% form_tag :action => 'update' do %>
 
-<h3>General</h3>
+<h3>Geral</h3>
 
-<p>There are currently no settings available.</p>
+<p>Não existem definições para alterar.</p>
 		
 <%#= settings_field(Setting.load(:identifier)) %>
 
 <!-- uncomment this if you make settings available.
 <div id="submitbutton">
-	<p><%= submit_tag 'Save Settings' %></p>
+	<p><%= submit_tag 'Guardar' %></p>
 </div> -->
 
 <% end %>
