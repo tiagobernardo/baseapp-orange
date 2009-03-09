@@ -1,12 +1,49 @@
-h1. Welcome to BaseApp-PTx2
+h1. Welcome to BaseApp-Orange
 
+*PT*
+
+Este é um fork do projecto BaseApp na tentativa de o tornar mais adequado à maioria dos nossos projectos e servir de uma base de trabalho sólida e rápida de implementar.
+Em vez de duplicar sempre o mesmo trabalho, porque não criar uma base?
+
+Mais info em http://reinventar.com/2009/03/baseapp-orange/
+
+Principais diferenças do BaseApp Original:
+* Traduzido para PT (íncluindo i18n locale)
+* Páginas (e sub-páginas infinitas) 
+* Notícias
+* Snippets
+* Campos para meta tags (descrição, keywords e permalink)
+* Tema para admin com (with famfamfam icons)
+
+* Plugins íncluidos
+** Jrails para suporte JQuery (remover se preferir Prototype)
+** Bundle-fu em vez de  asset_packager
+** FckEditor para editar páginas com html
+** WillPaginate Gem
+** Paperclip para upload de ficheiros
+** Permalink-fu para gerar links permanentes
+** Acts as taggable
+
+* TODO *
+* Drag and drop com ordenação para a secção das páginas no admin
+* Suporte total i18n
+* Implementar páginas, snippets, notícias no frontend
+* Incluir Testes com RSPEC para os models
+
+
+*EN*
 Before you start. This is a fork from BaseApp in attempt to make it a more suitable backoffice and structure for my own projects but it might have something you like, so why not contribute?
+
+More info at http://reinventar.com/2009/03/baseapp-orange/
+
 Main diferences from BaseApp:
-* Pages (and infinite sub-pages) with drag and drop sorting and expand/colapse rows in the admin
-* News (not yet implemented)
-* Events (not yet implemented)
+* Pages (and infinite sub-pages) and expand/colapse rows in the admin
+* News 
 * Multi-Language (not yet fully implemented)
 * Snippets
+* Fields for meta description, keywords, and permalink
+* Fully translated to portuguese (also included i18n locale)
+* Pretty admin theme (with famfamfam icons)
 
 * Other plugins included
 ** Jrails for (jQuery support)
@@ -15,10 +52,18 @@ Main diferences from BaseApp:
 ** WillPaginate Gem
 ** Paperclip for uploading files
 ** Permalink-fu for generating erm, permalinks?
+** Acts as taggable
+
+* TODO *
+* Drag and drop sorting for pages in the admin area
+* Full i18n support with multi-languages
+* Frontend implementation of pages, snippets and languages
+* Add Rspec TESTS for all models and admin controllers
 
 
-This is a very very very early build, recomended just for curiosity.
-No decent tests yet.
+This is a early build.
+
+h2. What is BaseAPP
 
 BaseApp is a default Ruby on Rails project that kick-starts your next Rails project.
 Read the next paragraph for a quickstart. Head over to "http://baseapp.org":http://baseapp.org for more detailed documentation or "http://baseapp.lighthouseapp.com":http://baseapp.lighthouseapp.com to report bugs and request features.
