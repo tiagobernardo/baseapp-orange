@@ -1,4 +1,4 @@
-body{background:#DFE4EA;}
+body{background:#DFE5FF;}
 
 /* header
  * ------------------------------------------------------------------------- */
@@ -13,7 +13,7 @@ body{background:#DFE4EA;}
 	-webkit-border-radius-topright: 3px; -webkit-border-radius-topleft: 3px;
 	border-radius: 3px;
 }
-#tabs li a:hover {color:#4B4B4B;background: #DFE4EA;}
+#tabs li a:hover {color:#4B4B4B;background: #DFE5FF;}
 #tabs li a.current {color: #6A99AD;background-color: #DFE5FF;}
 
 /* left and right columns

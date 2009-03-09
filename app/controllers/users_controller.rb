@@ -30,7 +30,7 @@ class UsersController < ApplicationController
         @user = User.find_by_email(params[:email], :conditions => ['NOT state = ?', 'deleted'])
         
         if ! @user.not_using_openid?
-          flash[:notice] = "You cannot help you, you're using OpenID!"
+          flash[:notice] = "Lamentamos mas não podemos ajudar, está a usar OpenID!"
           redirect_to :back
         end
       rescue
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
       end
       
       if @user.nil?
-        flash.now[:error] = 'No account was found with that email address.'
+        flash.now[:error] = 'Não encontramos uma conta com esse e-mail.'
       else
         UserMailer.deliver_forgot_login(@user)
       end
@@ -54,10 +54,10 @@ class UsersController < ApplicationController
       @user = User.find_by_login_or_email(params[:email_or_login])
 
       if @user.nil?
-        flash.now[:error] = 'No account was found by that login or email address.'
+        flash.now[:error] = 'Não encontramos uma conta com esse e-mail ou login.'
       else
         if ! @user.not_using_openid?
-          flash[:notice] = "You cannot reset your password here. You are using OpenID!"
+          flash[:notice] = "Lamentamos mas não podemos ajudar, está a usar OpenID!"
           redirect_to :back
         else
           @user.forgot_password if @user.active?
@@ -92,7 +92,7 @@ class UsersController < ApplicationController
         if result.successful?
           create_new_user(:identity_url => identity_url, :login => identity_url, :email => registration['email'])
         else
-          failed_creation(result.message || "Sorry, something went wrong")
+          failed_creation(result.message || "Oops, algo correu mal.")
         end
       end
     else
@@ -106,20 +106,20 @@ class UsersController < ApplicationController
     case
     when (!params[:activation_code].blank?) && user && !user.active?
       user.activate!
-      flash[:notice] = "Signup complete! Please sign in to continue."
+      flash[:notice] = "Registo completo! Faça login para continuar."
       redirect_to login_path
     when params[:activation_code].blank?
-      flash[:error] = "The activation code was missing.  Please follow the URL from your email."
+      flash[:error] = "Falta o código de activação. Por favor siga o URL presente no e-mail."
       redirect_back_or_default(root_path)
     else 
-      flash[:error]  = "We couldn't find a user with that activation code -- check your email? Or maybe you've already activated -- try signing in."
+      flash[:error]  = "Não conseguimos encontrar um utilizador com esse código. -- Talvez já esteja activado -- experimente fazer login."
       redirect_back_or_default(root_path)
     end
   end
   
   def edit_password
     if ! @user.not_using_openid?
-      flash[:notice] = "You cannot update your password. You are using OpenID!"
+      flash[:notice] = "Não pode alterar o seu endereço de e-mail. Está a usar OpenId!"
       redirect_to :back
     end
     
@@ -128,7 +128,7 @@ class UsersController < ApplicationController
   
   def update_password    
     if ! @user.not_using_openid?
-      flash[:notice] = "You cannot update your password. You are using OpenID!"
+      flash[:notice] = "Não pode alterar o seu endereço de e-mail. Está a usar OpenId!"
       redirect_to :back
     end
     
@@ -138,32 +138,32 @@ class UsersController < ApplicationController
       if @user.encrypt(current_password) == @user.crypted_password
         if new_password == new_password_confirmation
           if new_password.blank? || new_password_confirmation.blank?
-            flash[:error] = "You cannot set a blank password."
+            flash[:error] = "Não pode ter uma password vazia."
             redirect_to edit_password_user_url(@user)
           else
             @user.password = new_password
             @user.password_confirmation = new_password_confirmation
             @user.save
-            flash[:notice] = "Your password has been updated."
+            flash[:notice] = "A password foi actualizada."
             redirect_to profile_url(@user)
           end
         else
-          flash[:error] = "Your new password and it's confirmation don't match."
+          flash[:error] = "A password nova e a confirmação não coincide."
           redirect_to edit_password_user_url(@user)
         end
       else
-        flash[:error] = "Your current password is not correct. Your password has not been updated."
+        flash[:error] = "A sua password actual não está correcta. A password não foi alterada."
         redirect_to edit_password_user_url(@user)
       end
     else
-      flash[:error] = "You cannot update another user's password!"
+      flash[:error] = "Não pode alterar a password de outro utilizador!"
       redirect_to edit_password_user_url(@user)
     end
   end
   
   def edit_email
     if ! @user.not_using_openid?
-      flash[:notice] = "You cannot update your email address. You are using OpenID!"
+      flash[:notice] = "Não pode alterar o seu endereço de e-mail. Está a usar OpenId!"
       redirect_to :back
     end
     
@@ -172,20 +172,20 @@ class UsersController < ApplicationController
   
   def update_email
     if ! @user.not_using_openid?
-      flash[:notice] = "You cannot update your email address. You are using OpenID!"
+      flash[:notice] = "Não pode alterar o seu endereço de e-mail. Está a usar OpenId!"
       redirect_to :back
     end
     
     if current_user == @user
       if @user.update_attributes(:email => params[:email])
-        flash[:notice] = "Your email address has been updated."
+        flash[:notice] = "A conta de e-mail foi alterada."
         redirect_to profile_url(@user)
       else
-        flash[:error] = "Your email address could not be updated."
+        flash[:error] = "Ouve um problema ao alterar a conta de e-mail. Tente mais tarde, obrigado."
         redirect_to edit_email_user_url(@user)
       end
     else
-      flash[:error] = "You cannot update another user's email address!"
+      flash[:error] = "Não pode alterar a conta de e-mail de outro utilizador."
       redirect_to edit_email_user_url(@user)
     end
   end  
@@ -197,7 +197,7 @@ class UsersController < ApplicationController
     
     logout_killing_session!
     
-    flash[:notice] = "Your account has been removed."
+    flash[:notice] = "A sua conta foi removida."
     redirect_back_or_default(root_path)
   end  
   
@@ -226,12 +226,12 @@ class UsersController < ApplicationController
   
   def successful_creation(user)
     redirect_back_or_default(root_path)
-    flash[:notice] = "Thanks for signing up!"
-    flash[:notice] << " We're sending you an email with your activation code." if @user.not_using_openid?
-    flash[:notice] << " You can now login with your OpenID." if ! @user.not_using_openid?
+    flash[:notice] = "Obrigado por registar!"
+    flash[:notice] << " Foi enviado um e-mail com o código de activação da conta." if @user.not_using_openid?
+    flash[:notice] << " Pode entrar com o seu login OpenID." if ! @user.not_using_openid?
   end
   
-  def failed_creation(message = 'Sorry, there was an error creating your account')
+  def failed_creation(message = 'Lamentamos, ouve um erro ao criar a sua conta')
     flash[:error] = message
     # @user = User.new
     render :action => :new

@@ -1,22 +1,22 @@
 <% content_for :header do -%>
-	Login Recovery
+	Recuperar Login
 <% end -%>
 
 <% unless @user.nil? %>
-	<p>An email containing your <%= configatron.site_name %> account's login has been dispatched to you at <em><%= @user.email %></em>.</p>
+	<p>Será enviado um e-mail com o login do site <%= configatron.site_name %> para o e-mail <em><%= @user.email %></em>.</p>
 	
 	<div id="submitbutton">
-		<p><%= link_to "Login now &raquo;", login_url %></p>
+		<p><%= link_to "Login agora &raquo;", login_url %></p>
 	</div>
 <% else %>
-	<p>Please enter the email address associated with your account. We will send you an email with your login shortly.</p>
+	<p>Por favor insira o e-mail associado com a conta pretendida. Será enviado um e-mail com o login em breve.</p>
 
 	<% form_tag user_forgot_login_url, :method => :put do %>
-		<p><label>Your email address</label><br />
+		<p><label>Endereço de e-mail</label><br />
 		<%= text_field_tag :email %></p>
 	
 		<div id="submitbutton">
-			<p><%= submit_tag 'Send me my login &raquo;' %></p>
+			<p><%= submit_tag 'Envia-me o meu login &raquo;' %></p>
 		</div>
 	<% end %>
 <% end %>

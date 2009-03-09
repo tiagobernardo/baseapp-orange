@@ -4,7 +4,7 @@
 
 <% content_for :sidebar do -%>
 	<p class="cssbutton">
-		<%= link_to '<span>Nova Linguagem</span>', new_admin_language_path %>
+		<%= link_to '<span>Novo Idioma</span>', new_admin_language_path %>
 	</p>
 <% end -%>
 
@@ -12,7 +12,6 @@
   <tr>
 	<th>ID</th>
 	<th>Nome</th>
-	<th>Permalink</th>
 	<th>Data Criação</th>
   </tr>
 
@@ -20,10 +19,9 @@
   <tr>
 	<td><%=h lang.id %></td>
 	<td><%= link_to h(lang.name), admin_language_url(lang) %></td>
-	<td><%=h lang.permalink %></td>
 	<td><%=h lang.created_at %></td>
     <td class="actions">
-		<%= link_to 'Apagar', admin_language_url(lang), :method => :delete, :confirm => "Are you sure?" %>		
+		<%= link_to 'Apagar', admin_language_url(lang), :method => :delete, :confirm => "Tem a certeza?" %>		
 	</td>
   </tr>
 <% end %>

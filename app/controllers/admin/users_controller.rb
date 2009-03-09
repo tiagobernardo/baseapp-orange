@@ -10,7 +10,7 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.reset_password!
     
-    flash[:notice] = "A new password has been sent to the user by email."
+    flash[:notice] = "Uma nova password foi enviada para o utilizador por e-mail."
     redirect_to admin_user_path(@user)
   end
   
@@ -106,7 +106,7 @@ class Admin::UsersController < ApplicationController
 
     respond_to do |format|
       if @user.register!
-        flash[:notice] = "User was successfully created."
+        flash[:notice] = "Utilizador foi criado com sucesso."
         format.html { redirect_to(admin_user_url(@user)) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else

@@ -37,7 +37,7 @@ class Admin::LanguagesController < ApplicationController
 
     respond_to do |format|
       if @language.save
-        flash[:notice] = 'Language was successfully created.'
+        flash[:notice] = 'Idioma foi gravado com sucesso.'
         format.html { redirect_to(admin_language_url(@language)) }
         format.xml  { render :xml => @language, :status => :created, :location => @language }
       else
@@ -52,7 +52,7 @@ class Admin::LanguagesController < ApplicationController
 
     respond_to do |format|
       if @language.update_attributes(params[:language])
-        flash[:notice] = 'Language was successfully updated.'
+        flash[:notice] = 'Página foi gravado com sucesso'
         format.html { redirect_to(admin_language_url(@language)) }
         format.xml  { head :ok }
       else

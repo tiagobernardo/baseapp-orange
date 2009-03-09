@@ -73,7 +73,7 @@ module ApplicationHelper
     messages
   end
   def data_pt(date)
-    return "<span class='date'>#{ date.strftime("%d/%m/%Y") }</span>"
+    return "#{date.strftime("%d/%m/%Y")}"
   end
   
 end

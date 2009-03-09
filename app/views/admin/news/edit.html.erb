@@ -3,18 +3,12 @@
 <% end -%>
 
 <% content_for :sidebar do -%>
-	<p>
-	<h2 class="help"><img src="/images/icons/lightbulb.png" class="icon"/><strong>Ajuda</strong></h2>
-	</p>	
-
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali.
-	</p>
+	<%= render :partial => 'help' %>
 <% end -%>
 
 <%= error_messages_for :news	 %>
 
-<% form_for @news, :url => admin_news_path do |f| -%>
+<% form_for @news, :url => admin_newsclip_path do |f| -%>
 	<%= render :partial=> "form", :locals=>{:f=>f}%>
 	<p><%= submit_tag 'Gravar' %></p>
 <% end -%>

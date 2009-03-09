@@ -1,15 +1,15 @@
 <% content_for :header do -%>
-	Account Amnesia
+	Amnesia
 <% end -%>
 
 <p>
-	You have indicated you can't remember your <%= configatron.site_name %> account at all.
+	Indicou que não se lembra de nenhum dado da sua conta de <%= configatron.site_name %>.
 </p>
 
 <p>
-	We can't help you directly to recover you account. Please contact <%= configatron.support_name %> at <%= secure_mail_to configatron.support_email %> for more help.
+Não podemos ajudar directamente a recuperar os dados da conta. Por favor entre em contacto com <%= configatron.support_name %> em <%= secure_mail_to configatron.support_email %> para mais ajuda.
 </p>
 
 <p>
-	If you don't have any important data in your account, you may also opt for <%= link_to "registering a new account", signup_url %>.
+	Se não tinha dados importantes na conta, também pode considerar <%= link_to "criar uma nova conta", signup_url %>.
 </p>

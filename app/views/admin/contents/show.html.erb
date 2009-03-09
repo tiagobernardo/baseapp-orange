@@ -3,13 +3,7 @@
 <% end -%>
 
 <% content_for :sidebar do -%>
-	<p>
-	<h2 class="help"><img src="/images/icons/lightbulb.png" class="icon"/><strong>Ajuda</strong></h2>
-	</p>	
-
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali.
-	</p>
+	<%= render :partial => 'help' %>
 <% end -%>
 
 <table class="overview">
@@ -22,8 +16,9 @@
 
 	<%= cell_separator %>
 	
-	<%= cell "Data Criação", @content.created_at.to_s(:long) %>
-	<%= cell "Última actualização", @content.updated_at.to_s(:long) %>
+	<%= cell "Data de criação", data_pt(@user.created_at ) %>
+	<%= cell "Última actualização", data_pt(@user.updated_at ) %>
+
 </table>
 
 <%= link_to 'Edit', edit_admin_content_path(@content) %> | <%= link_to 'Voltar ', admin_contents_path %>

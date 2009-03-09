@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout_killing_session!
-    flash[:notice] = "You have been logged out."
+    flash[:notice] = "Saiu do site com sucesso."
     redirect_back_or_default(root_path)
   end
 
@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
       if result.successful? && self.current_user = User.find_by_identity_url(identity_url)
         successful_login
       else
-        flash[:error] = result.message || "Sorry no user with that identity URL exists"
+        flash[:error] = result.message || "Não existe utilizador para esse URL."
         @rememer_me = params[:remember_me]
         render :action => :new
       end
@@ -67,11 +67,11 @@ class SessionsController < ApplicationController
     new_cookie_flag = (params[:remember_me] == "1")
     handle_remember_cookie! new_cookie_flag
     redirect_back_or_default(root_path)
-    flash[:notice] = "Logged in successfully"
+    flash[:notice] = "Login com sucesso"
   end
 
   def note_failed_signin
-    flash[:error] = "Couldn't log you in as '#{params[:login]}'"
+    flash[:error] = "Não foi possivel entrar com o login '#{params[:login]}'"
     logger.warn "Failed login for '#{params[:login]}' from #{request.remote_ip} at #{Time.now.utc}"
   end
 end

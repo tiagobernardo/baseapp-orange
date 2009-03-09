@@ -2,7 +2,7 @@ class Admin::PagesController < ApplicationController
   require_role :admin
   layout 'admin'
   def index
-    @pages = Page.roots.paginate :page => params[:page]
+    @pages = Page.roots
 
     respond_to do |format|
       format.html # index.html.erb
@@ -39,7 +39,7 @@ class Admin::PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
-        flash[:notice] = 'Page was successfully created.'
+        flash[:notice] = 'Página foi gravada com sucesso.'
         format.html { redirect_to(admin_page_url(@page)) }
         format.xml  { render :xml => @page, :status => :created, :location => @page }
       else
@@ -55,7 +55,7 @@ class Admin::PagesController < ApplicationController
     
     respond_to do |format|
       if @page.update_attributes(params[:page])
-        flash[:notice] = 'Page was successfully updated.'
+        flash[:notice] = 'Página foi gravada com sucesso.'
         format.html { redirect_to(admin_page_url(@page)) }
         format.xml  { head :ok }
       else

@@ -19,7 +19,7 @@ class Admin::SettingsController < ApplicationController
       setting.update_attribute(:value, value)
     end
     
-    flash[:notice] = "Settings have been saved."
+    flash[:notice] = "Definições foram gravadas com sucesso."
     
     redirect_to :action => :index
   end
