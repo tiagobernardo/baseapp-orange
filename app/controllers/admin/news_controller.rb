@@ -39,7 +39,7 @@ class Admin::NewsController < ApplicationController
      respond_to do |format|
        if @news.save
          flash[:notice] = 'Página foi criada com sucesso.'
-         format.html { redirect_to(admin_newsclip_url(@news)) }
+         format.html {  redirect_to(admin_news_url) }
          format.xml  { render :xml => @news, :status => :created, :location => @news }
        else
          format.html { render :action => "new" }
@@ -54,7 +54,7 @@ class Admin::NewsController < ApplicationController
      respond_to do |format|
        if @news.update_attributes(params[:news])
          flash[:notice] = 'Notícia foi gravada com sucesso.'
-         format.html { redirect_to(admin_newsclip_url(@news)) }
+         format.html {  redirect_to(admin_news_url) }
          format.xml  { head :ok }
        else
          format.html { render :action => "edit" }

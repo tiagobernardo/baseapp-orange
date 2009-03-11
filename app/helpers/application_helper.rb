@@ -75,5 +75,12 @@ module ApplicationHelper
   def data_pt(date)
     return "#{date.strftime("%d/%m/%Y")}"
   end
-  
+  def human_state(state="")
+    if state=="active"
+      "<span class='green'>#{state}</span>"
+    else
+      "<span class='red'>#{state}</span>"
+    end
+  end
+    
 end

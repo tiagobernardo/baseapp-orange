@@ -5,10 +5,11 @@ module Admin::PagesHelper
     html+="<tr id='node-#{page.id}'" 
     html+= "class='child-of-node-#{page.parent_id}'>" if !page.parent_id.nil? 
    	html+="<td>#{ link_to h(page.name), admin_page_url(page)}</td>
-   	      <td>#{h page.state}</td>
+   	      <td>#{human_state page.state}</td>
+   	       <td>#{page.language}</td>
    	      <td>#{data_pt page.created_at}</td>
-   	       <td>#{page.language.name}</td>
        <td class='actions'>
+       #{ link_to 'Editar', edit_admin_page_path(page) }	
    		#{link_to 'Apagar', admin_page_url(page), :method => :delete, :confirm => 'Tem a certeza?'}		
    	</td>
     </tr>"

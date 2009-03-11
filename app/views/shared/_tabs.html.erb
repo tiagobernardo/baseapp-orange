@@ -1,8 +1,10 @@
 <ul>
-	<li style="float: right;"><a href="#">Tab 1</a></li>
-	<li style="float: right;"><a href="#">Tab 2</a></li>
-
+	<li style="float: right;">	<%= link_to 'pt-PT', root_path(:locale => 'pt-PT') %></li>
+	<li style="float: right;">	<%= link_to 'en-US', root_path(:locale => 'en') %></li>
+	
 	<li><%= tab_to "Dashboard", [{:controller => "dashboard" }] %></li>
-	<li><%= tab_to "Ping Tab" %></li>
-	<li><%= tab_to "Pong Tab" %></li>
+	<% Page.main_menu(params[:locale]) do %>
+		<li><%= tab_to "Ping Tab" %></li>
+		<li><%= tab_to "Pong Tab" %></li>
+	<%end%>
 </ul>

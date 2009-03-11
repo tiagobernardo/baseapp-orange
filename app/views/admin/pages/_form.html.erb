@@ -10,7 +10,10 @@
 <p><label for="parent_id">Pai</label><br/>
 <%= f.select :parent_id, nested_set_options(Page, @page) {|i| "#{'-' * i.level} #{i.name}" }, :prompt => 'Escolhe uma opção' %></p>
 
-<p><label for="language_id">Língua</label><br/>
-<%= f.collection_select :language_id , Language.find(:all), :id, :name, :prompt => 'Escolhe uma opção' %></p>
+<p><label for="language">Idioma</label><br/>
+<%= f.select :language , LANGUAGES, :prompt => 'Escolhe uma opção' %></p>
+
+<p><label for="state">Estado</label><br/>
+<%= f.select :state , STATES, :prompt => 'Escolhe uma opção' %></p>
 
 <%= render :partial=> "/admin/shared/seo_fields", :locals=>{:f=>f}%>

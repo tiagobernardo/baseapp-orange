@@ -38,7 +38,7 @@ class Admin::ContentsController < ApplicationController
     respond_to do |format|
       if @content.save
         flash[:notice] = 'Conteúdo foi gravado com sucesso.'
-        format.html { redirect_to(admin_content_url(@content)) }
+        format.html { redirect_to(admin_contents_url) }
         format.xml  { render :xml => @content, :status => :created, :location => @content }
       else
         format.html { render :action => "new" }
@@ -53,7 +53,7 @@ class Admin::ContentsController < ApplicationController
     respond_to do |format|
       if @content.update_attributes(params[:content])
         flash[:notice] = 'Conteúdo foi gravado com sucesso'
-        format.html { redirect_to(admin_content_url(@content)) }
+        format.html { redirect_to(admin_contents_url) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

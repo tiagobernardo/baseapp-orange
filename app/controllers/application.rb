@@ -13,11 +13,13 @@ class ApplicationController < ActionController::Base
   end
   helper_method :s
 
-  before_filter :set_user_language
+  before_filter :set_locale
 
-  def set_user_language
-   I18n.locale="pt-PT"
+  def set_locale
+    locale = params[:locale] || 'pt'
+    I18n.locale = locale
   end
+
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store

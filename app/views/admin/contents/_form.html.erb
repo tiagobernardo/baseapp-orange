@@ -10,5 +10,6 @@
 <%= fckeditor_textarea(:page, :body, :toolbarSet => 'Simple', :width => '100%', :height => '300px') %>
 </p>
  
-<p><label for="language_id">Idioma</label><br/>
-<%= f.collection_select :language_id , Language.find(:all), :id, :name, :prompt => 'Escolhe uma opção' %></p>
+<p><label for="language">Idioma</label><br/>
+<%= f.select :language , LANGUAGES, :prompt => 'Escolhe uma opção' %></p>
+

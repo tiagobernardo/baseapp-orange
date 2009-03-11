@@ -6,14 +6,28 @@
 	<p class="cssbutton">
 		<%= link_to '<span>Nova Página</span>', new_admin_page_path %>
 	</p>
+	
+	<h2>Acesso Rápido</h2>
+	<ul>
+		<% for language in LANGUAGES %>
+			<li><%= link_to "Todas as páginas em #{language[0]}", admin_pages_url %></li>
+		<%end%>
+	</ul>
+	<p>
+	<h2 class="help"><img src="/images/icons/lightbulb.png" class="icon"/><strong>Ajuda</strong></h2>
+	</p>	
+
+	<p>Atenção ao <strong>apagar</strong> uma página porque as várias sub-páginas também serão apagadas se existirem. <br/><br/>
+	Ainda não é possível ordenar as páginas.<br/>
+	</p>
 <% end -%>
 
 <table class="index" id="pagestree">
   <tr id="node-0">
 	<th>Nome</th>
 	<th>Estado</th>
-	<th>Data Criação</th>
 	<th>Idioma</th>
+	<th>Data Criação</th>
   </tr>
   <% for page in @pages %>
 	<%= draw_table_for_childs_of page %>

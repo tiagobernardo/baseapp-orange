@@ -20,9 +20,10 @@
   <tr>
 	<td><%=h content.id %></td>
 	<td><%= link_to h(content.name), admin_content_url(content) %></td>
-	<td><%=h content.language.name %></td>
-	<td><%=h content.created_at %></td>
+	<td><%=h content.language %></td>
+	<td><%=h data_pt content.created_at %></td>
 	<td class="actions">
+		<%= link_to 'Editar', edit_admin_content_path(content) %>
 		<%= link_to 'Apagar', admin_content_url(content), :method => :delete, :confirm => "Tem a certeza?" %>		
 	</td>
   </tr>

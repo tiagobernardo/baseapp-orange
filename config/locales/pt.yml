@@ -1,6 +1,7 @@
 # Portuguese localization for Ruby on Rails
 # by Ricardo Otero <oterosantos@gmail.com>
-pt-PT:
+pt:
+  hello: "Olá mama"
   support:
     array:
       sentence_connector: "e"
@@ -116,7 +117,6 @@ pt-PT:
       content: "Conteúdo"
       setting: "Definições"
       news: "Notícia"
-      language: "Idioma"
     attributes: 
       user: 
         name: "Nome"
@@ -127,7 +127,7 @@ pt-PT:
         name: "Nome"
         body: "Corpo"
         state: "Estado"
-        language_id: "Idioma"
+        language: "Idioma"
         parent_id: "Pai"
         created_at: "Data Criação"
         updated_at: "Data de Actualização"
@@ -137,18 +137,14 @@ pt-PT:
         lead: "Lead"
         date: "Data"
         state: "Estado"
-        language_id: "Idioma"
+        language: "Idioma"
         parent_id: "Pai"
-        created_at: "Data Criação"
-        updated_at: "Data de Actualização"
-      language: 
-        name: "Nome"
-        description: "Descrição"
         created_at: "Data Criação"
         updated_at: "Data de Actualização"
       content: 
          name: "Nome"
          body: "Corpo"
          state: "Estado"
+         language: "Idioma"
          created_at: "Data Criação"
          updated_at: "Data de Actualização"

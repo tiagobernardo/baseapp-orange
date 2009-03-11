@@ -12,6 +12,7 @@
   <tr>
 	<th>ID</th>
 	<th>Nome</th>
+	<th>Estado</th>
 	<th>Linguagem</th>
 	<th>Data Criação</th>
   </tr>
@@ -20,9 +21,11 @@
   <tr>
 	<td><%=h news.id %></td>
 	<td><%= link_to h(news.name), admin_newsclip_url(news) %></td>
-	<td><%=h news.language.name %></td>
-	<td><%=h news.created_at %></td>
+	<td><%= human_state h(news.state) %></td>
+	<td><%=h news.language %></td>
+	<td><%=h data_pt news.created_at %></td>
 	<td class="actions">
+		<%= link_to 'Editar', edit_admin_newsclip_path(news) %>	
 		<%= link_to 'Apagar', admin_newsclip_url(news), :method => :delete, :confirm => "Tem a certeza?" %>		
 	</td>
   </tr>

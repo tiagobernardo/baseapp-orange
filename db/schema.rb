@@ -9,24 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090307105515) do
+ActiveRecord::Schema.define(:version => 20090311203708) do
 
   create_table "contents", :force => true do |t|
     t.string   "name"
     t.string   "permalink"
     t.text     "body"
     t.string   "state"
-    t.integer  "language_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "languages", :force => true do |t|
-    t.string   "name"
-    t.string   "permalink"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "language"
   end
 
   create_table "news", :force => true do |t|
@@ -37,11 +29,11 @@ ActiveRecord::Schema.define(:version => 20090307105515) do
     t.string   "state"
     t.integer  "position"
     t.datetime "date"
-    t.integer  "language_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "meta_description"
     t.text     "meta_keywords"
+    t.string   "language"
   end
 
   create_table "open_id_authentication_associations", :force => true do |t|
@@ -64,7 +56,6 @@ ActiveRecord::Schema.define(:version => 20090307105515) do
     t.string   "permalink"
     t.text     "body"
     t.string   "state"
-    t.integer  "language_id"
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
@@ -72,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20090307105515) do
     t.datetime "updated_at"
     t.text     "meta_description"
     t.text     "meta_keywords"
+    t.string   "language"
   end
 
   create_table "profiles", :force => true do |t|

@@ -1,5 +1,6 @@
 body{background:#DFE5FF;}
-
+.green{padding:0px;color:#72C24A;}
+.red{padding:0px;color:#C25E4A;}
 /* header
  * ------------------------------------------------------------------------- */
 #header {background: #4B4B4B;}

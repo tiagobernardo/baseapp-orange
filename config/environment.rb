@@ -36,3 +36,7 @@ Rails::Initializer.run do |config|
   
   config.active_record.observers = :user_observer
 end
+
+#this is also used on dropdowns
+STATES={'Activo' => "active", 'Draft' => "draft"}
+LANGUAGES={'en' => 'en', 'pt' => 'pt'}

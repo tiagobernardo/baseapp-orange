@@ -9,7 +9,11 @@ class Admin::PagesController < ApplicationController
       format.xml  { render :xml => @pages }
     end
   end
-
+  
+  def language
+     @pages = Page.find(:all, :conditions=>{:language=>params[:language]})
+  end
+  
   def show
     @page = Page.find(params[:id])
 
@@ -40,7 +44,7 @@ class Admin::PagesController < ApplicationController
     respond_to do |format|
       if @page.save
         flash[:notice] = 'Página foi gravada com sucesso.'
-        format.html { redirect_to(admin_page_url(@page)) }
+        format.html { redirect_to(admin_pages_url) }
         format.xml  { render :xml => @page, :status => :created, :location => @page }
       else
         format.html { render :action => "new" }
@@ -56,7 +60,7 @@ class Admin::PagesController < ApplicationController
     respond_to do |format|
       if @page.update_attributes(params[:page])
         flash[:notice] = 'Página foi gravada com sucesso.'
-        format.html { redirect_to(admin_page_url(@page)) }
+        format.html { redirect_to(admin_pages_url) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
