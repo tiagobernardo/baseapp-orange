@@ -3,3 +3,6 @@
 
 en:
   hello: "Hello world"
+  dashboard:
+    hello: "Olá, this text is in english but if you press the languange link you can see it in portuguese."
+    sidebar: "This text is on the sidebar. great."

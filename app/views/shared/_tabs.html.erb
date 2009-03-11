@@ -1,10 +1,11 @@
 <ul>
-	<li style="float: right;">	<%= link_to 'pt-PT', root_path(:locale => 'pt-PT') %></li>
-	<li style="float: right;">	<%= link_to 'en-US', root_path(:locale => 'en') %></li>
+	<% for language in LANGUAGES %>
+	<li style="float: right;">	<%= link_to language[0], root_path(:locale => language[0]) %></li>
+	<%end%>
 	
 	<li><%= tab_to "Dashboard", [{:controller => "dashboard" }] %></li>
-	<% Page.main_menu(params[:locale]) do %>
-		<li><%= tab_to "Ping Tab" %></li>
-		<li><%= tab_to "Pong Tab" %></li>
+	
+	<% for page in Page.main_menu(params[:locale]) do %>
+		<li><%= tab_to page.name %></li>
 	<%end%>
 </ul>

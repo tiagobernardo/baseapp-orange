@@ -2,6 +2,9 @@
 # by Ricardo Otero <oterosantos@gmail.com>
 pt:
   hello: "Olá mama"
+  dashboard:
+    hello: "Olá, este texto está em português mas se carregares no link en ele passa para inglês por magia."
+    sidebar: "Este texto está na sidebar. fantástico."
   support:
     array:
       sentence_connector: "e"
