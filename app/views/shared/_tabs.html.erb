@@ -1,11 +1,11 @@
 <ul>
 	<% for language in LANGUAGES %>
-	<li style="float: right;">	<%= link_to language[0], root_path(:locale => language[0]) %></li>
+		<li style="float: right;">	<%= link_to language[0], root_path(:locale => language[0]) %></li>
 	<%end%>
 	
 	<li><%= tab_to "Dashboard", [{:controller => "dashboard" }] %></li>
 	
 	<% for page in Page.main_menu(params[:locale]) do %>
-		<li><%= tab_to page.name %></li>
+		<li><%= tab_to page.name, pages_path(page.permalink) %></li>
 	<%end%>
 </ul>

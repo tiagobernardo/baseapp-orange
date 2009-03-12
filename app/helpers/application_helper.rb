@@ -22,7 +22,7 @@ module ApplicationHelper
   # 
   # If now options are specified, the tab will point to '#', and will never have the 'active' state.
   def tab_to(name, all_options = nil)
-    url = all_options.is_a?(Array) ? all_options[0].merge({:only_path => false}) : "#"
+    url = all_options.is_a?(Array) ? all_options[0].merge({:only_path => false}) : all_options
 
     current_url = url_for(:action => @current_action, :only_path => false)
     html_options = {}
@@ -72,9 +72,11 @@ module ApplicationHelper
     end
     messages
   end
+  
   def data_pt(date)
     return "#{date.strftime("%d/%m/%Y")}"
   end
+  
   def human_state(state="")
     if state=="active"
       "<span class='green'>#{state}</span>"
@@ -83,4 +85,8 @@ module ApplicationHelper
     end
   end
     
+  def seo_meta_tags_helper(title="", meta_description=configatron.meta_description,meta_keywords=configatron.meta_keywords)
+    render :partial=>"/shared/meta_tags", :locals=>{:description=>meta_description, :keywords=>meta_keywords, :title=>title} 
+  end
+	  
 end

@@ -10,6 +10,9 @@ development: &local
     
     support_name: Support
     support_email: support@test.com
+    
+    meta_keywords: "ruby on rails, tags, test"
+    meta_description: "this is default. please change me."
 
 production:
   <<: *local

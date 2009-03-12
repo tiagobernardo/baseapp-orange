@@ -15,8 +15,8 @@ class Page < ActiveRecord::Base
     transitions :to => :draft, :from => [:active]
   end
   
-  def self.main_menu(locale="en")
-    Page.roots.find(:all, :conditions=>{:state=>"active", :language=>locale})
+  def self.main_menu(locale)
+    Page.roots.find(:all, :conditions=>{:state=>"active", :language=>locale||"pt"})
   end
   
   def active?
