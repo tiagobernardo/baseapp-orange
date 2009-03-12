@@ -6,6 +6,6 @@
 	<li><%= tab_to "Dashboard", [{:controller => "dashboard" }] %></li>
 	
 	<% for page in Page.main_menu(params[:locale]) do %>
-		<li><%= tab_to page.name, pages_path(page.permalink) %></li>
+		<li><%= tab_to page.name, pages_path(:permalink=>page.permalink, :locale=> params[:locale])  %></li>
 	<%end%>
 </ul>

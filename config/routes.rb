@@ -18,7 +18,8 @@ ActionController::Routing::Routes.draw do |map|
   map.open_id_complete '/opensession', :controller => "sessions", :action => "create", :requirements => { :method => :get }
   map.open_id_create '/opencreate', :controller => "users", :action => "create", :requirements => { :method => :get }
 
-  map.pages 'pages/:permalink', :controller=>"pages", :action=>"show" 
+  map.pages '/pages/:permalink/:locale', :controller=>"pages", :action=>"show", :defaults => { :locale => 'pt' }
+  
     
   map.resources :users, :member => { :edit_password => :get,
                                      :update_password => :put,
@@ -26,6 +27,7 @@ ActionController::Routing::Routes.draw do |map|
                                      :update_email => :put,
                                      :edit_avatar => :get, 
                                      :update_avatar => :put }
+                                     
                             
   map.resource :session
   map.resources :profiles

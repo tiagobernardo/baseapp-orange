@@ -5,6 +5,22 @@ pt:
   dashboard:
     hello: "Olá, este texto está em português mas se carregares no link en ele passa para inglês por magia."
     sidebar: "Este texto está na sidebar. fantástico."
+  global_links:
+    dashboard: Dashboard
+    my_account: "A minha Conta"
+    admin: "Admin"
+    log_out: "Logout"
+    register: "Registar"
+    log_in: "Login"
+  profile:
+    title: "A minha conta"  
+    update_my_profile_link: "Actualizar o meu perfil"
+    alter_my_email_link: "Alterar o meu e-mail"
+    alter_my_pass_link: "Alterar password"
+    delete_my_account_link: "Apagar a minha conta"
+    confirm_delete_my_account: "Tem a certeza que deseja apagar a sua conta? Todos os dados da sua conta serão removidos do nosso sistema.\n\nA remoção será definitiva!\n\nObrigado. Até breve."
+    how_do_i_alter: "Como é que altero o meu gravatar?" 
+    
   support:
     array:
       sentence_connector: "e"

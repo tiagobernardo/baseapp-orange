@@ -6,3 +6,18 @@ en:
   dashboard:
     hello: "Olá, this text is in english but if you press the languange link you can see it in portuguese."
     sidebar: "This text is on the sidebar. great."
+  global_links:
+    dashboard: Dashboard
+    my_account: "My Account"
+    admin: "Admin"
+    log_out: "Log out"
+    register: "Register"
+    log_in: "Log in"
+  profile:
+    title: "My Account"  
+    update_my_profile_link: "Alter my profile"
+    alter_my_email_link: "Alter my email"
+    alter_my_pass_link: "Alter my password"
+    delete_my_account_link: "Delete my account"
+    confirm_delete_my_account: "Are you sure you want to delete your account? All data will be purged from the system.\n\nThere is no going back!\n\nThank you."
+    how_do_i_alter: "How do I change my gravatar?" 

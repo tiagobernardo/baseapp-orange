@@ -1,34 +1,32 @@
 <% content_for :sidebar do -%>
-<h2>A minha conta</h2>
+<h2><%= t("profile.title")%></h2>
 
 <div id="gravatar">
 	<%= gravatar_for @user, :size => 128 %>
 </div>
 
 <ul>
-	<li><%= link_to "Actualizar o meu perfil", edit_profile_url(current_user) %></li>
+	<li><%= link_to t("profile.update_my_profile_link"), edit_profile_url(current_user) %></li>
 </ul>
 
 <% if @user.not_using_openid? %>
 <ul>
-	<li><%= link_to "Alterar o meu e-mail", edit_email_user_url(@user) %></li>
-	<li><%= link_to "Alterar password", edit_password_user_url(@user) %></li>
+	<li><%= link_to t("profile.alter_my_email_link"), edit_email_user_url(@user) %></li>
+	<li><%= link_to t("profile.alter_my_pass_link"), edit_password_user_url(@user) %></li>
 </ul>
 <% end %>
 
 <% unless admin? -%>
 <ul>
-	<li><%= link_to "Apagar a minha conta", user_url(current_user), :method => :delete, :confirm => "Tem a certeza que deseja apagar a sua conta? Todos os dados da sua conta relativos ao #{configatron.site_name} serão removidos do nosso sistema.\n\nA remoção será definitiva!\n\nObrigado por usar #{configatron.site_name}. Até breve."%></li>
+	<li><%= link_to t("profile.delete_my_account_link"), user_url(current_user), :method => :delete, :confirm => t("profile.confirm_delete_my_account")%></li>
 </ul>
 <% end -%>
 
 <p>
-	<br/><strong>Como é que altero o meu gravatar?</strong>
+	<br/><strong><%= t("profile.how_do_i_alter")%></strong>
 </p>
 
-<p>
-	<%= configatron.site_name %> usa <%= link_to "Gravatar", "http://gravatar.com" %> para recuperar os avatars baseando-se no endereço de e-mail.
-	<br/><br/>
-	<%= link_to "Gravatar", "http://gravatar.com" %> é um serviço grátis. <%= link_to "Registar agora", "http://gravatar.com/signup" %> caso ainda não possua um <%= link_to "Gravatar", "http://gravatar.com" %>.
+<p><%= t("profile.how_do_i_alter_explain")%>
+	<%= configatron.site_name %> usa <%= link_to "Gravatar", "http://gravatar.com" %> para recuperar os avatars baseando-se no endereço de e-mail.<br/><%= link_to "Gravatar", "http://gravatar.com" %> é um serviço grátis. <%= link_to "Registar agora", "http://gravatar.com/signup" %> caso ainda não possua um <%= link_to "Gravatar", "http://gravatar.com" %>.
 </p>
 <% end -%>
