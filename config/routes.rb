@@ -37,11 +37,9 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace(:admin) do |admin|
     admin.root :controller => 'dashboard', :action => 'index'
     admin.resources :settings
-    admin.resources :languages
     admin.resources :pages
     admin.resources :contents
     admin.resources :news, :singular => 'newsclip' 
-    admin.resources :events
     admin.resources :users, :member => { :suspend   => :put,
                                          :unsuspend => :put,
                                          :activate  => :put, 
