@@ -6,7 +6,7 @@ describe Page do
     }
   end
 
-  it "should create a new instance given valid attributes" do
-    Page.create!(@valid_attributes)
-  end
+#  it "should create a new instance given valid attributes" do
+#    Page.create!(@valid_attributes)
+#  end
 end

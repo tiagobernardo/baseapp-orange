@@ -3,9 +3,11 @@ module Spec
     unless defined? MAJOR
       MAJOR  = 1
       MINOR  = 1
-      TINY   = 9
+      TINY   = 99
+      MINESCULE = 14
+      
 
-      STRING = [MAJOR, MINOR, TINY].join('.')
+      STRING = [MAJOR, MINOR, TINY, MINESCULE].compact.join('.')
 
       SUMMARY = "rspec #{STRING}"
     end

@@ -6,7 +6,7 @@ describe Content do
     }
   end
 
-  it "should create a new instance given valid attributes" do
-    Content.create!(@valid_attributes)
-  end
+#  it "should create a new instance given valid attributes" do
+ #   Content.create!(@valid_attributes)
+ # end
 end
