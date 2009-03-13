@@ -3,9 +3,14 @@
 
 en:
   hello: "Hello world"
+  go_back: "&laquo; Go back"
   dashboard:
     hello: "Olá, this text is in english but if you press the languange link you can see it in portuguese."
     sidebar: "This text is on the sidebar. great."
+  news:
+    news_archive_title: "News Archive"  
+    see_archive: "See archive"
+    recent_title: "Recent News"
   global_links:
     dashboard: Dashboard
     my_account: "My Account"
@@ -21,3 +26,10 @@ en:
     delete_my_account_link: "Delete my account"
     confirm_delete_my_account: "Are you sure you want to delete your account? All data will be purged from the system.\n\nThere is no going back!\n\nThank you."
     how_do_i_alter: "How do I change my gravatar?" 
+  activerecord:
+    models: 
+      user: "User"
+      page: "Page"
+      content: "Content"
+      setting: "Settings"
+      news: "News"

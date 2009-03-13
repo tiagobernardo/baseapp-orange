@@ -2,9 +2,14 @@
 # by Ricardo Otero <oterosantos@gmail.com>
 pt:
   hello: "Olá mama"
+  go_back: "&laquo; Voltar atrás"
   dashboard:
     hello: "Olá, este texto está em português mas se carregares no link en ele passa para inglês por magia."
     sidebar: "Este texto está na sidebar. fantástico."
+  news:
+    news_archive_title: "Arquivo de Notícias"
+    see_archive: "Ver todas as notícias."
+    recent_title: "Notícias Recentes"
   global_links:
     dashboard: Dashboard
     my_account: "A minha Conta"

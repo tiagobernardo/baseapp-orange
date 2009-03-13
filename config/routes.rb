@@ -19,7 +19,8 @@ ActionController::Routing::Routes.draw do |map|
   map.open_id_create '/opencreate', :controller => "users", :action => "create", :requirements => { :method => :get }
 
   map.pages '/pages/:permalink/:locale', :controller=>"pages", :action=>"show", :defaults => { :locale => 'pt' }
-  
+  map.news '/news/:permalink/:locale', :controller=>"news", :action=>"show", :defaults => { :locale => 'pt' }
+  map.news_archive '/news-archive/:locale', :controller=>"news", :action=>"index", :defaults => { :locale => 'pt' }
     
   map.resources :users, :member => { :edit_password => :get,
                                      :update_password => :put,
@@ -28,7 +29,7 @@ ActionController::Routing::Routes.draw do |map|
                                      :edit_avatar => :get, 
                                      :update_avatar => :put }
                                      
-                            
+                             
   map.resource :session
   map.resources :profiles
   
@@ -53,7 +54,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   # Dashboard as the default location
-  map.root :controller => 'dashboard', :action => 'index'
+  map.root :controller => 'dashboard', :action => 'index' 
 
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'

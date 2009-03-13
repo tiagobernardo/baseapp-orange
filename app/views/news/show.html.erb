@@ -1,0 +1,14 @@
+<% content_for :header do -%>
+	<%= @news.name %>
+<% end -%>
+<% content_for :meta_tags do -%>
+	<%= seo_meta_tags_helper(@news.name, @news.meta_description, @news.meta_keywords)%>
+<% end -%>
+
+<% content_for :sidebar do -%>
+	<%= render :partial=> "/news/recent" %>
+<% end -%>
+
+<p><%= @news.body %></p>
+
+<%= link_to t("go_back"), news_archive_path(params[:locale])%>

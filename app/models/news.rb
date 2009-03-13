@@ -13,6 +13,7 @@ class News < ActiveRecord::Base
    aasm_event :deactivate do
      transitions :to => :draft, :from => [:active]
    end
+   named_scope :recent, lambda { |locale| {:conditions => ["state = 'active' and language =?",locale], :order => 'created_at desc', :limit=>3}}
 
    def active?
      return self.state=="active"

@@ -1,0 +1,15 @@
+<% content_for :header do -%>
+	<%= t("news.news_archive_title") %>
+<% end -%>
+ 
+
+<% content_for :sidebar do -%>
+	<%= render :partial=> "/news/recent" %>
+<% end -%>
+
+<% for news in @news %>
+	<h3><%= link_to h(news.name), news_path(news.permalink, params[:locale]) %></h3>
+	<p><%= h news.lead %><br/><%= h news.created_at %></p>
+<%end%>
+
+<%= will_paginate @news%>
