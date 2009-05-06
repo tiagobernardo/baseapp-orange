@@ -74,7 +74,11 @@ module ApplicationHelper
   end
   
   def data_pt(date)
-    return "#{date.strftime("%d/%m/%Y")}"
+    if !date.nil?
+      return "#{date.strftime("%d/%m/%Y")}"
+    else
+      return ""
+    end
   end
   
   def human_state(state="")
@@ -88,5 +92,10 @@ module ApplicationHelper
   def seo_meta_tags_helper(title="", meta_description=configatron.meta_description,meta_keywords=configatron.meta_keywords)
     render :partial=>"/shared/meta_tags", :locals=>{:description=>meta_description, :keywords=>meta_keywords, :title=>title} 
   end
-	  
+	
+	def show_content_helper(permalink, locale='pt')
+	  content = Content.find(:all, :conditions=>{:permalink=>permalink, :language=>locale})
+    return content.first
+	end
+    
 end

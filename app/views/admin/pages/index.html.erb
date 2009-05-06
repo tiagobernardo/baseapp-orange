@@ -35,8 +35,11 @@
 </table>
  
 
+
 <script type="text/javascript">
 	$(document).ready(function()  {
-  		$("#pagestree").treeTable();
+		$("#pagestree").treeTable({
+		initialState: "expanded"
+		});
 	});
 </script>

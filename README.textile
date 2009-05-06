@@ -63,6 +63,10 @@ Main diferences from BaseApp:
 
 This is a early build.
 
+ADMIN:
+'nospam@example.com'
+'yippeekayea'
+
 h2. What is BaseAPP
 
 BaseApp is a default Ruby on Rails project that kick-starts your next Rails project.
