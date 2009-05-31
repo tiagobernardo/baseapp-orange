@@ -1,0 +1,38 @@
+<%% content_for :header do -%>
+	 <%= file_name.capitalize -%>
+<%% end -%>
+
+<%% content_for :sidebar do -%>
+	<p class="cssbutton">
+		<%%= link_to '<span>Novo <%= file_name.capitalize -%></span>', new_admin_<%= file_name -%>_path %>
+	</p>
+<%% end -%>
+
+<table class="index">
+  <tr>
+	<th>ID</th>
+	<th>Nome</th>
+	<!--th>Imagem</th-->
+	<th>Estado</th>
+	<th>Idioma</th>
+	<th>Data Criação</th>
+  </tr>
+
+<%% for <%= file_name -%> in @<%= file_name.pluralize -%> %>
+  <tr>
+	<td><%%= h <%= file_name -%>.id %></td>
+	<td><%%= link_to h(<%= file_name -%>.name), admin_<%= file_name -%>_url(<%= file_name -%>) %></td>
+<!--td> link_to h(<%= file_name -%>.image_file_name), <%= file_name -%>.image.url </td> -->
+	<td><%%= human_state h(<%= file_name -%>.state) %></td>
+	<td><%%= h <%= file_name -%>.language %></td>
+	<td><%%= h data_pt <%= file_name -%>.created_at %></td>
+	<td class="actions">
+		<%%= link_to 'Editar', edit_admin_<%= file_name -%>_path(<%= file_name -%>) %>
+		<%%= link_to 'Apagar', admin_<%= file_name -%>_url(<%= file_name -%>), :method => :delete, :confirm => "Tem a certeza?" %>		
+	</td>
+  </tr>
+<%% end %>
+</table>
+
+<%%= will_paginate @<%= file_name.pluralize -%> %>
+
