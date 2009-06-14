@@ -17,14 +17,16 @@
 	</ul>
 <% end -%>
 
-<table class="index">
+<table class="index tablesorter" id="mytable">
+<thead>
   <tr class="tablehead">
 	<th>ID</th>
 	<th>Login</th>
 	<th>E-mail</th>
 	<th>Estado</th>
   </tr>
-
+</thead>
+<thbody>
 <% # TODO: (base_app) Add some sort of search feature to easily find users %>
 <% for user in @users %>
   <tr>
@@ -51,7 +53,9 @@
 	</td>
   </tr>
 <% end %>
+</thbody>
 </table>
+<%= render :partial=>"/admin/shared/table_sorter_jquery"%>
 
 <%= will_paginate @users %>
 

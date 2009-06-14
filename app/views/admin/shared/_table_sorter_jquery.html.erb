@@ -1,0 +1,10 @@
+<script type="text/javascript">
+	$(window).bind('load', function() {
+		$("#mytable").tablesorter();
+		$('#mytable tbody tr').quicksearch({
+					position: 'before',
+			attached: '#mytable',
+			labelText: 'Pesquisar'
+		});
+	});	
+</script>

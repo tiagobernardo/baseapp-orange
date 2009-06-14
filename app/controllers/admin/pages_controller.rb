@@ -22,10 +22,36 @@ class Admin::PagesController < ApplicationController
       format.xml  { render :xml => @page }
     end
   end
+  
+  def order
+    @page = Page.find(params[:id])
+    @pages = @page.children
 
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @page }
+    end
+  end
+
+  def sort
+    page = Page.find(params[:rowid])
+    prev_id = params[:previd]
+    next_id = params[:nextid]
+
+    if prev_id != "undefined"
+      page.move_to_right_of(prev_id)
+    else
+      page.move_to_left_of(next_id)
+    end
+    render :text => "ok"
+  end
+  
   def new
     @page = Page.new
-
+    @page.language = "pt"
+    @page.state ="active"
+    
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @page }
@@ -43,6 +69,8 @@ class Admin::PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
+        @page.move_to_child_of params[:page][:parent_id] if !params[:page][:parent_id].nil?
+        @page.save
         flash[:notice] = 'Página foi gravada com sucesso.'
         format.html { redirect_to(admin_pages_url) }
         format.xml  { render :xml => @page, :status => :created, :location => @page }

@@ -1,0 +1,43 @@
+<% content_for :header do -%>
+	Ordenar páginas de 	<%= h(@page.name) %>
+<% end -%>
+
+<% content_for :sidebar do -%>
+	<%= render :partial=>'help'%>
+<% end -%>
+ 
+ 
+<table class="index">
+<thead>
+  <tr>
+	<th>ID</th>
+	<th>Nome</th>
+	<th>Estado</th>
+	<th>Idioma</th>
+	<th>Data Criação</th>
+  </tr>
+</thead>
+<tbody id="orderthis">
+<% for page in @pages %>
+  <tr id="<%=page.id%>">
+	<td><%= page.id%></td>
+	<td><%= link_to h(page.name), admin_page_url(page) %></td>
+	<td><%= human_state h(page.state) %></td>
+	<td><%= h page.language %></td>
+	<td><%= h data_pt page.created_at %></td>
+	<td class="dragHandle"><img src='/images/icons/arrow_out.png' alt='icon' class='icon'/> Mover</td>
+	<td class="actions">
+		<%= link_to 'Editar', edit_admin_page_path(page) %>
+		<%= link_to 'Apagar', admin_page_url(page), :method => :delete, :confirm => "Tem a certeza?" %>		
+	</td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+ 
+
+<%= render :partial=>"/admin/shared/order_table_jquery"%>
+
+
+<%= link_to 'Voltar ', admin_pages_path %>
+

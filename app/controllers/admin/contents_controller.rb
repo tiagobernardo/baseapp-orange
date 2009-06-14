@@ -21,6 +21,7 @@ class Admin::ContentsController < ApplicationController
 
   def new
     @content = Content.new
+    @content.language = "pt"
 
     respond_to do |format|
       format.html # new.html.erb

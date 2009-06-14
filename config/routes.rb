@@ -18,9 +18,9 @@ ActionController::Routing::Routes.draw do |map|
   map.open_id_complete '/opensession', :controller => "sessions", :action => "create", :requirements => { :method => :get }
   map.open_id_create '/opencreate', :controller => "users", :action => "create", :requirements => { :method => :get }
 
-  map.pages '/pages/:permalink/:locale', :controller=>"pages", :action=>"show", :defaults => { :locale => 'pt' }
-  map.news '/news/:permalink/:locale', :controller=>"news", :action=>"show", :defaults => { :locale => 'pt' }
-  map.news_archive '/news-archive/:locale', :controller=>"news", :action=>"index", :defaults => { :locale => 'pt' }
+  map.pages '/pages/:permalink', :controller=>"pages", :action=>"show" 
+  map.news '/news/:permalink', :controller=>"news", :action=>"show" 
+  map.news_archive '/news-archive', :controller=>"news", :action=>"index" 
     
   map.resources :users, :member => { :edit_password => :get,
                                      :update_password => :put,
@@ -37,8 +37,8 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace(:admin) do |admin|
     admin.root :controller => 'dashboard', :action => 'index'
     admin.resources :settings
-    admin.resources :pages
     admin.resources :contents
+    admin.resources :pages, :collection => { :order => :get, :sort => :put }
     admin.resources :news, :singular => 'newsclip' 
     admin.resources :users, :member => { :suspend   => :put,
                                          :unsuspend => :put,

@@ -8,7 +8,8 @@
 	</p>
 <%% end -%>
 
-<table class="index">
+<table class="index tablesorter" id="mytable">
+<thead>
   <tr>
 	<th>ID</th>
 	<th>Nome</th>
@@ -17,7 +18,8 @@
 	<th>Idioma</th>
 	<th>Data Criação</th>
   </tr>
-
+</thead>
+<thbody>
 <%% for <%= file_name -%> in @<%= file_name.pluralize -%> %>
   <tr>
 	<td><%%= h <%= file_name -%>.id %></td>
@@ -32,7 +34,9 @@
 	</td>
   </tr>
 <%% end %>
+</thbody>
 </table>
+<%= render :partial=>"/admin/shared/table_sorter_jquery"%>
 
 <%%= will_paginate @<%= file_name.pluralize -%> %>
 

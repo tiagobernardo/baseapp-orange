@@ -1,32 +1,80 @@
-body{background:#DFE5FF;}
+body{background:#fff;}
 .green{padding:0px;color:#72C24A;}
 .red{padding:0px;color:#C25E4A;}
 /* header
  * ------------------------------------------------------------------------- */
-#header {background: #4B4B4B;}
-#tabs {	height: 28px;}
-#tabs a {
-	color: #fff;
-	background-color:transparent;
-	padding: 5px 8px 7px 8px;
+#header { border-bottom: 0px solid #2A2A2A; background: #248FAA;}
+#tabs {	height: 29px;}
+#tabs a {color: #fff;background-color:transparent;padding: 5px 8px 7px 8px;background: #176B7F;
  	-moz-border-radius-topright: 3px; -moz-border-radius-topleft: 3px;
 	-khtml-border-radius-topright: 3px; -khtml-border-radius-topleft: 3px;
 	-webkit-border-radius-topright: 3px; -webkit-border-radius-topleft: 3px;
-	border-radius: 3px;
+	border-radius: 3px;}
+#tabs li a:hover {background: #fff;color:#4B4B4B;}
+#tabs li a.current {color: #000;background: #fff;}
+
+/* Submenu
+ * ------------------------------------------------------------------------- */
+#submenu {
+	background: #fff url(/images/admin/gray_off.png) repeat-x bottom left; 
+	border-bottom: 1px solid #D1D8DF;
+	margin:0;
+	padding:0.5em 1em 0 3em;
+	height: 30px;
 }
-#tabs li a:hover {color:#4B4B4B;background: #DFE5FF;}
-#tabs li a.current {color: #6A99AD;background-color: #DFE5FF;}
+#submenu ul {
+	margin: 0;
+	padding: 0;
+}
+#submenu li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: inline;
+}
+
+#submenu a {
+	color: #fff;
+ 
+	text-decoration: none;
+	float: left;
+	font-size: 13px;
+	font-weight: normal;
+	padding: 3px 6px 4px 6px;
+	margin: 0 2px;
+	background: #94A5B9 url(/images/admin/bg_blu_2.png) no-repeat bottom left;
+	-moz-border-radius: 9px;
+	-khtml-border-radius: 9px;
+	-webkit-border-radius: 9px;
+	border-radius: 9px;
+	text-decoration:none;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+#submenu li a:hover {
+	background: #AAB8C9 url(/images/admin/bg_blu_1.png) no-repeat bottom left;
+	text-decoration: none;
+}
 
 /* left and right columns
  * ------------------------------------------------------------------------- */
-#left{border: 2px solid #D1D4DF;}
-#left h2.head{ color:#fff; background: #024B77 url(/images/admin/bar.png) repeat-x top left; }
+#left{background: #F9F9F9 url(/images/admin/gray_off.png) repeat-x bottom left;}
+#left .head {
+	color: #204ca0;
+	font-weight: normal;
+	background:transparent;
+	padding: 0.7em 1em;
+	margin: 0;
+/*	font-size: 1.3em;*/
+}
 
-#right{border: 2px solid #D1D4DF;background-color:#fff;	padding: 0 0 1em 0; margin-left:1.5em;}
+
+#right{padding: 0 0 1em 0; margin-left:1.5em;}
 #right h2{background-color:#D3DBFF;	padding: 0.5em;  }
 #right h2.help{background-color:#F6E172;}
 #right a:hover {	color: #204CA0; }
 #right li{line-height:1.6em;} 
+
 
 
 /* buttons and links
@@ -35,22 +83,30 @@ body{background:#DFE5FF;}
 .icon{border:0px;float:none;margin:0px 0px 0px 0px;padding:0;vertical-align: middle;padding-right: 1px;}
 .iconborder{	border: 1px solid #D3D3D3;}
 
+
 .cssbutton{
 	margin:0px;
-	background: #024B77 url(/images/admin/bar.png) repeat-x top left;
 	height:45px;
+
+/*	background:#D3DBFF;*/
 } 
 .cssbutton a{   
-	padding: 5px 8px 7px 8px;
+	padding: 15px 108px 13px 13px;
+	font-weight: bold;
+	background: #fff url(/images/admin/gray_off.png) repeat-x bottom left; 
 	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
 	text-decoration:none;
 	line-height:45px;
-	background-color:#E0E3EF;
+	border-left: 1px solid #eee;
+	border-top: 1px solid #eee;
+	border-right: 1px solid #D1D8DF;
+	border-bottom: 1px solid #D1D8DF;
 }
-.cssbutton span{
-	background: transparent url(/images/icons/add.png) no-repeat top left;
-	padding-left:18px;
-} 
+.cssbutton a:hover{background: #ECECED url(/images/admin/gray_on.png) repeat-x bottom left; }
+.cssbutton span{background: transparent url(/images/icons/add.png) no-repeat top left;padding-left:18px;} 
 
 
 .stateflag{float:left; font-size:12px; color:#fff;}
@@ -60,6 +116,7 @@ body{background:#DFE5FF;}
 .stateflag .adjudicado{background:#91AD1C; }
 .stateflag .concluido{background:#42921F; }
 .stateflag .anulado{background:#FF0000;}
+
 
 
 /* jQuery TreeTable Core 2.0 stylesheet
@@ -85,11 +142,12 @@ body{background:#DFE5FF;}
 
 /* jquery.treeTable.sortable
  * ------------------------------------------------------------------------- */
-.treeTable tr.selected, .treeTable tr.accept {
-  background-color: #3875d7;
+.tDnD_whileDrag {
+  background-color: #D3DBFF;
   color: #fff;
 }
-
+td.dragHandle{cursor:move;}
+ 
 .treeTable tr.collapsed.selected td .expander, .treeTable tr.collapsed.accept td .expander {
   background-image: url(/images/admin/toggle-expand-light.png);
 }
@@ -113,4 +171,53 @@ table span {
 background-position:left center;
 background-repeat:no-repeat;
 padding:0.2em 0 0.2em 1.5em;
+}
+
+
+/* tables */
+table.tablesorter {
+/*	font-family:arial;
+	font-size: 8pt;
+
+*/	background-color: #fff;
+
+	margin:10px 0pt 15px;
+	width: 100%;
+	text-align: left;
+
+}
+table.tablesorter thead{
+background: #4F8EA0 url(/images/admin/gray_off.png) repeat-x left bottom;
+-moz-border-radius: 5px;-webkit-border-radius: 3px; -khtml-border-radius: 3px;border-radius: 3px;
+border: 1px solid #D6D6D6;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background:transparent;
+/*	border: 1px solid #FFF;*/
+/*	font-size: 8pt;*/
+	padding: 7px;
+}
+table.tablesorter thead tr .header {
+	background-image: url("/images/admin/bg.gif");
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter tbody td {
+	color: #3D3D3D;
+/*	padding: 4px;*/
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url("/images/admin/asc.gif");
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url("/images/admin/desc.gif");
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #8dbdd8;
 }

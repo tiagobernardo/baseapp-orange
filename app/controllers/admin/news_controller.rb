@@ -22,6 +22,8 @@ class Admin::NewsController < ApplicationController
 
    def new
      @news = News.new
+     @news.language = "pt"
+     @news.state ="active"
 
      respond_to do |format|
        format.html # new.html.erb

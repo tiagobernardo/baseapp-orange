@@ -3,21 +3,21 @@ h1. Welcome to BaseApp-Orange
 *PT*
 
 Este é um fork do projecto BaseApp na tentativa de o tornar mais adequado à maioria dos nossos projectos e servir de uma base de trabalho sólida e rápida de implementar.
-Em vez de duplicar sempre o mesmo trabalho, porque não criar uma base?
+Em vez de repetir o mesmo trabalho, porque não criar uma base?
 
 Mais info em http://reinventar.com/2009/03/baseapp-orange/
 
 Principais diferenças do BaseApp Original:
 * Traduzido para PT (íncluindo i18n locale)
-* Páginas (e sub-páginas infinitas) 
+* Páginas e sub-páginas que podem ser ordenadas 
 * Notícias
 * Snippets
 * Campos para meta tags (descrição, keywords e permalink)
 * Tema para admin com (with famfamfam icons)
+* Usa Rails 2.3.2
 
 * Plugins íncluidos
 ** Jrails para suporte JQuery (remover se preferir Prototype)
-** Bundle-fu em vez de  asset_packager
 ** FckEditor para editar páginas com html
 ** WillPaginate Gem
 ** Paperclip para upload de ficheiros
@@ -25,9 +25,7 @@ Principais diferenças do BaseApp Original:
 ** Acts as taggable
 
 * TODO *
-* Drag and drop com ordenação para a secção das páginas no admin
 * Suporte total i18n
-* Implementar páginas, snippets, notícias no frontend
 * Incluir Testes com RSPEC para os models
 
 
@@ -37,7 +35,7 @@ Before you start. This is a fork from BaseApp in attempt to make it a more suita
 More info at http://reinventar.com/2009/03/baseapp-orange/
 
 Main diferences from BaseApp:
-* Pages (and infinite sub-pages) and expand/colapse rows in the admin
+* Pages, sub-pages and expand/colapse rows in the admin
 * News 
 * Multi-Language (not yet fully implemented)
 * Snippets

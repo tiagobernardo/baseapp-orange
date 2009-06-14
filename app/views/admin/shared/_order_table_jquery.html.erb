@@ -1,0 +1,12 @@
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#orderthis').tableDnD({
+		  onDrop: function(table, row) {
+  
+		$.post('<%= sort_admin_pages_path %>', '_method=put&authenticity_token='+AUTH_TOKEN+'&'+$.tableDnD.serialize()+'&page=<%= params[:id]%>'+'&rowid='+row.id+'&nextid='+row.nextSibling.id+'&previd='+row.previousSibling.id);
+		  },
+		  dragHandle: "dragHandle"
+		});
+	});
+</script>

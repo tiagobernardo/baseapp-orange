@@ -8,7 +8,8 @@
 	</p>
 <% end -%>
 
-<table class="index">
+<table class="index tablesorter" id="mytable">
+<thead>
   <tr>
 	<th>ID</th>
 	<th>Nome</th>
@@ -16,7 +17,8 @@
 	<th>Linguagem</th>
 	<th>Data Criação</th>
   </tr>
-
+</thead>
+<thbody>
 <% for news in @news %>
   <tr>
 	<td><%=h news.id %></td>
@@ -30,7 +32,9 @@
 	</td>
   </tr>
 <% end %>
+</thbody>
 </table>
+<%= render :partial=>"/admin/shared/table_sorter_jquery"%>
 
 <%= will_paginate @news %>
 
