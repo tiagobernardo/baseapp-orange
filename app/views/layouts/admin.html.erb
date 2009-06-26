@@ -6,14 +6,15 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title><%= configatron.site_name %></title>
 	<%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
-
-  	<%= stylesheet_link_tag 'default', :media => 'screen, projection' %>
-  	<%= stylesheet_link_tag 'admin', :media => 'screen, projection' %>
-
-	<%= javascript_include_tag :defaults %>
-	<%= javascript_include_tag "jquery.treeTable.min" %>
-	<%= javascript_include_tag "jquery.quicksearch.js", "jquery.tablesorter.min.js", "jquery.tablednd_0_5.js" %>
 	
+	<% bundle(:name => "admin_bundle") do %>
+  		<%= stylesheet_link_tag 'default', :media => 'screen, projection' %>
+  		<%= stylesheet_link_tag 'admin', :media => 'screen, projection' %>
+
+		<%= javascript_include_tag :defaults %>
+		<%= javascript_include_tag "jquery.treeTable.min" %>
+		<%= javascript_include_tag "jquery.quicksearch.js", "jquery.tablesorter.min.js", "jquery.tablednd_0_5.js" %>
+	<%end%>
 </head>
 <body>
 

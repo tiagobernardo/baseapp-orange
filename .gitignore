@@ -6,4 +6,5 @@ database.yml
 doc/api
 .DS_Store
 .svn
-coverage
+public/javascripts/cache/*
+public/stylesheets/cache/*

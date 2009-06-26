@@ -7,10 +7,8 @@
 	<%%= f.text_field :name %></p>
 
 	<% for column in file_name.capitalize.camelize.constantize.column_names %>
-
-		<p><label for="<%=column%>"><%=column%></label><br/>
-		<%%= f.text_field :<%=column%> %></p>
-
+	<p><label for="<%=column%>"><%=column%></label><br/>
+	<%%= f.text_field :<%=column%> %></p>
 	<%end%>
 
 </fieldset>

@@ -49,21 +49,7 @@ class SessionsController < ApplicationController
     end
   end
   
-  def successful_login
-    # It's possible to use OpenID only, in which
-    # case the following would update a user's email and nickname
-    # on login. 
-    #
-    # This may give conflicts when used in combination with regular
-    # user accounts.
-    #
-    # TODO: Add a configuration option to disable regular accounts.
-    #
-    # current_user.update_attributes(
-    #   :login => "#{params[:openid.sreg.nickname]}",
-    #   :email => "#{params[:openid.sreg.email]}"
-    # )
-    
+  def successful_login    
     new_cookie_flag = (params[:remember_me] == "1")
     handle_remember_cookie! new_cookie_flag
     redirect_back_or_default(root_path)
