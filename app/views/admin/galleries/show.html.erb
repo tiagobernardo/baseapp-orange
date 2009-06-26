@@ -1,0 +1,23 @@
+<% content_for :header do -%>
+	Ver Galeria de <%= configatron.site_name %>
+<% end -%>
+
+<% content_for :sidebar do -%>
+	<%= render :partial => 'help' %>
+<% end -%>
+
+<table class="overview">
+	<%= cell "ID", h(@gallery.id) %>
+	<%= cell_separator %>
+
+	<%= cell "Nome", h(@gallery.name) %>
+	<%= cell "Descrição", @gallery.description %>
+
+	<%= cell_separator %>
+	
+	<%= cell "Data de criação", data_pt(@gallery.created_at ) %>
+	<%= cell "Última actualização", data_pt(@gallery.updated_at ) %>
+</table>
+
+<%= link_to 'Editar', edit_admin_gallery_path(@gallery) %> | <%= link_to 'Voltar ', admin_galleries_path %>
+

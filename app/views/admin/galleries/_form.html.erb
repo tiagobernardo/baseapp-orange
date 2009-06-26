@@ -1,0 +1,14 @@
+
+
+<fieldset>
+<legend>Campos obrigatórios</legend>
+
+	<p><label for="name">Nome</label><br/>
+	<%= f.text_field :name %></p>
+
+	<p><label for="language">Idioma</label><br/>
+	<%= f.select :language , LANGUAGES, :prompt => 'Escolhe uma opção' %></p>
+
+	<p><label for="language_id">Estado</label><br/>
+	<%= f.select :state , STATES, :prompt => 'Escolhe uma opção' %></p>
+</fieldset>

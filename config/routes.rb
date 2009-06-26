@@ -38,6 +38,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.root :controller => 'dashboard', :action => 'index'
     admin.resources :settings
     admin.resources :contents
+    admin.resources :galleries
     admin.resources :pages, :collection => { :order => :get, :sort => :put }
     admin.resources :news, :singular => 'newsclip' 
     admin.resources :users, :member => { :suspend   => :put,

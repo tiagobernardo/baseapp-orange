@@ -1,4 +1,4 @@
-class AdminGenerator < Rails::Generator::NamedBase
+class AdminatorGenerator < Rails::Generator::NamedBase
   def manifest
     record do |m|
 
