@@ -6,6 +6,8 @@ pt:
   dashboard:
     hello: "Olá, este texto está em português mas se carregares no link en ele passa para inglês por magia."
     sidebar: "Este texto está na sidebar. fantástico."
+    welcome: "Benvindo à área de administração do site. <br/> No menu em cima poderá encontrar as áreas que pode editar e em baixo pode visionar as últimas notícias e utilizadores registados no website."
+    whatsthename: "É possível passar argumentos? {{argname}} "
   news:
     news_archive_title: "Arquivo de Notícias"
     see_archive: "Ver todas as notícias."

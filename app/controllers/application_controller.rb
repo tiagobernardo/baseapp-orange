@@ -16,10 +16,13 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
 
   def set_locale
-    locale = params[:locale] || 'pt'
-    I18n.locale = locale
-    #lets set this again
-    params[:locale] = locale
+    #change this to search the locale on subdomain, on cookie or whatever you like
+    if params[:locale]
+      locale = params[:locale]
+      I18n.locale = locale
+    else
+      params[:locale] = I18n.default_locale
+    end
   end
 
 
