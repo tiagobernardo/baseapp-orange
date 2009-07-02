@@ -5,6 +5,8 @@ en:
   hello: "Hello world"
   go_back: "&laquo; Go back"
   dashboard:
+    teste: "hello {{argname}}"
+    welcome: "texto em ingles"
     hello: "Olá, this text is in english but if you press the languange link you can see it in portuguese."
     sidebar: "This text is on the sidebar. great."
   news:

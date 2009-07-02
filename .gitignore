@@ -8,3 +8,6 @@ doc/api
 .svn
 public/javascripts/cache/*
 public/stylesheets/cache/*
+public/frags/*
+public/system/*
+public/uploads/*

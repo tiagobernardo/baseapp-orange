@@ -1,12 +1,18 @@
 <% content_for :header do -%>
-	 Galeria de imagens
+	 Galeria
 <% end -%>
 
 <% content_for :sidebar do -%>
 	<p class="cssbutton">
-		<%= link_to '<span>Criar Galeria</span>', new_admin_gallery_path %>
+		<%= link_to '<span>Nova Galeria</span>', new_admin_gallery_path %>
 	</p>
+	<br/> 
+	<h2 class="help"><img src="/images/icons/lightbulb.png" class="icon"/><strong>Ajuda</strong></h2>
+	</p>	
+	<p>Nesta página poderá editar as galerias de imagens que depois pode associar a páginas, projectos.</p>
+	
 <% end -%>
+
 
 <table class="index tablesorter" id="mytable">
 <thead>
@@ -14,6 +20,7 @@
 	<th>ID</th>
 	<th>Nome</th>
 	<th>Estado</th>
+	<th>Imagens</th>
 	<th>Idioma</th>
 	<th>Data Criação</th>
   </tr>
@@ -24,8 +31,10 @@
 	<td><%= h gallery.id %></td>
 	<td><%= link_to h(gallery.name), admin_gallery_url(gallery) %></td>
 	<td><%= human_state h(gallery.state) %></td>
+	<td><%= link_to "Imagens (#{gallery.images.size})", admin_gallery_images_path(gallery) %></td>
 	<td><%= h gallery.language %></td>
 	<td><%= h data_pt gallery.created_at %></td>
+	
 	<td class="actions">
 		<%= link_to 'Editar', edit_admin_gallery_path(gallery) %>
 		<%= link_to 'Apagar', admin_gallery_url(gallery), :method => :delete, :confirm => "Tem a certeza?" %>		
@@ -34,7 +43,8 @@
 <% end %>
 </thbody>
 </table>
-<%= render :partial=>"/admin/shared/table_sorter_jquery"%>
 
 <%= will_paginate @galleries %>
 
+
+<%= render :partial=>"/admin/shared/table_sorter_jquery"%>

@@ -1,0 +1,40 @@
+<% content_for :header do -%>
+	 Imagens da galeria  <%= h @gallery.name %>
+<% end -%>
+
+<% content_for :sidebar do -%>
+	<p class="cssbutton">
+		<%= link_to '<span>Nova Imagem</span>', new_admin_gallery_image_path(@gallery) %>
+	</p>
+	<br/><br/>
+	<strong>Relacionados</strong>
+	<ul>
+		<li><%= link_to '<span>Páginas</span>', admin_pages_path %></li>
+		<li><%= link_to '<span>Galeria de Imagens</span>', admin_galleries_path %></li>
+	</ul>
+<% end -%>
+
+<table class="index">
+  <tr>
+	<th>ID</th>
+	<th>Nome</th>
+	<th>Imagem</th>
+	<th>Data Criação</th>
+  </tr>
+
+<% for image in @images %>
+  <tr>
+	<td><%= h image.id %></td>
+	<td><%= link_to h(image.name), admin_gallery_image_url(@gallery, image) %></td>
+	<td><%= image_tag image.image.url(:thumb) %></td>
+	<td><%= h data_pt image.created_at %></td>
+	<td class="actions">
+		<%= link_to 'Editar', edit_admin_gallery_image_path(@gallery, image) %>	
+		<%= link_to 'Apagar', admin_gallery_image_url(@gallery, image), :method => :delete, :confirm => "Tem a certeza?" %>		
+	</td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @images %>
+

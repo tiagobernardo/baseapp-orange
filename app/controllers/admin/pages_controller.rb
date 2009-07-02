@@ -37,7 +37,7 @@ class Admin::PagesController < ApplicationController
      prev_id = params[:previd]
      next_id = params[:nextid]
 
-     if prev_id != "undefined"
+     if prev_id != ""
        page.move_to_right_of(prev_id)
      else
        page.move_to_left_of(next_id)
@@ -66,13 +66,15 @@ class Admin::PagesController < ApplicationController
     #doesnt work on create, huh...
     #@page.move_to_child_of params[:page][:parent_id] if !params[:page][:parent_id].nil?
     
-    if (!params[:page][:parent_id].blank?) and (@page.parent_id!=params[:page][:parent_id].to_i)
-      @page.move_to_child_of params[:page][:parent_id] 
-    end
+   
 
     respond_to do |format|
       if @page.save
  
+        if (!params[:page][:parent_id].blank?) and (@page.parent_id!=params[:page][:parent_id].to_i)
+          @page.move_to_child_of params[:page][:parent_id] 
+        end
+          
         flash[:notice] = 'Página foi gravada com sucesso.'
         format.html { redirect_to(admin_pages_url) }
         format.xml  { render :xml => @page, :status => :created, :location => @page }

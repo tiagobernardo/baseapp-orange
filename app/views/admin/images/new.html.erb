@@ -1,0 +1,16 @@
+<% content_for :header do -%>
+	Criar uma imagem da galeria <%= @gallery.name %> 
+<% end -%>
+
+<% content_for :sidebar do -%>
+	<%= render :partial => 'help' %>
+<% end -%>
+
+<%= error_messages_for :image %>
+
+<% form_for @image, :url => admin_gallery_images_path(@gallery), :html => { :multipart => true } do |f| -%>
+	<%= render :partial=> "form", :locals=>{:f=>f}%>
+	<p><%= submit_tag 'Criar' %></p>
+<% end -%>
+
+<%= link_to 'Voltar', admin_gallery_images_path(@gallery) %>

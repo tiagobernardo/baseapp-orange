@@ -1,16 +1,16 @@
 <% content_for :header do -%>
-	Editar notícia de <%= configatron.site_name %>
+	Editar Cars de <%= configatron.site_name %>
 <% end -%>
 
 <% content_for :sidebar do -%>
 	<%= render :partial => 'help' %>
 <% end -%>
 
-<%= error_messages_for :news	 %>
+<%= error_messages_for :car	 %>
 
-<% form_for @news, :url => admin_newsclip_path do |f| -%>
+<% form_for @car, :url => admin_car_path, :html => { :multipart => true } do |f| -%>
 	<%= render :partial=> "form", :locals=>{:f=>f}%>
 	<p><%= submit_tag 'Gravar' %></p>
 <% end -%>
 
-<%= link_to 'Voltar', admin_news_path %>
+<%= link_to 'Voltar', admin_cars_path %>

@@ -1,0 +1,12 @@
+
+
+<p><label for="name">Título</label><br/>
+<%= f.text_field :name %></p>
+
+<p><label for="image">Imagem</label><br/>
+<%= f.file_field :image %></p>
+
+<p><label for="description">Descrição</label><br/>
+<%= f.text_area :description, :size=>"33x3" %></p>
+
+<%= f.hidden_field :gallery_id, :value => @gallery.id %>

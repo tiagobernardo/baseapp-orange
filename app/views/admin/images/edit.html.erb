@@ -1,0 +1,16 @@
+<% content_for :header do -%>
+	Editar imagem de <%= @gallery.name %>
+<% end -%>
+
+<% content_for :sidebar do -%>
+	<%= render :partial => 'help' %>
+<% end -%>
+
+<%= error_messages_for :image %>
+
+<% form_for [@gallery, @image], :url => admin_gallery_image_path(@gallery,@image), :html => { :multipart => true }   do |f| -%>
+	<%= render :partial=> "form", :locals=>{:f=>f}%>
+	<p><%= submit_tag 'Gravar' %></p>
+<% end -%>
+
+<%= link_to 'Voltar', admin_gallery_images_path(@gallery) %>
