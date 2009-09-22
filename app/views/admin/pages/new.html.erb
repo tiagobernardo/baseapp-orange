@@ -16,7 +16,7 @@
 
 <% form_for :page, :url => admin_pages_path do |f| -%>
 	<%= render :partial=> "form", :locals=>{:f=>f}%>
-	<p><%= submit_tag 'Criar' %></p>
+	<span class="roundbutton"><input type="image" src="<%= t('button.create')%>" name="image" width="144" height="47"/></span> <span class="goback"><%= link_to t('go_back'), admin_pages_path %></span>
+	<div class="clear"></div>
 <% end -%>
-
-<%= link_to 'Voltar', admin_pages_path %>
+ 

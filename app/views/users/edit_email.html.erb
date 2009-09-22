@@ -1,14 +1,12 @@
 <% content_for :header do -%>
-	Alterar o meu endereço de e-mail
+	<%= t('login.edit_email_title')%>
 <% end -%>
 
 <% form_for :user, @user, :url => update_email_user_url(@user), :html => {:method => :put} do |f| %>
 
-	<h3>Novo e-mail</h3>
-
-	<p>Por favor, insira o seu novo e-mail na caixa de texto em baixo.</p>
+	<%= t('login.edit_email_text')%>
 	<p><%= text_field_tag 'email', '', :size => 20 %></p>
 
-	<p><%= submit_tag "Guardar o meu e-mail" %> ou <%= link_to "voltar atrás", profile_url(@user) %></p>
+	<p><%= submit_tag t('login.save_email') %> ou <%= link_to "voltar atrás", profile_url(@user) %></p>
 	
 <% end %>

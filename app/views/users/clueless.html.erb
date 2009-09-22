@@ -1,15 +1,8 @@
 <% content_for :header do -%>
-	Amnesia
+	<%= t('login.clueless_title')%>
 <% end -%>
 
-<p>
-	Indicou que não se lembra de nenhum dado da sua conta de <%= configatron.site_name %>.
-</p>
+<%= t( 'login.clueless_text', :website=>configatron.site_name, :contact=> configatron.support_name, :email=> secure_mail_to(configatron.support_email), :create_url=> link_to( t('login.clueless_create'), signup_url) )%>
 
-<p>
-Não podemos ajudar directamente a recuperar os dados da conta. Por favor entre em contacto com <%= configatron.support_name %> em <%= secure_mail_to configatron.support_email %> para mais ajuda.
-</p>
 
-<p>
-	Se não tinha dados importantes na conta, também pode considerar <%= link_to "criar uma nova conta", signup_url %>.
-</p>
+<p><%= link_to "#{t('go_back')}", login_url %></p>

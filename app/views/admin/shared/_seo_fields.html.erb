@@ -1,15 +1,16 @@
-<a href="#seo_options" id="show_seo_fields">Ver mais opções SEO</a>
+<p><a href="#seo_options" id="show_seo_fields">Ver mais opções SEO</a></p>
 <div id="seo_options" style="display:none;">
-	<p><label for="permalink">Permalink (é gerado automaticamente se não existir)</label><br/>
-	<%= f.text_field :permalink %></p>
+	<p><label for="permalink">Permalink</label>
+	<%= f.text_field :permalink %> <small>(é gerado automaticamente se não existir)</small></p>
 
-	<p><label for="permalink">Palavras-Chave (separar cada palavra por vírgula)</label><br/>
-	<%= f.text_field :meta_keywords %></p>
+	<p><label for="permalink">Palavras-Chave</label>
+	<%= f.text_field :meta_keywords %> <small>(separar cada palavra por vírgula)</small></p>
 
-	<p><label for="permalink">Descrição (não colocar html)</label><br/>
-	<%= f.text_field :meta_description %></p>
+	<p><label for="permalink">Descrição</label>
+	<%= f.text_area :meta_description , :size=>"33x3"%></p>
 </div>
-
+<br/><br/>
+<div class="clear"></div>
 <script type="text/javascript">
 	$(window).bind('load', function() {
      	$('#show_seo_fields').click(function() {

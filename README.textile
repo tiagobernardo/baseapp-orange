@@ -1,4 +1,4 @@
-h1. Welcome to BaseApp-Orange
+h1. Welcome to BaseApp-Orange v3
 
 *PT*
 
@@ -7,6 +7,12 @@ Em vez de repetir o mesmo trabalho, porque não criar uma base?
 
 Mais info em http://reinventar.com/2009/03/baseapp-orange/
 
+
+* ADMIN: *
+* username: admin
+* pass: 'yippeekayea'
+
+
 Principais diferenças do BaseApp Original:
 * Traduzido para PT (íncluindo i18n locale)
 * Páginas e sub-páginas que podem ser ordenadas 
@@ -14,15 +20,22 @@ Principais diferenças do BaseApp Original:
 * Snippets
 * Campos para meta tags (descrição, keywords e permalink)
 * Tema para admin com (with famfamfam icons)
-* Usa Rails 2.3.2
+* Usa Rails 2.3.4
+** Iphone Checkboxes http://awardwinningfjords.com/2009/06/16/iphone-style-checkboxes.html
 
 * Plugins íncluidos
 ** Jrails para suporte JQuery (remover se preferir Prototype)
-** FckEditor para editar páginas com html
-** WillPaginate Gem
+** TinyMCE para editar páginas com html
+** Will Paginate
 ** Paperclip para upload de ficheiros
-** Permalink-fu para gerar links permanentes
-** Acts as taggable
+** Acts as taggable para tags
+** RSPEC para testes
+** OpenID
+** Permalink_fu para criar links bonitos (SEO)
+** Bundle_fu para comprimir ficheiros javascript e css num só.
+** Inherited_resources para reduzir código em controllers REST
+** Admin generator para facilitar a criação de páginas no admin
+** NewRelic RPM gem
 
 * TODO *
 * Suporte total i18n
@@ -42,6 +55,7 @@ Main diferences from BaseApp:
 * Fields for meta description, keywords, and permalink
 * Fully translated to portuguese (also included i18n locale)
 * Pretty admin theme (with famfamfam icons)
+** Iphone Checkboxes http://awardwinningfjords.com/2009/06/16/iphone-style-checkboxes.html
 
 * Other plugins included
 ** Jrails for (jQuery support)
@@ -49,21 +63,22 @@ Main diferences from BaseApp:
 ** FckEditor to edit pages with image file upload support
 ** WillPaginate Gem
 ** Paperclip for uploading files
-** Permalink-fu for generating erm, permalinks?
+** Permalink-fu for generating erm, permalinks? (SEO)
 ** Acts as taggable
+** RSPEC 
+** OpenID authentication
+** Bundle_fu to compress several js and css files into one 
+** Inherited_resources to reduce code in REST controllers
+** Admin generator to create admin pages and code
+** NewRelic RPM gem
 
 * TODO *
-* Drag and drop sorting for pages in the admin area
-* Full i18n support with multi-languages
+* Full i18n support with multi-languages for frontend && backoffice
 * Frontend implementation of pages, snippets and languages
 * Add Rspec TESTS for all models and admin controllers
 
 
 This is a early build.
-
-ADMIN:
-'nospam@example.com'
-'yippeekayea'
 
 h2. What is BaseAPP
 

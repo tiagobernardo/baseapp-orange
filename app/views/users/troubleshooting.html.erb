@@ -1,17 +1,10 @@
 <% content_for :header do -%>
-	Ajuda
+	<%= t('login.help_title')%>
 <% end -%>
-
-<p>
-	Está com problemas em entrar no <%= configatron.site_name %>? Qual destas opções reflecte a sua situação?
-</p>
-
+<p><%= t('login.help_text', :site=>configatron.site_name)%></p>
 <ul>
-	<li><%= link_to "Não me lembro da minha password", user_forgot_password_url %></li>
-	<li><%= link_to "Esqueci-me do login mas eu sei o meu meu e-mail", user_forgot_login_url %></li>
-	<li><%= link_to "Não me lembro do login, e-mail ou password!", user_clueless_url %></li>
+	<li><%= link_to t('login.help_pass'), user_forgot_password_url %></li>
+	<li><%= link_to t('login.help_login'), user_forgot_login_url %></li>
+	<li><%= link_to t('login.help_none'), user_clueless_url %></li>
 </ul>
-
-<p>
-	<%= link_to "&laquo; Voltar atrás", login_url %>
-</p>
+<p><%= link_to "#{t('go_back')}", login_url %></p>

@@ -1,18 +1,18 @@
 <% content_for :header do -%>
-	Login em <%= configatron.site_name %>
+	<%= configatron.site_name %> login
 <% end -%>
 
 <% form_tag session_path do -%>
 	&nbsp;
 	<fieldset>
-		<legend>Login com OpenID</legend>
+		<legend><%= t('login.log_openid')%></legend>
 	
 		<p><label for="openid_url">OpenID URL</label><br/>
 		<%= text_field_tag 'openid_url' %></p>		
 	</fieldset>
 
 	<fieldset>
-		<legend>Ou com a tua conta <%= configatron.site_name %></legend>
+		<legend><%= t('login.or_with_account')%> <%= configatron.site_name %></legend>
 		
 		<p><label for="login">Login</label><br/>
 		<%= text_field_tag 'login' %></p>
@@ -20,15 +20,16 @@
 		<p><label for="password">Password</label><br/>
 		<%= password_field_tag 'password' %></p>
 
-		<p><label for="remember_me">Não esquecer:</label>
+		<p><label for="remember_me"><%= t('login.dont_forget')%>:</label>
 		<%= check_box_tag 'remember_me' %></p>
 	</fieldset>
 	
+	 
 <ul>
-	<li><%= link_to "Problemas em entrar no site?", user_troubleshooting_url %></li>
-	<li><%= link_to "Registar agora", signup_url %></li>
+	<li><%= link_to t('login.problems'), user_troubleshooting_url %></li>
+	<li><%= link_to t('login.reg_now'), signup_url %></li>
 </ul>
-
+ 
 <div id="submitbutton">
 	<p><%= submit_tag 'Log in &raquo;' %></p>
 </div>

@@ -1,27 +1,12 @@
 
 
-<fieldset>
-<legend>Campos obrigatórios</legend>
+<% file_name.capitalize.camelize.constantize.columns.reject do |attribute| -%>
+  <p>
+    <%%= f.label :<%= attribute.name.to_s %> %> 
+    <%%= f.<%= attribute.field_type %> :<%= attribute.name.to_s %> %>
+  </p>
+<%- end -%>
+ 
 
-	<p><label for="name">Nome</label><br/>
-	<%%= f.text_field :name %></p>
-
-	<% for column in file_name.capitalize.camelize.constantize.column_names %>
-	<p><label for="<%=column%>"><%=column%></label><br/>
-	<%%= f.text_field :<%=column%> %></p>
-	<%end%>
-
-</fieldset>
-
-<fieldset>
-<legend>Outros Campos</legend>
-
-	<p><label for="language">Idioma</label><br/>
-	<%%= f.select :language , LANGUAGES, :prompt => 'Escolhe uma opção' %></p>
-
-	<p><label for="language_id">Estado</label><br/>
-	<%%= f.select :state , STATES, :prompt => 'Escolhe uma opção' %></p>
-</fieldset>
-
-<%%= render :partial=> "/admin/shared/seo_fields", :locals=>{:f=>f}%>
+<%%= render :partial=> "/admin/shared/seo_fields", :locals=>{:f=>f} %>
 

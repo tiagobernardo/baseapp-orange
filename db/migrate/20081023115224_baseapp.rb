@@ -29,8 +29,8 @@ class Baseapp < ActiveRecord::Migration
       t.datetime :deleted_at
       t.timestamps
     end
-    
-    add_index :users, :login, :unique => true
+    #only mysql
+    #add_index :users, :login, :unique => true
     
     # Create Profile Table
     create_table :profiles do |t|

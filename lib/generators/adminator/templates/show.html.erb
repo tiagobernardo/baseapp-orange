@@ -10,8 +10,9 @@
 	<%%= cell "ID", h(@<%= file_name -%>.id) %>
 	<%%= cell_separator %>
 
-	<%%= cell "Nome", h(@<%= file_name -%>.name) %>
-	<%%= cell "Descrição", h(@<%= file_name -%>.description) %>
+	<%- file_name.capitalize.camelize.constantize.columns.reject do |attribute| -%>
+		<%%= cell "Nome", h(@<%= attribute.name %>) %> 
+	<%- end -%>
 
 	<%%= cell_separator %>
 	
@@ -19,5 +20,5 @@
 	<%%= cell "Última actualização", data_pt(@<%= file_name -%>.updated_at ) %>
 </table>
 
-<%%= link_to 'Editar', edit_admin_<%= file_name -%>_path(@<%= file_name -%>) %> | <%%= link_to 'Voltar ', admin_<%= file_name.pluralize -%>_path %>
+<%%= link_to 'Editar', edit_admin_<%= file_name -%>_path(@<%= file_name -%>) %> | <%%= link_to t('go_back'), admin_<%= file_name.pluralize -%>_path %>
 

@@ -1,61 +1,59 @@
 <% (@user.password = @user.password_confirmation = nil) rescue nil %>
 
 <% content_for :header do -%>
-Criar uma conta no <%= configatron.site_name %>
+	<%= t('account.create_account')%><%= configatron.site_name %>
 <% end -%>
 
 <p>
-	Para aceder ao <%= configatron.site_name %> pode usar OpenID. Se não tem uma conta OpenID ainda, nós recomendamos <a href="http://www.myopenid.com">MyOpenID</a>.
+	<%= t('account.intro', :site=>configatron.site_name)%> <a href="http://www.myopenid.com">MyOpenID</a>.
 </p>
 
 
 <% form_for :user, :url => users_path do |f| -%>
 	<%= error_messages_for :user %>
 	
-	<fieldset id="openid_form">
-		<legend>Registar com OpenID</legend>
+	<fieldset id="openid_form" style="display: none;">
+		<legend><%= t('account.use_openid')%></legend>
 		<p><label for="openid_url">OpenID URL</label><br/>
 		<%= text_field_tag :openid_url, params[:openid_url] || params['openid.identity'] %></p>
 		
 		<div class="js_option">
-		<a href="#oldfashioned_form" id="toggle_formsid">... ou registar à maneira antiga.</a>
+			<a href="#oldfashioned_form" id="toggle_formsid">... <%= t('account.reg_old_way')%></a>
 		</div>
 	</fieldset>
-	
-
-	
-	<fieldset id="oldfashioned_form" style="display: none">	
-		<legend>Your Details</legend>
+	 
+	<fieldset id="oldfashioned_form">	
+		<legend><%= t('account.use_old')%></legend>
 		<p><label for="login">Login</label><br/>
 		<%= f.text_field :login %></p>
 
-		<p><label for="email">Email</label><br/>
+		<p><label for="email">E-mail</label><br/>
 		<%= f.text_field :email %></p>
 
 		<p><label for="password">Password</label><br/>
 		<%= f.password_field :password %></p>
 
-		<p><label for="password_confirmation">Confirm Password</label><br/>
+		<p><label for="password_confirmation"><%= t('account.confirm_password')%></label><br/>
 		<%= f.password_field :password_confirmation %></p>
 		
 		<div class="js_option">
-			<a href="#openid_form" id="toggle_openidformsid">... ou registar com OpenId.</a>
+			<a href="#openid_form" id="toggle_openidformsid">... <%= t('account.reg_openid')%></a>
 		</div>
 	</fieldset>
+	 
 	
 	<ul>
-		<li><%= link_to "Já está registado? Login agora!", login_url %></li>
+		<li><%= link_to t('account.already_registered'), login_url %></li>
 	</ul>
 	
 	<div id="submitbutton">
-		<p><%= submit_tag 'Registar' %></p>
+		<p><%= submit_tag t('account.register') %></p>
 	</div>
 <% end %>
 
-
 <script type="text/javascript">
-	$(window).bind('load', function() {
-     	$('#toggle_formsid').click(function() {
+	$ (window).bind('load', function() {
+     	$ ('#toggle_formsid').click(function() {
        		$('#oldfashioned_form').show("slow");
        		$('#openid_form').hide();
      	});

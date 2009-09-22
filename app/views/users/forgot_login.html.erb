@@ -1,22 +1,22 @@
 <% content_for :header do -%>
-	Recuperar Login
+	<%= t('login.recup_login_title')%>
 <% end -%>
 
 <% unless @user.nil? %>
-	<p>Será enviado um e-mail com o login do site <%= configatron.site_name %> para o e-mail <em><%= @user.email %></em>.</p>
+	<p><%= t('login.recup_login_text', :email=>@user.email)%></p>
 	
 	<div id="submitbutton">
-		<p><%= link_to "Login agora &raquo;", login_url %></p>
+		<p><%= link_to "Login &raquo;", login_url %></p>
 	</div>
 <% else %>
-	<p>Por favor insira o e-mail associado com a conta pretendida. Será enviado um e-mail com o login em breve.</p>
+	<p><%= t('login.recup_login_enter_email')%></p>
 
 	<% form_tag user_forgot_login_url, :method => :put do %>
-		<p><label>Endereço de e-mail</label><br />
+		<p><label>E-mail</label><br />
 		<%= text_field_tag :email %></p>
 	
 		<div id="submitbutton">
-			<p><%= submit_tag 'Envia-me o meu login &raquo;' %></p>
+			<p><%= submit_tag "#{t('login.send_me')}login &raquo;" %></p>
 		</div>
 	<% end %>
 <% end %>

@@ -22,12 +22,12 @@
 		<li><%= link_to "Apagar", admin_user_url(@user), :method => :delete, :confirm => "Tem a certeza que deseja remover esta conta?" %></li>
 	<% end -%>
 	
-	<% # TODO: Uncomment to enable user purging by the administrator %>
-	<!--
+ 
+	 
 	<% if @user.deleted? -%>
 		<li><%= link_to "Apagar de vez", purge_admin_user_url(@user), :method => :delete, :confirm => "Tem a certeza que deseja remover esta conta e todos os dados associados?" %></li>
 	<% end -%>
-    -->
+     
 </ul>	
 <% end -%>
 

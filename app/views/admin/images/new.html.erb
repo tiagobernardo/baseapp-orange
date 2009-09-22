@@ -10,7 +10,6 @@
 
 <% form_for @image, :url => admin_gallery_images_path(@gallery), :html => { :multipart => true } do |f| -%>
 	<%= render :partial=> "form", :locals=>{:f=>f}%>
-	<p><%= submit_tag 'Criar' %></p>
-<% end -%>
-
-<%= link_to 'Voltar', admin_gallery_images_path(@gallery) %>
+	<span class="roundbutton"><input type="image" src="<%= t('button.create')%>" name="image" width="144" height="47"/></span> <span class="goback"><%= link_to t('go_back'), admin_gallery_images_path(@gallery) %></span>
+	<div class="clear"></div>
+<% end -%> 

@@ -1,75 +1,25 @@
-class Admin::ContentsController < ApplicationController
-  require_role :admin
+class Admin::ContentsController < InheritedResources::Base
   layout 'admin'
-  def index
-    @contents = Content.paginate :all, :page => params[:page]
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @contents }
-    end
-  end
-
-  def show
-    @content = Content.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @content }
-    end
-  end
-
+  respond_to :html, :xml
+  require_role :admin
+  defaults :route_prefix=>'admin'
+  
   def new
-    @content = Content.new
-    @content.language = "pt"
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @content }
-    end
+     @content = Content.new
+     @content.language = "pt"
+     new!
   end
-
-  def edit
-    @content = Content.find(params[:id])
-  end
-
+  
   def create
-    @content = Content.new(params[:content])
-
-    respond_to do |format|
-      if @content.save
-        flash[:notice] = 'Conteúdo foi gravado com sucesso.'
-        format.html { redirect_to(admin_contents_url) }
-        format.xml  { render :xml => @content, :status => :created, :location => @content }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @content.errors, :status => :unprocessable_entity }
-      end
-    end
+    create!{ admin_contents_url }
   end
-
+   
   def update
-    @content = Content.find(params[:id])
-
-    respond_to do |format|
-      if @content.update_attributes(params[:content])
-        flash[:notice] = 'Conteúdo foi gravado com sucesso'
-        format.html { redirect_to(admin_contents_url) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @content.errors, :status => :unprocessable_entity }
-      end
-    end
+    update!{ admin_contents_url }
   end
 
-  def destroy
-    @content = Content.find(params[:id])
-    @content.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(admin_contents_url) }
-      format.xml  { head :ok }
+  protected 
+    def collection
+      @contents =  Content.paginate :all, :page => params[:page]
     end
-  end
 end

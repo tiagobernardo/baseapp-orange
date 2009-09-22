@@ -1,8 +1,57 @@
 # Portuguese localization for Ruby on Rails
 # by Ricardo Otero <oterosantos@gmail.com>
 pt:
+  flash:
+    admin:
+      contents:
+        create:
+          notice: "Conteúdo foi criado com sucesso"
+        update:
+          notice: "Conteúdo foi actualizado com sucesso"
+        destroy:
+          notice: "Conteúdo foi apagado com sucesso"
+      news:
+        create:
+          notice: "A notícia foi criada com sucesso"
+        update:
+          notice: "A notícia foi actualizada com sucesso"
+        destroy:
+          notice: "A notícia foi apagada com sucesso"
+      pages:
+        create:
+          notice: "A página foi criada com sucesso"
+        update:
+          notice: "A página foi actualizada com sucesso"
+        destroy:
+          notice: "A página foi apagada com sucesso"
+      images:
+        create:
+          notice: "A imagem foi criada com sucesso"
+        update:
+          notice: "A imagem foi actualizada com sucesso"
+        destroy:
+          notice: "A imagem foi apagada com sucesso"
+
   hello: "Olá mama"
   go_back: "&laquo; Voltar atrás"
+  gototop: "Ir para o topo"
+  share: "Partilhar"
+  youremail: "O seu endereço de email"
+  subscribe: "Subscreva"
+  subscribe_blog: "Subscreva o nosso blog"
+  readall: "ler todos"
+  contactus: "Contacte-nos"
+  knowmore: "Ler mais"
+  required: "Obrigatório"
+  send: "Enviar"
+  see_all: "Ver todas"
+  tags: "Etiquetas"
+  places: "Locais"
+  back: "Voltar"
+  change_app: "(ver em lista)"
+  button:
+    create: '/images/admin/btn_criar.jpg'
+    edit: '/images/admin/btn_gravar.jpg'
   dashboard:
     teste: "ola {{argname}}"
     hello: "Olá, este texto está em português mas se carregares no link en ele passa para inglês por magia."
@@ -13,6 +62,85 @@ pt:
     news_archive_title: "Arquivo de Notícias"
     see_archive: "Ver todas as notícias."
     recent_title: "Notícias Recentes"
+  comments:
+    comments: "Comentários"
+    leave: "Comentar"
+    success: "O comentário foi gravado e aparecerá dentro de momentos. Obrigado."
+    no_comments: "Seja o primeiro a escrever um comentário sobre este título!"
+    wont_reveal: "Não será divulgado."
+    send_message: "Enviar comentário"
+    disclaimer: "O seu endereço não será publicado nem será utilizado para fins promocionais."
+  account:
+    create_account: "Criar uma conta no "
+    intro: "Para aceder ao {{site}} pode usar OpenID. Se não tem uma conta OpenID ainda, nós recomendamos"
+    use_openid: "Registar com OpenID"
+    use_old: "Detalhes"
+    reg_old_way: "ou registar à maneira antiga."
+    confirm_password: "Confirme Password"
+    reg_openid: "ou registar com OpenId."
+    already_registered: "Já está registado? Login agora!"
+    register: "Registar"
+  user:
+    not_using_openid: "Lamentamos mas não podemos ajudar, está a usar OpenID!"
+    user_nil: "Não encontramos uma conta com esse e-mail."
+    oops: "Oops, algo correu mal."
+    activate: "Registo completo! Faça login para continuar."
+    no_activation_code: "Falta o código de activação. Por favor siga o URL presente no e-mail."
+    no_user_code: "Não conseguimos encontrar um utilizador com esse código. -- Talvez já esteja activado -- experimente fazer login."
+    email_using_openid: "Não pode alterar o seu endereço de e-mail. Está a usar OpenId!"
+    pass_blank: "Não pode ter uma password vazia."
+    pass_updated: "A password foi actualizada."
+    pass_no_match: "A password nova e a confirmação não coincide."
+    pass_no_correct: "A sua password actual não está correcta. A password não foi alterada."
+    pass_other_user: "Não pode alterar a password de outro utilizador!"  
+    account_ok: "A conta de e-mail foi alterada."
+    account_problem: "Ouve um problema ao alterar a conta de e-mail. Tente mais tarde, obrigado."
+    account_other_pass: "Não pode alterar a conta de e-mail de outro utilizador."
+    account_removed: "A sua conta foi removida."
+    create_ok: "Obrigado por registar!"
+    create_error: "Lamentamos, ouve um erro ao criar a sua conta"
+    sent_email: "Foi enviado um e-mail com o código de activação da conta."
+    enter_openid: "Pode entrar com o seu login OpenID."
+    enter_facebook: "Pode entrar com o seu login Facebook."
+  login:
+    log_openid: "Login com OpenID"
+    log_facebook: "ou login com Facebook Connect"  
+    or_with_account: "Ou com a tua conta"
+    dont_forget: "Não esquecer"
+    problems: "Problemas em entrar no site?"
+    reg_now: "Registar agora"
+    reg_facebook: "ou registe-se com a sua conta Facebook"
+    recup_pass_title: "Recuperar Password"
+    recup_pass: "Recuperou com sucesso a sua password. Receberá um e-mail com a password nova muito em breve."
+    recup_pass_text: "Note: Após o login, por favor altere a password para uma mais segura e fácil de lembrar."
+    recup_pass_error: "Lamentamos, não conseguimos reiniciar a sua password."
+    recup_pass_text: "Para obter uma nova password contacte {{contact}} através do e-mail {{email}}."
+    help_title: "Ajuda"
+    help_text: "Está com problemas em entrar no {{site}}? Qual destas opções reflecte a sua situação?"
+    help_pass: "Não me lembro da minha password"
+    help_login: "Esqueci-me do login mas eu sei o meu meu e-mail"
+    help_none: "Não me lembro do login, e-mail ou password!" 
+    recup_login_title: "Recuperar Login"
+    recup_login_text: "Será enviado um e-mail com o login para o e-mail <em>{{email}}</em>."
+    recup_login_enter_email: "Por favor insira o e-mail associado com a conta pretendida. Será enviado um e-mail com o login em breve."
+    send_me: "Envia-me o meu "  
+    alter_pass_title: "Alterar a minha password"
+    pass_today: "Password actual"
+    insert_pass: "Para prevenir abusos, insira a sua password actual."
+    insert_new_pass: "Por favor insira a sua nova password (e confirmação) em baixo."
+    pass_new: "A sua nova password"
+    alter_my_pass: "Alterar a minha password"    
+    edit_email_title: "Alterar o meu endereço de e-mail"
+    edit_email_text: "<h3>Novo e-mail</h3><p>Por favor, insira o seu novo e-mail na caixa de texto em baixo.</p>"
+    save_email: "Guardar o meu e-mail"
+    clueless_title: "Amnesia"
+    clueless_text: "<p>Indicou que não se lembra de nenhum dado da sua conta de {{website}}.</p><p>Não podemos ajudar directamente a recuperar os dados da conta. Por favor entre em contacto com {{contact}} em {{email}} para mais ajuda.</p><p>Se não tinha dados importantes na conta, também pode considerar {{create_url}}.</p>"
+    clueless_create: "criar uma nova conta"
+    forgot_pass_active: "<p>Foi enviado um e-mail com mais informações para <em>{{email}}</em>.</p><p>Siga as instruções para recuperar a password da sua conta.</p>"
+    forgot_pass_not: "<p>A conta não está activa. Só pode reiniciar a password quando activar a conta.</p><p>Contacte {{support}} em {{email}} para mais ajuda.</p>"
+    forgot_pass_email: "Endereço de e-mail ou login"
+    forgot_pass_text: "<p>Por favor insira o e-mail ou login associado à conta. Será enviado um e-mail com instruções para recuperar a password.</p>"
+    forgot_pass_recuv_pass: "Recuperar a minha password &raquo;"
   global_links:
     dashboard: Dashboard
     my_account: "A minha Conta"
@@ -22,12 +150,16 @@ pt:
     log_in: "Login"
   profile:
     title: "A minha conta"  
-    update_my_profile_link: "Actualizar o meu perfil"
-    alter_my_email_link: "Alterar o meu e-mail"
+    update_my_profile_link: "Actualizar o perfil"
+    alter_my_email_link: "Alterar e-mail"
     alter_my_pass_link: "Alterar password"
-    delete_my_account_link: "Apagar a minha conta"
+    delete_my_account_link: "Apagar a conta"
     confirm_delete_my_account: "Tem a certeza que deseja apagar a sua conta? Todos os dados da sua conta serão removidos do nosso sistema.\n\nA remoção será definitiva!\n\nObrigado. Até breve."
     how_do_i_alter: "Como é que altero o meu gravatar?" 
+    how_do_i_alter_explain: "Lisbonlovers usa <a href='http://gravatar.com' target='_new'>Gravatar</a> para recuperar os avatars baseando-se no endereço de e-mail.<br/><a href='http://gravatar.com' target='_new'>Gravatar</a> é um serviço grátis. <a href='http://gravatar.com/signup' alt='_new'>Registe uma conta</a>, caso ainda não possua um <a href='http://gravatar.com' target='_new'>Gravatar</a>."
+    not_found: "Profile not be found"
+    not_found_text: "The profile you requested does not exist."
+    profile: "Perfil"
     
   support:
     array:
@@ -175,3 +307,10 @@ pt:
          language: "Idioma"
          created_at: "Data Criação"
          updated_at: "Data de Actualização"
+      contact_request: 
+         name: "Nome"
+         email: "Email"
+         read: "Lida"
+         message: "Mensagem"
+         created_at: "Data Criação"
+         updated_at: "Data de Actualização"         
