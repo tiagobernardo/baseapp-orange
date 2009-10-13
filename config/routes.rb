@@ -40,7 +40,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :settings
     admin.resources :contents
     admin.resources :galleries, :has_many => [:images]
-  
+    admin.resources :themes
     admin.resources :pages, :collection => { :order => :get, :sort => :put }
     admin.resources :news, :singular => 'newsclip' 
     admin.resources :users, :member => { :suspend   => :put,

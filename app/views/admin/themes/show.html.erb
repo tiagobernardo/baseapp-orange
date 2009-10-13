@@ -1,0 +1,23 @@
+<% content_for :header do -%>
+	Ver Theme de <%= configatron.site_name %>
+<% end -%>
+
+<% content_for :sidebar do -%>
+	<%= render :partial => 'help' %>
+<% end -%>
+
+<table class="overview">
+	<%= cell "ID", h(@theme.id) %>
+	<%= cell_separator %>
+
+	<%= cell "Nome", h(@theme.name) %>
+	<%= cell "Descrição", h(@theme.description) %>
+
+	<%= cell_separator %>
+	
+	<%= cell "Data de criação", data_pt(@theme.created_at ) %>
+	<%= cell "Última actualização", data_pt(@theme.updated_at ) %>
+</table>
+
+<%= link_to 'Editar', edit_admin_theme_path(@theme) %> | <%= link_to 'Voltar ', admin_themes_path %>
+

@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{newrelic_rpm}
-  s.version = "2.9.4"
+  s.version = "2.9.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bill Kayser"]
-  s.date = %q{2009-07-22}
+  s.date = %q{2009-09-18}
   s.description = %q{New Relic Ruby Performance Monitoring Agent}
   s.email = %q{bkayser@newrelic.com}
   s.executables = ["mongrel_rpm", "newrelic_cmd"]

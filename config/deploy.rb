@@ -34,9 +34,30 @@ namespace :db do
     remote_db_cleanup
   end
 end
+
 namespace :passenger do
   desc "Restart Application"
   task :restart do
     run "touch #{current_path}/tmp/restart.txt"
+  end
+
+  desc "Erases frags cache directory"
+  task :erase_cache do
+    run "rm -rf #{current_path}/public/frags/views/"
+  end
+end
+namespace :logs do
+  desc <<-DESC
+    Gets the last 20 lines of the production logfile
+  DESC
+  task :tail do
+    run "tail -n 500 #{current_path}/log/production.log"
+  end
+  
+  desc <<-DESC
+    Watch the logfile live
+  DESC
+  task :live do
+    stream("tail -f #{current_path}/log/production.log")
   end
 end

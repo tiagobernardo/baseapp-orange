@@ -7,7 +7,11 @@
 
 <p><label for="parent_id">Página Superior</label> 
 <%= f.select :parent_id, nested_set_options(Page, @page) {|i| "#{'-' * i.level} #{i.name}" }, :prompt => 'Escolhe uma opção' %></p>
- 
+
+
+<p><label for="theme_id">Tema</label> 
+<%= f.collection_select :theme_id , Theme.find(:all), :id, :name, {:include_blank => true,:prompt => 'Escolhe uma opção'} %></p>
+
 <ol class="on_off_lang">
    <li>
      <p><label class="left" for="language">Idioma</label>

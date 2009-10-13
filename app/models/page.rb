@@ -2,7 +2,8 @@ class Page < ActiveRecord::Base
   include AASM
 
   validates_presence_of :name, :language
-  
+  belongs_to :theme
+
   has_permalink :name
   acts_as_nested_set
   aasm_column :state

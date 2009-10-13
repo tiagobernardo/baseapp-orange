@@ -1,6 +1,4 @@
 class Admin::NewsController < InheritedResources::Base
- 
-
   layout 'admin'
   respond_to :html, :xml
   require_role :admin

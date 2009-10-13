@@ -1,0 +1,39 @@
+<% content_for :header do -%>
+	 Tema
+<% end -%>
+
+<% content_for :sidebar do -%>
+	<p class="cssbutton">
+		<%= link_to '<span>Novo Tema</span>', new_admin_theme_path %>
+	</p>
+<% end -%>
+
+
+<table class="index tablesorter" id="mytable">
+<thead>
+  <tr>
+	<th>ID</th>
+	<th>Nome</th>
+   	<th>Data Criação</th>
+	<th>Acções</th>
+  </tr>
+</thead>
+<thbody>
+<% for theme in @themes %>
+  <tr>
+	<td><%= h theme.id %></td>
+	<td><%= link_to h(theme.name), admin_theme_url(theme) %></td>
+  	<td><%= h data_pt theme.created_at %></td>
+	<td class="actions">
+		<%= link_to 'Editar', edit_admin_theme_path(theme) %>
+		<%= link_to 'Apagar', admin_theme_url(theme), :method => :delete, :confirm => "Tem a certeza?" %>		
+	</td>
+  </tr>
+<% end %>
+</thbody>
+</table>
+<%= render :partial=>"/admin/shared/table_sorter_jquery"%>
+
+
+<%= will_paginate @themes %>
+

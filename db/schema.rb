@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090922153123) do
+ActiveRecord::Schema.define(:version => 20091013100343) do
 
   create_table "contents", :force => true do |t|
     t.string   "name"
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(:version => 20090922153123) do
     t.text     "meta_description"
     t.text     "meta_keywords"
     t.string   "language"
+    t.integer  "theme_id"
   end
 
   create_table "profiles", :force => true do |t|
@@ -128,6 +129,16 @@ ActiveRecord::Schema.define(:version => 20090922153123) do
     t.text     "description"
     t.string   "field_type",  :default => "string"
     t.text     "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "themes", :force => true do |t|
+    t.string   "name"
+    t.string   "permalink"
+    t.text     "description"
+    t.string   "state"
+    t.string   "language"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
