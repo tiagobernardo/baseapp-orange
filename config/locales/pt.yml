@@ -156,7 +156,7 @@ pt:
     delete_my_account_link: "Apagar a conta"
     confirm_delete_my_account: "Tem a certeza que deseja apagar a sua conta? Todos os dados da sua conta serão removidos do nosso sistema.\n\nA remoção será definitiva!\n\nObrigado. Até breve."
     how_do_i_alter: "Como é que altero o meu gravatar?" 
-    how_do_i_alter_explain: "Lisbonlovers usa <a href='http://gravatar.com' target='_new'>Gravatar</a> para recuperar os avatars baseando-se no endereço de e-mail.<br/><a href='http://gravatar.com' target='_new'>Gravatar</a> é um serviço grátis. <a href='http://gravatar.com/signup' alt='_new'>Registe uma conta</a>, caso ainda não possua um <a href='http://gravatar.com' target='_new'>Gravatar</a>."
+    how_do_i_alter_explain: "Usamos <a href='http://gravatar.com' target='_new'>Gravatar</a> para recuperar os avatars baseando-se no endereço de e-mail.<br/><a href='http://gravatar.com' target='_new'>Gravatar</a> é um serviço grátis. <a href='http://gravatar.com/signup' alt='_new'>Registe uma conta</a>, caso ainda não possua um <a href='http://gravatar.com' target='_new'>Gravatar</a>."
     not_found: "Profile not be found"
     not_found_text: "The profile you requested does not exist."
     profile: "Perfil"
