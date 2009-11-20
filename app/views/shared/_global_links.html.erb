@@ -5,6 +5,6 @@
 	<% if admin? -%><%= link_to t("global_links.admin"), admin_root_url %> | <% end -%>
 	<%= link_to t("global_links.log_out"), logout_url, :method => :delete %>
 <% else %>
-	<%= link_to t("global_links.register"), signup_url %> | 
 	<%= link_to t("global_links.log_in"), login_url %>
+	<%= link_to t("global_links.register"), signup_url %> | 
 <% end %>

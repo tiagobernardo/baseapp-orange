@@ -11,18 +11,23 @@ class ApplicationController < ActionController::Base
   def s(identifier)
     Setting.get(identifier)
   end
-  helper_method :s
-
+  helper_method :s 
   before_filter :set_locale
 
   def set_locale
     #change this to search the locale on subdomain, on cookie or whatever you like
-    if params[:locale]
-      locale = params[:locale]
-      I18n.locale = locale
+    if !session[:locale].nil? 
+      I18n.locale = session[:locale].to_s  
+      params[:locale] = session[:locale].to_s
     else
-      params[:locale] = I18n.default_locale
+      params[:locale] = I18n.default_locale.to_s
+      session[:locale] = I18n.default_locale.to_s
+      I18n.locale= I18n.default_locale.to_s
     end
+  end
+  
+  def sort_order(default)
+    "#{(params[:order] || default.to_s).gsub(/[\s;'\"]/,'')} #{params[:dir] == 'down' ? 'DESC' : 'ASC'}"
   end
 
 

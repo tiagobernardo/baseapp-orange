@@ -83,19 +83,15 @@ class User < ActiveRecord::Base
   end
     
 protected
-
   def make_activation_code
     self.deleted_at = nil
     self.activation_code = self.class.make_token
   end
-
   def make_password_reset_code
     self.password_reset_code = self.class.make_token
   end
-  
   def create_profile
     # Give the user a profile
     self.profile = Profile.create    
   end
-
 end

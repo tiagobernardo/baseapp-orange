@@ -9,40 +9,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091013100343) do
+ActiveRecord::Schema.define(:version => 20091120173102) do
+
+  create_table "assets", :force => true do |t|
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 25
+    t.string   "type",              :limit => 25
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "assets", ["assetable_id", "assetable_type", "type"], :name => "ndx_type_assetable"
+  add_index "assets", ["assetable_id", "assetable_type"], :name => "fk_assets"
+  add_index "assets", ["user_id"], :name => "fk_user"
 
   create_table "contents", :force => true do |t|
-    t.string   "name"
     t.string   "permalink"
     t.text     "body"
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "language"
+    t.string   "name_pt"
+    t.string   "name_en"
+    t.text     "body_pt"
+    t.text     "body_en"
   end
 
   create_table "galleries", :force => true do |t|
-    t.string   "name"
     t.string   "permalink"
-    t.text     "description"
     t.string   "state"
     t.string   "language"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "image11s", :force => true do |t|
-    t.string   "name"
-    t.string   "permalink"
-    t.text     "description"
-    t.integer  "image_file_size"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.datetime "image_updated_at"
-    t.string   "state"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "gallery_id"
+    t.string   "name_pt"
+    t.string   "name_en"
+    t.text     "body_pt"
+    t.text     "body_en"
   end
 
   create_table "images", :force => true do |t|
@@ -60,10 +67,7 @@ ActiveRecord::Schema.define(:version => 20091013100343) do
   end
 
   create_table "news", :force => true do |t|
-    t.string   "name"
     t.string   "permalink"
-    t.text     "body"
-    t.text     "lead"
     t.string   "state"
     t.integer  "position"
     t.datetime "date"
@@ -71,7 +75,12 @@ ActiveRecord::Schema.define(:version => 20091013100343) do
     t.datetime "updated_at"
     t.text     "meta_description"
     t.text     "meta_keywords"
-    t.string   "language"
+    t.string   "name_pt"
+    t.string   "name_en"
+    t.text     "body_pt"
+    t.text     "body_en"
+    t.string   "lead_pt"
+    t.string   "lead_en"
   end
 
   create_table "open_id_authentication_associations", :force => true do |t|
@@ -90,9 +99,7 @@ ActiveRecord::Schema.define(:version => 20091013100343) do
   end
 
   create_table "pages", :force => true do |t|
-    t.string   "name"
     t.string   "permalink"
-    t.text     "body"
     t.string   "state"
     t.integer  "parent_id"
     t.integer  "lft"
@@ -101,8 +108,11 @@ ActiveRecord::Schema.define(:version => 20091013100343) do
     t.datetime "updated_at"
     t.text     "meta_description"
     t.text     "meta_keywords"
-    t.string   "language"
     t.integer  "theme_id"
+    t.string   "name_pt"
+    t.string   "name_en"
+    t.text     "body_pt"
+    t.text     "body_en"
   end
 
   create_table "profiles", :force => true do |t|

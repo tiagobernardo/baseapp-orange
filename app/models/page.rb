@@ -1,27 +1,29 @@
 class Page < ActiveRecord::Base
-  include AASM
-
-  validates_presence_of :name, :language
+  include CommonOrangesForModels
+  validates_presence_of :name
   belongs_to :theme
-
-  has_permalink :name
+  
+  translatable_columns :name, :body
   acts_as_nested_set
-  aasm_column :state
-  aasm_initial_state :draft
+ 
+  named_scope :main_menu_parent, :conditions => ["state='active' and permalink=?", "home"]
+  named_scope :footer_parent, :conditions => ["state='active' and permalink = ? ", "footer"]
   
-  aasm_event :activate do
-    transitions :to => :active, :from => [:draft]
-  end
-  aasm_event :deactivate do
-    transitions :to => :draft, :from => [:active]
-  end
-  
-  def self.main_menu(locale)
-    Page.roots.find(:all, :conditions=>{:state=>"active", :language=>locale||"pt"})
+  #for menu, return controller url associated with the theme
+  def url
+    return self.theme.controller unless self.theme.nil?
   end
   
-  def active?
-    return self.state=="active"
-  end
-  
+  # example for erasing cache on hard drive
+  # after_create :delete_cache 
+  # after_save  :delete_cache 
+  # after_destroy  :delete_cache 
+  # protected
+  # def delete_cache
+  #   cache_dir = ActionController::Base.cache_store
+  #   if cache_dir.cache_path == RAILS_ROOT+"/public/frags"
+  #     FileUtils.rm_r(Dir.glob(cache_dir.cache_path+"/views/tabs*")) rescue Errno::ENOENT
+  #     FileUtils.rm_r(Dir.glob(cache_dir.cache_path+"/views/footer*")) rescue Errno::ENOENT
+  #   end
+  # end
 end

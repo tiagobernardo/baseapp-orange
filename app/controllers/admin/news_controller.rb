@@ -1,13 +1,10 @@
 class Admin::NewsController < InheritedResources::Base
   layout 'admin'
-  respond_to :html, :xml
   require_role :admin
   defaults :route_prefix=>'admin'
   
   def new
-     @news = News.new
-     @news.language = "pt"
-     @news.state ="active"
+     @news = News.new(:state=>'active')
      new!
   end
    
@@ -20,8 +17,9 @@ class Admin::NewsController < InheritedResources::Base
   end
 
   protected 
+  
+  protected 
     def collection
-      @news =  News.paginate :all, :page => params[:page]
-    end
-   
+        @news ||= end_of_association_chain.paginate(:all, :page=>params[:page], :order=>sort_order('created_at'))
+    end   
 end

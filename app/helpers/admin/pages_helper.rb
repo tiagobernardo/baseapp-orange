@@ -7,7 +7,7 @@ module Admin::PagesHelper
     html+=">"
     html+="<td>#{ link_to h(page.name), admin_page_url(page)}</td>
     <td>#{human_state page.state}</td>
-    <td>#{page.language}</td>
+    <td>#{page.theme.name if page.theme}</td>
     <td>#{data_pt page.created_at}</td>
     <td class='actions'>"
     if page.children.size>0       

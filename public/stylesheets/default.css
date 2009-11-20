@@ -110,7 +110,7 @@ ul {
 	background-color: #d3dbff;
 	padding: 0.7em 1em;
 	margin: 0;
-	font-size: 1.3em;
+	font-size: 2.1em;
 }
 #left #screen {
 	padding:0 1.5em 1.5em 0;
@@ -118,7 +118,7 @@ ul {
 #left #notice {
 	color: #6d9100;
 	padding: 0.7em 1em;
-	margin: 1em 1.5em;
+	margin:1em 0 1.5em;
 	background-color: #e5ffba;
 	font-weight: bold;
 }
@@ -219,11 +219,9 @@ div.progressBar div.background {
 	clear: both;
 	padding: 1em 0 0 4em;
 	color: #b5aea1;
-	font-size: 0.8em;
 }
 #footer a:link {
 	color: #b5aea1;
-	font-size: 0.8em;
 }
 #footer a:hover {
 	color: #fff;
@@ -643,3 +641,4 @@ div.page_header {
 	margin: 0.8em;
 	text-align: right;
 }
+.clear{clear:both;}

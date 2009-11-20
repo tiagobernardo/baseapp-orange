@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title><%= configatron.site_name %></title>
+	<title><%= configatron.site_name %> Admin</title>
 	<link rel="shortcut icon" href="/images/favicon.ico"/>
 	<%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
 	
@@ -13,43 +13,27 @@
   		<%= stylesheet_link_tag 'admin', :media => 'screen, projection' %>
 
 		<%= javascript_include_tag "jquery", "jrails", "application" %>
-		<%= javascript_include_tag  "admin/iphone-style-checkboxes.js", "admin/jquery.treeTable.min", "admin/jquery.quicksearch.js", "admin/jquery.tablesorter.min.js", "admin/jquery.tablednd_0_5.js" %>
-	<%end%> 
-	<%= init_tinymce_hammer_if_required %>
-	
+		<%= javascript_include_tag "admin/jquery.tools.min.js","admin/jquery.livequery.js", "admin/iphone-style-checkboxes.js", "admin/jquery.treeTable.min", "admin/jquery.tablednd_0_5.js" %>
+	<%end%>
+	 <%= javascript_include_tag :ckeditor %>
+	  
 </head>
 <body>
-
   <div id="header">
-    <div id="global_links">
-      <%= render :partial => 'shared/global_links' %>
-    </div>
+  	<div id="global_links"><%= render :partial => 'shared/global_links' %></div>
     <h1><%= configatron.site_name %></h1>
-
-    <div id="tabs">
-      <%= render :partial => 'admin/shared/tabs' %>
-    </div>
+    <div id="tabs"><%= render :partial => 'admin/shared/tabs' %></div>
   </div>
-
   <div id="main">
-
+    <div class="center">
+		<h2 class="head"><%= yield_or_default yield(:header), "Use 'content_for :header do; end' in your view to set this title" %></h2>
+	</div>
     <div id="left">
-	  <%= flash_message %>
-
-      <h2 class="head"><%= yield_or_default yield(:header), "Use 'content_for :header do; end' in your view to set this title" %></h2>
-
-      <div id="screen">
-        <%= yield %>
-      </div>
+		<%= flash_message %>
+    	<div id="screen"><%= yield %></div>
     </div>
-    <div id="right">
-      <%= yield_or_default(yield(:sidebar)) %>
-    </div>
+    <div id="right"><%= yield_or_default(yield(:sidebar)) %></div>
   </div>
-  <div id="footer">
-    <%= configatron.site_name %> by <%= configatron.company_name %><br />
-	Copyright © <%= configatron.company_name %><br />
-	Orange Fork by Pedro Sousa
-  </div>
+  <div id="footer"><%= configatron.site_name %> by <%= configatron.company_name %><br/></div>
 </body>
 </html>

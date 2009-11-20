@@ -12,8 +12,8 @@
 
 	<%= cell "Nome", h(@news.name) %>
 	<%= cell "Permalink", h(@news.permalink) %>
-	<%= cell "Lead da notícia", h(@news.lead) %>
-	<%= cell "Corpo da notícia", h(@news.body) %>
+	<%= cell "Lead da notícia", @news.lead %>
+	<%= cell "Corpo da notícia", @news.body %>
 
 	<%= cell_separator %>
 	

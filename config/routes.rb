@@ -2,7 +2,6 @@
 ActionController::Routing::Routes.draw do |map|
   
   # RESTful rewrites
-  
   map.signup   '/signup',   :controller => 'users',    :action => 'new'
   map.register '/register', :controller => 'users',    :action => 'create'
   map.activate '/activate/:activation_code', :controller => 'users',    :action => 'activate'
@@ -15,13 +14,13 @@ ActionController::Routing::Routes.draw do |map|
   map.user_forgot_login    '/users/forgot_login',    :controller => 'users', :action => 'forgot_login'
   map.user_clueless        '/users/clueless',        :controller => 'users', :action => 'clueless'
   
-  map.open_id_complete '/opensession', :controller => "sessions", :action => "create", :requirements => { :method => :get }
-  map.open_id_create '/opencreate', :controller => "users", :action => "create", :requirements => { :method => :get }
+  map.open_id_complete '/opensession',  :controller => "sessions", :action => "create", :requirements => { :method => :get }
+  map.open_id_create '/opencreate',     :controller => "users", :action => "create", :requirements => { :method => :get }
 
-  map.pages '/pages/:permalink', :controller=>"pages", :action=>"show" 
-  map.news '/news/:permalink', :controller=>"news", :action=>"show" 
-  map.news_archive '/news-archive', :controller=>"news", :action=>"index" 
-    
+  map.pages '/pages/:permalink',      :controller=>"pages", :action=>"show" 
+  map.news  '/news/:permalink',       :controller=>"news",  :action=>"show" 
+  map.news_archive '/news/archive',   :controller=>"news",  :action=>"archive" 
+  
   map.resources :users, :member => { :edit_password => :get,
                                      :update_password => :put,
                                      :edit_email => :get,
@@ -55,7 +54,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   # Dashboard as the default location
-  map.root :controller => 'dashboard', :action => 'index' 
+  map.root :controller => 'pages', :action => 'index' 
 
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'

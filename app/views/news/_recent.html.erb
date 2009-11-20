@@ -1,7 +1,7 @@
 <h2><%= t("news.recent_title")%></h2>
 <ul>
 	<% for news in News.recent(params[:locale]) %>
-		<li><%= link_to news.name, news_path(:permalink=>news.permalink, :locale=>params[:locale])%></li>
+		<li><%= link_to news.name, news_path(news.permalink)%></li>
 	<%end%>
 </ul>
 <p>

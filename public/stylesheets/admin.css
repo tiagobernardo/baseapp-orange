@@ -14,10 +14,10 @@ legend{ background-color:#e3dfdf;color:#333;padding:0 .4em;}
 label{	width:100px;float:left; display:block;clear:left; text-align:left;cursor:hand;color:#3F3F3F;}
 /*textarea,input,select,label,button,optgroup{margin-top:5px;}*/
 input[type="checkbox"],input[type="radio"]{margin-bottom:7px;}
-textarea:focus,input[type="text"]:focus{border:1px solid #666;}
+textarea:focus, input[type="text"]:focus{border:1px solid #666;}
+textarea,input[type="text"],select{padding:2px;border:1px solid #CCCCCC;width:83%;}
 input[type="checkbox"]{color:#000;}
 optgroup{background-color:#ccc;color:#000;}
-textarea,input[type="text"],select{padding:2px;border:1px solid #CCCCCC;}
 select,input[type="radio"],option{background-color:#fff;color:#000;}
 select{padding-top:1px;padding-bottom:1px;padding:2px;}
 
@@ -25,9 +25,9 @@ select{padding-top:1px;padding-bottom:1px;padding:2px;}
 /*******************
 HEADER AND TABS style
 *******************/
-#header { border-bottom: 0px solid #2A2A2A;  background: #248FAA url(/images/admin/bgtoblue.png) repeat-x bottom left; }
+#header { border-bottom: 0px solid #2A2A2A;  background: #00A0B9 url(/images/admin/bgtoblue.png) repeat-x bottom left; }
 #tabs {	height: 29px;}
-	#tabs a {color: #333;padding: 5px 8px 7px 8px; background: #ddd url(/images/admin/gray_on.png) repeat-x bottom left;
+	#tabs a {color: #fff;padding: 5px 8px 7px 8px; background: #ddd url(/images/admin/bgtoblue.png) repeat-x top left;
  		-moz-border-radius-topright: 3px; -moz-border-radius-topleft: 3px;
 		-khtml-border-radius-topright: 3px; -khtml-border-radius-topleft: 3px;
 		-webkit-border-radius-topright: 3px; -webkit-border-radius-topleft: 3px;
@@ -35,52 +35,13 @@ HEADER AND TABS style
 	}
 	#tabs li a:hover {background: #fff;color:#4B4B4B;}
 	#tabs li a.current {color: #000;background: #fff;}
-
-	#submenu {
-		background: #fff url(/images/admin/gray_off.png) repeat-x bottom left; 
-		border-bottom: 1px solid #D1D8DF;
-		margin:0;
-		padding:0.5em 1em 0 3em;
-		height: 30px;
-	}
-	#submenu ul {
-		margin: 0;
-		padding: 0;
-	}
-	#submenu li {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		display: inline;
-	}
-	#submenu a {
-		color: #fff;
-		text-decoration: none;
-		float: left;
-		font-size: 13px;
-		font-weight: normal;
-		padding: 3px 6px 4px 6px;
-		margin: 0 2px;
-		background: #94A5B9 url(/images/admin/bg_blu_2.png) no-repeat bottom left;
-		-moz-border-radius: 9px;
-		-khtml-border-radius: 9px;
-		-webkit-border-radius: 9px;
-		border-radius: 9px;
-		text-decoration:none;
-		border-right: 1px solid #ddd;
-		border-bottom: 1px solid #ddd;
-	}
-	#submenu li a:hover {
-		background: #AAB8C9 url(/images/admin/bg_blu_1.png) no-repeat bottom left;
-		text-decoration: none;
-	}
-	
  
 /*******************
 LEFT (MAIN) style
 *******************/
 #left{	background:#fff; }
-	#left .head {
+	 
+	.head {
 		color: #204ca0;
 		font-weight: normal;
 		background:transparent;
@@ -92,12 +53,10 @@ LEFT (MAIN) style
 		-khtml-border-radius: 4px;
 		-webkit-border-radius: 4px;
 		background:#F4F4F4;
-		padding:15px;
+		padding:10px;
 	}
 	#left label{
-  	float:left;
-	 
-	 
+  	float:left; 
 	}
 	div.clear {clear:both;}
 	#left .goback{float:left; margin-left:5px;margin-top:20px;}
@@ -114,7 +73,7 @@ LEFT (MAIN) style
 	#left .stateflag .concluido{background:#42921F; }
 	#left .stateflag .anulado{background:#FF0000;}
 	
-#right{padding: 0 0 1em 0; margin-left:1.5em;}
+#right{ padding: 0 0 1em 0; margin-left:1.5em;}
 	#right h2{background-color:#F1F1F1;	padding: 0.5em;
 		-moz-border-radius: 4px;
 		-khtml-border-radius: 4px;
@@ -279,21 +238,10 @@ table span {
 /*******************
 JQUERY TABLE SORTER style
 *******************/
-table.tablesorter {
-  background-color: #fff;
-	margin:10px 0pt 15px;
-	width: 100%;
-	text-align: left;
-}
-table.tablesorter thead{
-	background: #F4F4F4;  
-	-moz-border-radius: 5px;-webkit-border-radius: 3px; -khtml-border-radius: 3px;border-radius: 3px;
-	border: 1px solid #D6D6D6;
-}
-table.tablesorter thead tr th, table.tablesorter tfoot tr th {
-	background:transparent;
-	padding: 7px;
-}
+table.tablesorter { background-color: #fff;	margin:10px 0pt 15px;	width: 100%;text-align: left;}
+table.tablesorter thead{border-bottom: 1px solid #eee;}
+table.tablesorter a{text-decoration:none;}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {background:transparent;padding:7px 7px 7px 0;}
 table.tablesorter thead tr .header {
 	background-image: url("/images/admin/bg.gif");
 	background-repeat: no-repeat;
@@ -316,4 +264,164 @@ table.tablesorter thead tr .headerSortDown {
 }
 table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
 	background-color: #8dbdd8;
+} 
+
+ /* root element for tabs  */
+ul.tabs { 
+	list-style:none; 
+	margin:0 !important; 
+	padding:0;	
+	border-bottom:1px solid #D5D5D5;	
+	height:22px;
+	background-color:#AAAAAA;
+	padding:10px 7px 7px;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
 }
+
+/* single tab */
+ul.tabs li { 
+	float:left;	 
+	text-indent:0;
+	padding:0;
+	margin:0 !important;
+	list-style-image:none !important; 
+}
+
+/* link inside the tab. uses a background image */
+ul.tabs a { 
+	color:#ddd  !important;	 
+	text-decoration: none;
+	font-size: 11px;
+	margin:10px 5px;
+	padding:4px 10px;
+	background: #888888;
+	-moz-border-radius: 12px;
+	-khtml-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+}
+
+ul.tabs a:active {outline:none;}
+
+/* when mouse enters the tab move the background image */
+ul.tabs a:hover {	background:#787878;color:#fff !important;	}
+
+/* active tab uses a class name "current". it's highlight is also done by moving the background image. */
+ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
+	background:#494949;
+	cursor:default !important; 
+	color:#fff !important;
+}
+
+/* Different widths for tabs: use a class name: w1, w2, w3 or w2 */
+
+/* width 1 */
+ul.tabs a.s 			{ width:81px; }
+/* width 2 */
+ul.tabs a.l 			{ width:174px; }
+/* width 3 */
+ul.tabs a.xl 			{ width:248px; }
+
+/*.panes div{	background-color:red;}*/
+/* initially all panes are hidden */ 
+div.panes div.pane {
+	display:none;	 
+ 
+}
+/*div.panes div.space{
+  background:#fff;
+	padding:15px 10px;
+}*/
+
+/* Submenu
+ * ------------------------------------------------------------------------- */
+#submenu {
+	background: #fff url(/images/admin/gray_off.png) repeat-x bottom left; 
+	border-bottom: 1px solid #D1D8DF;
+	margin:0;
+	padding:0.5em 1em 0 3em;
+	height: 30px;
+}
+#submenu ul {
+	margin: 0;
+	padding: 0;
+}
+#submenu li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: inline;
+}
+
+#submenu a {
+	color: #fff; 
+	text-decoration: none;
+	float: left;
+	font-size: 13px;
+	font-weight: normal;
+	padding: 3px 6px 4px 6px;
+	margin: 0 2px;
+	background: #888888;
+	-moz-border-radius: 12px;
+	-khtml-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	text-decoration:none; 
+}
+#submenu li a:hover {
+	background:#3b3b3b;color:#fff !important;
+	text-decoration: none;
+}
+
+
+.file{
+}
+.zoom, .delete{
+font-size: 11px;color:#3b3b3b;
+}
+.zoom, .delete{
+	background: #fff url(/images/admin/gray_off.png) repeat-x bottom left; 
+	border: 1px solid #AFAFAF;
+	padding: 3px 6px 4px 6px;
+	margin-right:2px;
+/*	background: #888888;*/
+	-moz-border-radius: 12px;
+	-khtml-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+}
+
+.zoom a{
+	color: #fff; 
+	text-decoration:none;	
+}
+.message, .info, .notice, .warning, .error {
+        border: 1px solid;
+				margin:10px 0;
+				padding:10px 10px 10px 65px;
+        background-repeat: no-repeat;
+        background-position: 10px center;
+        font-size:1em;
+}
+.notice {
+        /* color: #4F8A10; */
+        border-color: #4F8A10;
+        background-color: #DFF2BF;
+        background-image:url('/images/icons/tick.png');
+}
+.warning {
+        /* color: #9F6000; */
+        border-color: #9F6000;
+        background-color: #FFFABF;
+        background-image: url('/images/icons/exclamation.png');
+}
+.error {
+        /* color: #D8000C; */
+        border-color: #D8000C;
+        background-color: #FFBABA;
+        background-image: url('/images/icons/cross.png');
+}
+#div_1:hover{background-color:#eee;}

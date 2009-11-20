@@ -1,20 +1,13 @@
 <% content_for :header do -%>
 	<%= @page.name %>
 <% end -%>
-<% content_for :meta_tags do -%>
-	<%= seo_meta_tags_helper(@page.name, @page.meta_description, @page.meta_keywords)%>
-<% end -%>
+
 <% content_for :sidebar do -%>
-	<%if !@page.children.empty? %>
-		<h2><%=t('activerecord.models.page').pluralize %></h2>
-		<ul>
-			<% for page in @page.children%>
-				<li><%= link_to page.name, pages_path(page.permalink)%></li>
-			<%end%>
-		</ul>
-	<%end%>
+ 
+	<%= render(:partial => 'page', :layout => 'side', :collection=>@page.children) unless @page.children.empty?%>
+
+	 
 	<p>
-		<%=t :hello %>
 		<%=t 'dashboard.sidebar' %>
 	</p>
 <% end -%>

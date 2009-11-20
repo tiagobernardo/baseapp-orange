@@ -1,11 +1,9 @@
 <ul>
-	<% for language in LANGUAGES %>
-		<li style="float: right;">	<%= link_to language[0], root_path(:locale => language[0]) %></li>
+	<% LANGUAGES.each do |language| %>
+	<li style="float: right;"><%= link_to language[0], root_path(:locale => language[0]) %></li>
 	<%end%>
-	
-	<li><%= tab_to "Dashboard", [{:controller => "dashboard" }] %></li>
-	
-	<% for page in Page.main_menu(params[:locale]) do %>
+	<li><%= tab_to "Home", [{:controller => :pages, :action=>:index }] %></li>
+	<% Page.main_menu_parent.first.children.each do |page| %>
 		<li><%= tab_to page.name, pages_path(:permalink=>page.permalink)  %></li>
 	<%end%>
 </ul>

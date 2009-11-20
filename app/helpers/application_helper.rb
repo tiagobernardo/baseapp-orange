@@ -97,5 +97,11 @@ module ApplicationHelper
 	  content = Content.find(:all, :conditions=>{:permalink=>permalink, :language=>locale})
     return content.first
 	end
-    
+  
+  def link_to_sort (title, column, options = {})
+    condition = options[:unless] if options.has_key?(:unless)
+    sort_dir = params[:dir] == 'up' ? 'down' : 'up'
+    arrow_dir =  params[:dir] == "down" ? "&#8595;" : "&#8593;" 
+    link_to_unless condition, title+arrow_dir, request.parameters.merge( {:order => column, :dir => sort_dir} )
+  end    
 end

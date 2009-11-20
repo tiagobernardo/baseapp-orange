@@ -1,0 +1,44 @@
+== Simplified Metatags
+
+Adding metatags never was so easy.
+
+== Example
+
+    ##
+    # app/views/layous/application.html.erb
+    #
+    
+    ...
+    <head>
+      <title>...</title>
+      <%= metatags %>
+    </head>
+    ...
+
+    ##
+    # app/controllers/application_controller.rb
+    #
+    class ApplicationController < ActionController::Base
+
+      add_meta_description "Another Rails Application"
+      add_meta_keywords "flowers, holidays, marseille"
+
+      def index
+      end
+
+    end
+
+    ##
+    # app/controllers/pages_controller.rb
+    #
+    class PagesController < ApplicationController
+
+      def show
+        @page = Page.find_by_permalink_and_status(params[:id], true)
+        add_meta_description @page.excerpt
+        add_meta_keywords @page.tags.join(", ")
+      end
+
+    end
+
+Copyright (c) 2008 Francesc Esplugas Marti, released under the MIT license

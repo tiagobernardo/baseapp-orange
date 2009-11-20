@@ -1,5 +1,5 @@
 <% content_for :header do -%>
-	 Notícias de <%= configatron.site_name %>
+	 Notícias
 <% end -%>
 
 <% content_for :sidebar do -%>
@@ -8,24 +8,17 @@
 	</p>
 <% end -%>
 
-<table class="index tablesorter" id="mytable">
-<thead>
-  <tr>
-	<th>ID</th>
-	<th>Nome</th>
-	<th>Estado</th>
-	<th>Linguagem</th>
-	<th>Data Criação</th>
-	<th>Acções</th>
-  </tr>
-</thead>
+<!-- this can be further refactored using partials and layouts -->
+<% render :layout => "/admin/shared/table_header" do %>
+	<th><%= link_to_sort News.human_attribute_name(:name), :name_pt %></th>
+	<th><%= link_to_sort News.human_attribute_name(:state), :state %></th>
+	<th><%= link_to_sort News.human_attribute_name(:created_at), :created_at %></th> 
+<% end %>
 <thbody>
-<% for news in @news %>
+<% @news.each do |news| %>
   <tr>
-	<td><%=h news.id %></td>
 	<td><%= link_to h(news.name), admin_newsclip_url(news) %></td>
 	<td><%= human_state h(news.state) %></td>
-	<td><%=h news.language %></td>
 	<td><%=h data_pt news.created_at %></td>
 	<td class="actions">
 		<%= link_to 'Editar', edit_admin_newsclip_path(news) %>	
@@ -34,8 +27,6 @@
   </tr>
 <% end %>
 </thbody>
-</table>
-<%= render :partial=>"/admin/shared/table_sorter_jquery"%>
-
+</table> 
 <%= will_paginate @news %>
 
