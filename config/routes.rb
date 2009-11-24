@@ -52,7 +52,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   # Dashboard as the default location
-  map.root :controller => 'pages', :action => 'index' 
+  map.root :controller => 'dashboard', :action => 'index' 
 
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'

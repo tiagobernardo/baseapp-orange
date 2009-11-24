@@ -1,6 +1,5 @@
 class AddTranslatableModels < ActiveRecord::Migration
   def self.up
-    drop_table :image11s 
     #gallery
     add_column :galleries, :name_pt, :string
     add_column :galleries, :name_en, :string

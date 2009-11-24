@@ -1,9 +1,13 @@
 <ul>
 	<% LANGUAGES.each do |language| %>
-	<li style="float: right;"><%= link_to language[0], root_path(:locale => language[0]) %></li>
+	<li style="float: right;"><%= link_to language[0], "/dashboard/change_language/#{language[0]}" %></li>
 	<%end%>
 	<li><%= tab_to "Home", [{:controller => :pages, :action=>:index }] %></li>
-	<% Page.main_menu_parent.first.children.each do |page| %>
-		<li><%= tab_to page.name,  page.url||pages_path(:permalink=>page.permalink)  %></li>
+	<% if Page.main_menu_parent.first %>
+		<% Page.main_menu_parent.first.children.each do |page| %>
+			<li><%= tab_to page.name,  page.url||pages_path(:permalink=>page.permalink)  %></li>
+		<%end%>
+	<%else%>
+		<li><a href="/admin">Adiciona umas páginas ao menu</a></li>
 	<%end%>
 </ul>
