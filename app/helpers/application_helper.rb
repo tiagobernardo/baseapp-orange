@@ -66,36 +66,26 @@ module ApplicationHelper
   def flash_message
     messages = ""
     [:notice, :info, :warning, :error].each do|type|
-      if flash[type]
-        messages= "<div id=\"#{type}\">#{flash[type]}</div>"
-      end
+      messages= "<div id=\"#{type}\">#{flash[type]}</div>" if flash[type]
     end
     messages
   end
   
   def data_pt(date)
-    if !date.nil?
-      return "#{date.strftime("%d/%m/%Y")}"
-    else
-      return ""
-    end
+    "#{date.strftime("%d/%m/%Y")}" unless date.nil?
   end
   
   def human_state(state="")
-    if state=="active"
+    case state when "active"
       "<span class='green'>#{state}</span>"
     else
       "<span class='red'>#{state}</span>"
     end
   end
-    
-  def seo_meta_tags_helper(title="", meta_description=configatron.meta_description,meta_keywords=configatron.meta_keywords)
-    render :partial=>"/shared/meta_tags", :locals=>{:description=>meta_description, :keywords=>meta_keywords, :title=>title} 
-  end
-	
+     
 	def show_content_helper(permalink, locale='pt')
 	  content = Content.find(:all, :conditions=>{:permalink=>permalink, :language=>locale})
-    return content.first
+    content.first
 	end
   
   def link_to_sort (title, column, options = {})
