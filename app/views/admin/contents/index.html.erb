@@ -1,30 +1,27 @@
 <% content_for :header do -%>
-	<%= configatron.site_name %> Conteúdos
+	 Textos
 <% end -%>
 
 <% content_for :sidebar do -%>
 	<p class="cssbutton">
-		<%= link_to '<span>Novo Conteúdo</span>', new_admin_content_path %>
+		<%= link_to '<span>Novo Content</span>', new_admin_content_path %>
 	</p>
+	<%= render :partial=>'help' %>
 <% end -%>
 
-<table class="index tablesorter" id="mytable">
-<thead>
-  <tr>
-	<th>ID</th>
-	<th>Nome</th>
-	<th>Linguagem</th>
-	<th>Data Criação</th>
-	<th>Accções</th>
-  </tr>
-</thead>
+<% render :layout => "/admin/shared/table_header" do %>
+	<th><%= link_to_sort(Content.human_attribute_name(:name_pt), :name_pt) %></th>
+	<th><%= link_to_sort(Content.human_attribute_name(:permalink), :permalink) %></th>
+	<th><%= link_to_sort(Content.human_attribute_name(:state), :state) %></th>
+	<th><%= link_to_sort(Content.human_attribute_name(:created_at), :created_at) %></th>
+<% end %>
 <thbody>
-<% for content in @contents %>
+<% @contents.each do |content| %>
   <tr>
-	<td><%=h content.id %></td>
-	<td><%= link_to h(content.name), admin_content_url(content) %></td>
-	<td><%=h content.language %></td>
-	<td><%=h data_pt content.created_at %></td>
+	<td><%= content.name_pt %></td>
+	<td><%= content.permalink %></td>
+	<td><%= human_state content.state %></td>
+	<td><%= data_pt content.created_at %></td>
 	<td class="actions">
 		<%= link_to 'Editar', edit_admin_content_path(content) %>
 		<%= link_to 'Apagar', admin_content_url(content), :method => :delete, :confirm => "Tem a certeza?" %>		
@@ -32,8 +29,5 @@
   </tr>
 <% end %>
 </thbody>
-</table>
-<%= render :partial=>"/admin/shared/table_sorter_jquery"%>
-
+</table> 
 <%= will_paginate @contents %>
-

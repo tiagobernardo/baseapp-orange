@@ -1,7 +1,7 @@
 <% content_for :header do -%>
-	<%= configatron.site_name %> Páginas
+	Páginas
 <% end -%>
-
+<%= render :partial=>'/admin/shared/tabs_pages'%>
 <% content_for :sidebar do -%>
 	<p class="cssbutton">
 		<%= link_to '<span>Nova Página</span>', new_admin_page_path %>

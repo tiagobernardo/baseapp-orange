@@ -1,21 +1,10 @@
-class Admin::PagesController < InheritedResources::Base
-  
-  layout 'admin'
-  respond_to :html, :xml
-  require_role :admin
-  defaults :route_prefix=>'admin'
-  
+class Admin::PagesController < Admin::AdminController
+   
   def new
-    @page = Page.new
-     @page.language = "pt"
-     @page.state ="active"
-     new!
+    @page = Page.new(:state=>'active')
+    new!
   end
-  
-  def language
-    @pages = Page.find(:all, :conditions=>{:language=>params[:language]})
-  end
-
+    
   def order
     @page = Page.find(params[:id])
     @pages = @page.children
@@ -58,6 +47,6 @@ class Admin::PagesController < InheritedResources::Base
    
   protected 
     def collection
-      @pages =  @pages = Page.roots
+      @pages = Page.roots
     end 
 end

@@ -3,12 +3,14 @@
 	<li style="float: right;"><%= tab_to "Definições", [{:controller => "admin/settings"}] %></li>
 	<% end %>
 	
-	<li><%= tab_to "<img src='/images/icons/house.png' alt='icon' class='icon'/> Dashboard", [{:controller => "admin/dashboard"}] %></li>
+	<li><%= tab_to "<img src='/images/icons/house.png' alt='icon' class='icon'/> Geral", [{:controller => "admin/dashboard"}] %></li>
 	<li><%= tab_to "<img src='/images/icons/layout.png' alt='icon' class='icon'/> Páginas", [{:controller => "admin/pages"}] %></li>
 	<li><%= tab_to "<img src='/images/icons/calendar.png' alt='icon' class='icon'/> Notícias", [{:controller => "admin/news"}] %></li>
-	<li><%= tab_to "<img src='/images/icons/application_view_tile.png' alt='icon' class='icon'/> Galeria de Imagens", [{:controller => "admin/galleries"}] %></li>
+ 
 	
-	<li  style="float: right;"><%= tab_to "<img src='/images/icons/house.png' alt='icon' class='icon'/> Temas", [{:controller => "admin/themes"}] %></li>	
-	<li style="float: right;"><%= tab_to "<img src='/images/icons/script.png' alt='icon' class='icon'/> Conteúdos", [{:controller => "admin/contents"}] %></li>
+
 	<li style="float: right;"><%= tab_to "<img src='/images/icons/user_orange.png' alt='icon'  class='icon'/> Utilizadores", [{:controller => "admin/users"}] %></li>
+	<li  style="float: right;"><%= tab_to "<img src='/images/icons/house.png' alt='icon' class='icon'/> Temas", [{:controller => "admin/themes"}] %></li>	 
+	<li style="float: right;"><%= tab_to "<img src='/images/icons/application_view_tile.png' alt='icon' class='icon'/> Recursos", [{:controller => "admin/pictures"}] %></li>
+
 </ul>

@@ -1,4 +1,4 @@
-class Admin::SettingsController < ApplicationController
+class Admin::SettingsController < Admin::AdminController
   require_role :admin
   layout 'admin'
   

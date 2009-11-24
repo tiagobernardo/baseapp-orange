@@ -1,5 +1,5 @@
 <% content_for :header do -%>
-	Criar uma novo conteúdo para <%= configatron.site_name %>
+	Criar um Texto 
 <% end -%>
 
 <% content_for :sidebar do -%>
@@ -8,11 +8,11 @@
 
 <%= error_messages_for :content %>
 
-<% form_for :content, :url => admin_contents_path do |f| -%>
+<% form_for :content, :url => admin_contents_path, :html => { :multipart => true } do |f| -%>
+
 	<%= render :partial=> "form", :locals=>{:f=>f}%>
-	
-	<span class="roundbutton"><input type="image" src="<%= t('button.create')%>" name="image" width="144" height="47"/></span> <span class="goback"><%= link_to t('go_back'), admin_contents_path %></span>
-	<div class="clear"></div>
+ 
+	<span class="roundbutton"><input type="image" src="<%= t('button.create') %>" name="image" width="144" height="47"/></span> <span class="goback"><%= link_to t('go_back'), admin_contents_path %></span>
+	<div class="clear"></div>	
 <% end -%>
  
-

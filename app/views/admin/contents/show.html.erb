@@ -1,5 +1,5 @@
 <% content_for :header do -%>
-	Ver conteúdos para <%= configatron.site_name %>
+	Ver Texto 
 <% end -%>
 
 <% content_for :sidebar do -%>
@@ -9,17 +9,19 @@
 <table class="overview">
 	<%= cell "ID", h(@content.id) %>
 	<%= cell_separator %>
-
-	<%= cell "Nome", h(@content.name) %>
-	<%= cell "Permalink", h(@content.permalink) %>
-	<%= cell "Corpo do Conteúdo", h(@content.body) %>
+ 
+	<%= cell "Link Permanente", h(@content.permalink) %> 
+	<%= cell "Estado", human_state(@content.state) %>  
+	<%= cell "Nome pt", h(@content.name_pt) %> 
+	<%= cell "Nome en", h(@content.name_en) %> 
+	<%= cell "Corpo pt", @content.body_pt %> 
+	<%= cell "Corpo en", @content.body_en %> 
 
 	<%= cell_separator %>
 	
 	<%= cell "Data de criação", data_pt(@content.created_at ) %>
 	<%= cell "Última actualização", data_pt(@content.updated_at ) %>
-
 </table>
 
-<%= link_to 'Editar', edit_admin_content_path(@content) %> | <%= link_to 'Voltar ', admin_contents_path %>
+<%= link_to 'Editar', edit_admin_content_path(@content) %> | <%= link_to t('go_back'), admin_contents_path %>
 

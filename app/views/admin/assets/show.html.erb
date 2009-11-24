@@ -1,0 +1,31 @@
+<% content_for :header do -%>
+	Ver Asset 
+<% end -%>
+
+<% content_for :sidebar do -%>
+	<%= render :partial => 'help' %>
+<% end -%>
+
+<table class="overview">
+	<%= cell "ID", h(@asset.id) %>
+	<%= cell_separator %>
+
+	<%= cell "Nome", h(@id) %> 
+	<%= cell "Nome", h(@data_file_name) %> 
+	<%= cell "Nome", h(@data_content_type) %> 
+	<%= cell "Nome", h(@data_file_size) %> 
+	<%= cell "Nome", h(@assetable_id) %> 
+	<%= cell "Nome", h(@assetable_type) %> 
+	<%= cell "Nome", h(@type) %> 
+	<%= cell "Nome", h(@user_id) %> 
+	<%= cell "Nome", h(@created_at) %> 
+	<%= cell "Nome", h(@updated_at) %> 
+
+	<%= cell_separator %>
+	
+	<%= cell "Data de criação", data_pt(@asset.created_at ) %>
+	<%= cell "Última actualização", data_pt(@asset.updated_at ) %>
+</table>
+
+<%= link_to 'Editar', edit_admin_asset_path(@asset) %> | <%= link_to t('go_back'), admin_assets_path %>
+

@@ -1,12 +1,21 @@
-
-
+<%% render :layout => "/admin/shared/tabbed_form", :locals=>{:tabs=>['Geral']} do %>
+<div>
 <% file_name.capitalize.camelize.constantize.columns.reject do |attribute| -%>
-  <p>
-    <%%= f.label :<%= attribute.name.to_s %> %> 
-    <%%= f.<%= attribute.field_type %> :<%= attribute.name.to_s %> %>
-  </p>
+	<p>
+    <%%= f.label :<%= attribute.name.to_s %> -%> 
+    <% case attribute.type.to_s when 'datetime' -%>
+	<%%= datetime_select(@<%= file_name.downcase%>, :<%= attribute.name.to_s %>)  -%>
+	<% when 'text' -%>
+	<%%= f.text_area :<%= attribute.name.to_s %> -%>
+	<% else -%>
+	<%%= f.text_field :<%= attribute.name.to_s %> -%>
+	<%end-%>
+	</p>
 <%- end -%>
- 
-
-<%%= render :partial=> "/admin/shared/seo_fields", :locals=>{:f=>f} %>
-
+</div> 
+<!--
+<div>
+ render :partial=> "/admin/shared/seo_fields", :locals=>{:f=>f} 
+</div>
+-->
+<%%end%>

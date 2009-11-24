@@ -24,6 +24,9 @@
     <h1><%= configatron.site_name %></h1>
     <div id="tabs"><%= render :partial => 'admin/shared/tabs' %></div>
   </div>
+  <div id="submenu">
+  	<%= yield(:submenu)%>
+  </div>
   <div id="main">
     <div class="center">
 		<h2 class="head"><%= yield_or_default yield(:header), "Use 'content_for :header do; end' in your view to set this title" %></h2>

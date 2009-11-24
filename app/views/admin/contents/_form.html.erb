@@ -1,27 +1,24 @@
- 
-<p><label for="name">Nome</label> 
-<%= f.text_field :name %></p>
+<% render :layout => "/admin/shared/tabbed_form", :locals=>{:tabs=>['Geral']} do %>
+<div>
+	<p><%= f.label :name %> <%= f.text_field :name_pt %></p>
+	<p><%= f.label :permalink %> <%= f.text_field :permalink %></p>
+	<p><%= f.cktext_area :body_pt,  :width=>'95%'  %></p>
 
-<p><label for="permalink">Permalink</label> 
-<%= f.text_field :permalink %> <small>(será gerado automáticamente)</small></p>
-
-<p><label for="body">Corpo da página</label> 
-<%= f.tinymce :body %></p>
-</p>
-  
-
-<ol class="on_off_lang">
-   <li>
-     <p><label class="left" for="language">Idioma</label>
-     <%= f.check_box(:language, LANGUAGES,'pt','en' ) %>
-	 </p>
-   </li>
-</ol> 
- 
-
-<script type="text/javascript" charset="utf-8">
- $(document).ready(function() {
- 	$('.on_off_lang :checkbox').iphoneStyle({ checkedLabel: 'pt', uncheckedLabel: 'en' });
- 
- });
+	<ol class="on_off_state">
+   		<li>
+    		<p><label class="left" for="state">Estado</label>
+     		<%= f.check_box(:state, STATES,'active','draft' ) %>
+			</p>
+   		</li>
+	</ol> 
+</div>
+<div>
+	<p><%= f.label :name %>	<%= f.text_field :name_en %></p>
+	<p><%= f.cktext_area :body_en, :width=>'95%' %></p>
+</div>
+<%end%>
+<script type="text/javascript">
+	$(window).bind('load', function() {
+     	$('.on_off_state :checkbox').iphoneStyle({ checkedLabel: 'Activo', uncheckedLabel: 'Draft' });
+	});
 </script>

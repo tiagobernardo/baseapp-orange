@@ -1,14 +1,8 @@
-class Admin::ThemesController < InheritedResources::Base
-
-  layout 'admin'
-  respond_to :html, :xml
-  require_role :admin
-  defaults :route_prefix=>'admin'
-  
+class Admin::ThemesController < Admin::AdminController
+    
   def new
-     @content = Content.new
-     #@content.language = "pt"
-     new!
+    @theme = Theme.new
+    new!
   end
   
   def create
@@ -21,6 +15,6 @@ class Admin::ThemesController < InheritedResources::Base
 
   protected 
     def collection
-      @themes = Theme.paginate :all, :page => params[:page]
+       @themes ||= end_of_association_chain.paginate(:all, :page => params[:page], :order=>sort_order('created_at'))
     end
 end

@@ -19,26 +19,24 @@ ActionController::Routing::Routes.draw do |map|
 
   map.pages '/pages/:permalink',      :controller=>"pages", :action=>"show" 
   map.news  '/news/:permalink',       :controller=>"news",  :action=>"show" 
-  map.news_archive '/news/archive',   :controller=>"news",  :action=>"archive" 
+  map.news_all '/news',   :controller=>"news",  :action=>"index" 
   
   map.resources :users, :member => { :edit_password => :get,
                                      :update_password => :put,
                                      :edit_email => :get,
                                      :update_email => :put,
                                      :edit_avatar => :get, 
-                                     :update_avatar => :put }
-                                     
-                             
+                                     :update_avatar => :put }  
   map.resource :session
   map.resources :profiles
-  
-  
+   
   # Administration
   map.namespace(:admin) do |admin|
     admin.root :controller => 'dashboard', :action => 'index'
+    admin.resources :attachment_files
+    admin.resources :pictures
     admin.resources :settings
     admin.resources :contents
-    admin.resources :galleries, :has_many => [:images]
     admin.resources :themes
     admin.resources :pages, :collection => { :order => :get, :sort => :put }
     admin.resources :news, :singular => 'newsclip' 

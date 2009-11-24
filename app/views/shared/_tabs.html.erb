@@ -4,6 +4,6 @@
 	<%end%>
 	<li><%= tab_to "Home", [{:controller => :pages, :action=>:index }] %></li>
 	<% Page.main_menu_parent.first.children.each do |page| %>
-		<li><%= tab_to page.name, pages_path(:permalink=>page.permalink)  %></li>
+		<li><%= tab_to page.name,  page.url||pages_path(:permalink=>page.permalink)  %></li>
 	<%end%>
 </ul>

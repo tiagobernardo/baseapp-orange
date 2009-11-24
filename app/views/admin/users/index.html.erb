@@ -20,20 +20,25 @@
 <table class="index tablesorter" id="mytable">
 <thead>
   <tr class="tablehead">
-	<th>ID</th>
-	<th>Login</th>
-	<th>E-mail</th>
-	<th>Estado</th>
+	<th><%= link_to_sort User.human_attribute_name(:id), :id %></th>
+	<th><%= link_to_sort User.human_attribute_name(:login), :login %></th>
+	<th><%= link_to_sort User.human_attribute_name(:email), :email %></th>
+	<th><%= link_to_sort User.human_attribute_name(:state), :state %></th>
+	<th><%= link_to_sort User.human_attribute_name(:activated_at), :activated_at %></th>
+	<th><%= link_to_sort User.human_attribute_name(:created_at), :created_at %></th>
   </tr>
 </thead>
 <thbody>
 <% # TODO: (base_app) Add some sort of search feature to easily find users %>
 <% for user in @users %>
   <tr>
-	<td><%=h user.id %></td>
+	<td><%= user.id %></td>
 	<td><%= link_to h(user.login), admin_user_url(user) %></td>
-	<td><%=h user.email %></td>
-	<td><%=h user.state %></td>
+	<td><%= h user.email %></td>
+	<td><%= human_state user.state %></td>
+	<td><%= data_pt user.activated_at %></td>
+	<td><%= data_pt user.created_at %></td>
+	
     <td class="actions">
 		<% if user.pending? %>
 			<%= link_to 'Activar', activate_admin_user_url(user), :method => :put %>
@@ -54,8 +59,7 @@
   </tr>
 <% end %>
 </thbody>
-</table>
-<%= render :partial=>"/admin/shared/table_sorter_jquery"%>
+</table> 
 
 <%= will_paginate @users %>
 

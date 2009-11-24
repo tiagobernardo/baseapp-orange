@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091120173102) do
+ActiveRecord::Schema.define(:version => 20091124124105) do
 
   create_table "assets", :force => true do |t|
     t.string   "data_file_name"
@@ -29,41 +29,13 @@ ActiveRecord::Schema.define(:version => 20091120173102) do
 
   create_table "contents", :force => true do |t|
     t.string   "permalink"
-    t.text     "body"
     t.string   "state"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "language"
-    t.string   "name_pt"
-    t.string   "name_en"
-    t.text     "body_pt"
-    t.text     "body_en"
-  end
-
-  create_table "galleries", :force => true do |t|
-    t.string   "permalink"
-    t.string   "state"
-    t.string   "language"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name_pt"
     t.string   "name_en"
     t.text     "body_pt"
     t.text     "body_en"
-  end
-
-  create_table "images", :force => true do |t|
-    t.string   "name"
-    t.string   "permalink"
-    t.text     "description"
-    t.integer  "image_file_size"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.datetime "image_updated_at"
-    t.string   "state"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "gallery_id"
   end
 
   create_table "news", :force => true do |t|
@@ -151,6 +123,7 @@ ActiveRecord::Schema.define(:version => 20091120173102) do
     t.string   "language"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "controller"
   end
 
   create_table "users", :force => true do |t|

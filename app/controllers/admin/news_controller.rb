@@ -1,11 +1,8 @@
-class Admin::NewsController < InheritedResources::Base
-  layout 'admin'
-  require_role :admin
-  defaults :route_prefix=>'admin'
+class Admin::NewsController <  Admin::AdminController
   
   def new
-     @news = News.new(:state=>'active')
-     new!
+    @news = News.new(:state=>'active')
+    new!
   end
    
   def create
@@ -14,9 +11,7 @@ class Admin::NewsController < InheritedResources::Base
    
   def update
     update!{ admin_news_url }
-  end
-
-  protected 
+  end 
   
   protected 
     def collection

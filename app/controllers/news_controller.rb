@@ -1,10 +1,10 @@
 class NewsController < ApplicationController
 
   def index
-    @news = News.paginate(:all,  :conditions=>{:state=>"active", :language=>params[:locale]},:page=>params[:page], :order=>"created_at desc")
+    @news = News.active.paginate(:all,:page=>params[:page])
   end
   
   def show
-    @news = News.find(:first, :conditions=>{:state=>"active", :permalink=>params[:permalink]})
+    @news = News.active.by_permalink(params[:permalink]).first
   end
 end

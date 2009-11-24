@@ -12,8 +12,7 @@
   <tr>
 	<th>ID</th>
 	<th>Nome</th>
-	<th>Estado</th>
-	<th>Idioma</th>
+	<th>Estado</th> 
 	<th>Data Criação</th>
   </tr>
 </thead>
@@ -22,8 +21,7 @@
   <tr id="<%=page.id%>">
 	<td><%= page.id%></td>
 	<td><%= link_to h(page.name), admin_page_url(page) %></td>
-	<td><%= human_state h(page.state) %></td>
-	<td><%= h page.language %></td>
+	<td><%= human_state h(page.state) %></td> 
 	<td><%= h data_pt page.created_at %></td>
 	<td class="dragHandle"><img src='/images/icons/arrow_out.png' alt='icon' class='icon'/> Mover</td>
 	<td class="actions">

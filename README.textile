@@ -1,4 +1,4 @@
-h1. Welcome to BaseApp-Orange v3
+h1. Welcome to BaseApp-Orange v4
 
 *PT*
 
@@ -7,45 +7,86 @@ Em vez de repetir o mesmo trabalho, porque não criar uma base?
 
 Mais info em http://reinventar.com/2009/03/baseapp-orange/
 
-
-* ADMIN: *
+*ADMIN:*
 * username: admin
 * pass: 'yippeekayea'
+
+*Update V4*
+
+* Removido muito código
+* Código comum a controllers no admin foi posto em app/controllers/admin_controller.rb, os outros herdam deste.
+* Código comum a models foi posto em lib/common_oranges_for_models.rb
+* Integração do CKEditor com Paperclip
+* Integração com o translatable_columns para gerir campos dos models em pt/en
+* Melhor uso do inherited_resources
+* Galeria de Imagens removida
+* Adicionei últimas traduções para rails 2.3.4 no ficheiro config/locales/pt.yml
+* Adicionada uma tab no admin para Temas, de forma a associar uma página a um controller. ex: /news irá tratar da apresentação das notícias.
+* Melhorado o generator do backoffice, para usar: 
+** cria o model: script/generate model Topic title_en:string title_nl:string title_de:string title_fr:string
+** corre a migração: rake db:migrate
+** adiciona o caminho á route:  admin.resources :topics
+** usa o generator: script/generate adminator topic
+
+
+*TODO*
+* Suporte total i18n (backoffice e frontend)
+* Incluir Testes com RSPEC para os models
+* Ler configuração para o menu do backoffice de um fich yml ou bd
+* Form generator no backoffice
+* Integração com google analytics
+* Passar todo o código para um Template Rails
+* Mais generators
+** para relações one to many e many to many
+** para diferentes tipos (com ordenação, por exemplo)
 
 
 Principais diferenças do BaseApp Original:
 * Traduzido para PT (íncluindo i18n locale)
 * Páginas e sub-páginas que podem ser ordenadas 
 * Notícias
-* Snippets
+* Textos
+* Integração i18n
 * Campos para meta tags (descrição, keywords e permalink)
-* Tema para admin com (with famfamfam icons)
+* Tema para admin com (com icons famfamfam e diagona)
 * Usa Rails 2.3.4
 ** Iphone Checkboxes http://awardwinningfjords.com/2009/06/16/iphone-style-checkboxes.html
 
 * Plugins íncluidos
 ** Jrails para suporte JQuery (remover se preferir Prototype)
-** TinyMCE para editar páginas com html
+** CKEditor para editar páginas com html
 ** Will Paginate
 ** Paperclip para upload de ficheiros
-** Acts as taggable para tags
 ** RSPEC para testes
 ** OpenID
 ** Permalink_fu para criar links bonitos (SEO)
 ** Bundle_fu para comprimir ficheiros javascript e css num só.
 ** Inherited_resources para reduzir código em controllers REST
-** Admin generator para facilitar a criação de páginas no admin
-** NewRelic RPM gem
-
-* TODO *
-* Suporte total i18n
-* Incluir Testes com RSPEC para os models
+** Generator adminator para facilitar a criação de páginas no admin
+ 
 
 
-*EN*
+*EN VERSION*
 Before you start. This is a fork from BaseApp in attempt to make it a more suitable backoffice and structure for my own projects but it might have something you like, so why not contribute?
 
 More info at http://reinventar.com/2009/03/baseapp-orange/
+
+
+*Update V4*
+
+* Cleaned up code
+* Common controller code lives in app/controllers/admin_controller.rb 
+* Common model code lives in lib/common_oranges_for_models.rb
+* Integrated with CKEditor and Paperclip
+* Integrated with translatable_columns
+* Better use of inherited_resources
+* Added themes, a quick way to associate a page with a given controller, ex: /news handles news
+* Improved adminator generator: 
+** create a model: script/generate model Topic title_en:string title_nl:string title_de:string title_fr:string
+** run the migration: rake db:migrate
+** add the route:  admin.resources :topics
+** run the generator: script/generate adminator topic
+
 
 Main diferences from BaseApp:
 * Pages, sub-pages and expand/colapse rows in the admin
@@ -54,7 +95,7 @@ Main diferences from BaseApp:
 * Snippets
 * Fields for meta description, keywords, and permalink
 * Fully translated to portuguese (also included i18n locale)
-* Pretty admin theme (with famfamfam icons)
+* Pretty admin theme (with diagona and famfamfam icons)
 ** Iphone Checkboxes http://awardwinningfjords.com/2009/06/16/iphone-style-checkboxes.html
 
 * Other plugins included
@@ -70,8 +111,7 @@ Main diferences from BaseApp:
 ** Bundle_fu to compress several js and css files into one 
 ** Inherited_resources to reduce code in REST controllers
 ** Admin generator to create admin pages and code
-** NewRelic RPM gem
-
+ 
 * TODO *
 * Full i18n support with multi-languages for frontend && backoffice
 * Frontend implementation of pages, snippets and languages

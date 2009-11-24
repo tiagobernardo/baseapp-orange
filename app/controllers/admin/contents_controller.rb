@@ -1,13 +1,8 @@
-class Admin::ContentsController < InheritedResources::Base
-  layout 'admin'
-  respond_to :html, :xml
-  require_role :admin
-  defaults :route_prefix=>'admin'
-  
+class Admin::ContentsController < Admin::AdminController
+    
   def new
-     @content = Content.new
-     @content.language = "pt"
-     new!
+    @content = Content.new
+    new!
   end
   
   def create
@@ -20,6 +15,6 @@ class Admin::ContentsController < InheritedResources::Base
 
   protected 
     def collection
-      @contents =  Content.paginate :all, :page => params[:page]
+       @contents ||= end_of_association_chain.paginate(:all, :page => params[:page], :order=>sort_order('created_at'))
     end
 end

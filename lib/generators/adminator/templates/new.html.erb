@@ -1,5 +1,5 @@
 <%% content_for :header do -%>
-	Criar um <%= file_name.capitalize -%> para <%%= configatron.site_name %>
+	Criar um <%= file_name.capitalize -%> 
 <%% end -%>
 
 <%% content_for :sidebar do -%>
@@ -9,11 +9,10 @@
 <%%= error_messages_for :<%= file_name -%> %>
 
 <%% form_for :<%= file_name -%>, :url => admin_<%= file_name.pluralize -%>_path, :html => { :multipart => true } do |f| -%>
+
 	<%%= render :partial=> "form", :locals=>{:f=>f}%>
  
-	
 	<span class="roundbutton"><input type="image" src="<%%= t('button.create') %>" name="image" width="144" height="47"/></span> <span class="goback"><%%= link_to t('go_back'), admin_<%= file_name.pluralize -%>_path %></span>
-	<div class="clear"></div>
-	
+	<div class="clear"></div>	
 <%% end -%>
  

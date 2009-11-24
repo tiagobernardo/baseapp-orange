@@ -1,9 +1,9 @@
 <h2><%= t("news.recent_title")%></h2>
 <ul>
-	<% for news in News.recent(params[:locale]) %>
+	<% for news in News.recent(3) %>
 		<li><%= link_to news.name, news_path(news.permalink)%></li>
 	<%end%>
 </ul>
 <p>
-	<%= link_to t("news.see_archive"), news_archive_path(:locale=>params[:locale]) %>
+	<%= link_to t("news.see_archive"), news_all_path %>
 </p>

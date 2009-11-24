@@ -13,8 +13,7 @@ class AdminatorGenerator < Rails::Generator::NamedBase
      m.template "edit.html.erb",  "app/views/admin/#{file_name.pluralize}/edit.html.erb"
      m.template "index.html.erb", "app/views/admin/#{file_name.pluralize}/index.html.erb"
      m.template "new.html.erb",   "app/views/admin/#{file_name.pluralize}/new.html.erb"
-     m.template "show.html.erb",  "app/views/admin/#{file_name.pluralize}/show.html.erb"
-   
+     m.template "show.html.erb",  "app/views/admin/#{file_name.pluralize}/show.html.erb" 
     end
   end
 end

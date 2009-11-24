@@ -5,16 +5,11 @@ class ApplicationController < ActionController::Base
   include RoleRequirementSystem
   
   helper :all # include all helpers, all the time
-  filter_parameter_logging :password, :password_confirmation
-  
-  # Return the value for a given setting
-  def s(identifier)
-    Setting.get(identifier)
-  end
   helper_method :s 
-  before_filter :set_locale
-
-  def set_locale
+  filter_parameter_logging :password, :password_confirmation
+  before_filter :set_locale_and_keywords
+  
+  def set_locale_and_keywords
     #change this to search the locale on subdomain, on cookie or whatever you like
     if !session[:locale].nil? 
       I18n.locale = session[:locale].to_s  
@@ -24,12 +19,20 @@ class ApplicationController < ActionController::Base
       session[:locale] = I18n.default_locale.to_s
       I18n.locale= I18n.default_locale.to_s
     end
+    
+    @page_description = configatron.meta_keywords
+    @page_keywords = configatron.meta_keywords
   end
   
+  # Return the value for a given setting
+  def s(identifier)
+    Setting.get(identifier)
+  end
+
+  #used for sorting in backoffice
   def sort_order(default)
     "#{(params[:order] || default.to_s).gsub(/[\s;'\"]/,'')} #{params[:dir] == 'down' ? 'DESC' : 'ASC'}"
   end
-
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store

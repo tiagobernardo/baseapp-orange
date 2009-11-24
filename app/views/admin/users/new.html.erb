@@ -1,5 +1,5 @@
 <% content_for :header do -%>
-Create a new <%= configatron.site_name %> account
+Criar uma nova conta no <%= configatron.site_name %>
 <% end -%>
 
 <% content_for :sidebar do -%>
@@ -17,16 +17,16 @@ Create a new <%= configatron.site_name %> account
 <%= error_messages_for :user %>
 
 <% form_for :user, :url => admin_users_path do |f| -%>
-<p><label for="login">Login</label><br/>
+<p><label for="login">Login</label>
 <%= f.text_field :login %></p>
 
-<p><label for="email">Email</label><br/>
+<p><label for="email">Email</label>
 <%= f.text_field :email %></p>
 
-<p><label for="password">Password</label><br/>
+<p><label for="password">Password</label>
 <%= f.password_field :password %></p>
 
-<p><label for="password_confirmation">Confirm Password</label><br/>
+<p><label for="password_confirmation">Confirmar Pass</label>
 <%= f.password_field :password_confirmation %></p>
 
 <span class="roundbutton"><input type="image" src="<%= t('button.create')%>" name="image" width="144" height="47"/></span> <span class="goback"><%= link_to t('go_back'), admin_users_path %></span>

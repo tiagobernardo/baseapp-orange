@@ -4,7 +4,7 @@ class News < ActiveRecord::Base
   validates_presence_of :name, :lead, :body
   translatable_columns :name, :lead, :body
   
-  named_scope :recent, lambda { |locale| {:conditions => ["state = 'active' and language =?",locale], :order => 'created_at desc', :limit=>3}}
+  named_scope :recent, lambda { |limit| {:order => 'created_at desc', :limit=>limit}}
   
  
 end

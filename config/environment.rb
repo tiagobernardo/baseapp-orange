@@ -14,13 +14,13 @@ Rails::Initializer.run do |config|
   # Gems
   config.gem "capistrano-ext", :lib => "capistrano"
   config.gem "configatron"
-  config.gem "mbleigh-acts-as-taggable-on", :source => "http://gems.github.com", :lib => "acts-as-taggable-on"
   config.gem 'rspec', :lib => false
   config.gem 'rspec-rails', :lib => false
-  config.gem 'mislav-will_paginate', :version => '~> 2.3.7', :lib => 'will_paginate',   :source => 'http://gems.github.com'
   config.gem 'rack', :version => '>= 1.0.0' 
-  config.gem "newrelic_rpm"
-  
+  config.gem 'mislav-will_paginate', :version => '~> 2.3.7', :lib => 'will_paginate',   :source => 'http://gems.github.com'
+  config.gem 'meta-tags', :lib => 'meta_tags', :source => 'http://gemcutter.org'
+  config.gem 'paperclip', :source => 'http://gemcutter.org'
+  config.gem 'josevalim-inherited_resources', :lib => 'inherited_resources'
   
   # Make Time.zone default to the specified zone, and make Active Record store time values
   # in the database in UTC, and return them converted to the specified local zone.

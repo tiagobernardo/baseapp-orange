@@ -1,13 +1,7 @@
-class Admin::<%=file_name.pluralize.capitalize%>Controller < ApplicationController
-  inherit_resources
-  layout 'admin'
-  respond_to :html, :xml
-  require_role :admin
-  defaults :route_prefix=>'admin'
-
+class Admin::<%=file_name.pluralize.capitalize%>Controller < Admin::AdminController
+    
   def new
     @<%= file_name -%> = <%= file_name.capitalize -%>.new
-    @<%= file_name -%>.language = "pt"
     new!
   end
   
@@ -21,6 +15,6 @@ class Admin::<%=file_name.pluralize.capitalize%>Controller < ApplicationControll
 
   protected 
     def collection
-       @<%= file_name.pluralize -%> = <%= file_name.capitalize -%>.paginate :all, :page => params[:page], :order=>'created_at desc'
+       @<%= file_name.pluralize -%> ||= end_of_association_chain.paginate(:all, :page => params[:page], :order=>sort_order('created_at'))
     end
 end

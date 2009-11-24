@@ -8,7 +8,7 @@
 	</p>
 <% end -%>
 
-<!-- this can be further refactored using partials and layouts -->
+<!-- this could be further refactored using partials and layouts... -->
 <% render :layout => "/admin/shared/table_header" do %>
 	<th><%= link_to_sort News.human_attribute_name(:name), :name_pt %></th>
 	<th><%= link_to_sort News.human_attribute_name(:state), :state %></th>
@@ -29,4 +29,3 @@
 </thbody>
 </table> 
 <%= will_paginate @news %>
-

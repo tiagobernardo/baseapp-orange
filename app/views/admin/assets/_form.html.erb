@@ -1,0 +1,49 @@
+<% render :layout => "/admin/shared/tabbed_form", :locals=>{:tabs=>['Geral']} do %>
+<div>
+ <p>
+    <%= f.label :id -%> 
+    	<%= f.text_field :id -%>
+	  </p>
+ <p>
+    <%= f.label :data_file_name -%> 
+    	<%= f.text_field :data_file_name -%>
+	  </p>
+ <p>
+    <%= f.label :data_content_type -%> 
+    	<%= f.text_field :data_content_type -%>
+	  </p>
+ <p>
+    <%= f.label :data_file_size -%> 
+    	<%= f.text_field :data_file_size -%>
+	  </p>
+ <p>
+    <%= f.label :assetable_id -%> 
+    	<%= f.text_field :assetable_id -%>
+	  </p>
+ <p>
+    <%= f.label :assetable_type -%> 
+    	<%= f.text_field :assetable_type -%>
+	  </p>
+ <p>
+    <%= f.label :type -%> 
+    	<%= f.text_field :type -%>
+	  </p>
+ <p>
+    <%= f.label :user_id -%> 
+    	<%= f.text_field :user_id -%>
+	  </p>
+ <p>
+    <%= f.label :created_at -%> 
+    	<%= datetime_select(@asset, :created_at)  -%>
+	  </p>
+ <p>
+    <%= f.label :updated_at -%> 
+    	<%= datetime_select(@asset, :updated_at)  -%>
+	  </p>
+</div> 
+<!--
+<div>
+ render :partial=> "/admin/shared/seo_fields", :locals=>{:f=>f} 
+</div>
+-->
+<%end%>

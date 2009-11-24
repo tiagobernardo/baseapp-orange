@@ -1,17 +1,7 @@
 <% content_for :header do -%>
 	Ver pagina de <%= configatron.site_name %>
 <% end -%>
-
-<% content_for :sidebar do -%>
-	<p>
-	<h2 class="help"><img src="/images/icons/lightbulb.png" class="icon"/><strong>Ajuda</strong></h2>
-	</p>	
-
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali.
-	</p>
-<% end -%>
-
+<%= render :partial=>'/admin/shared/tabs_pages'%> 
 <table class="overview">
 	<%= cell "ID", h(@page.id) %>
 	<%= cell "Permalink", h(@page.permalink) %>
@@ -19,7 +9,7 @@
 
 	<%= cell "Nome", h(@page.name) %>
 	<%= cell "Estado", h(@page.state) %>
-	<%= cell "Corpo da página", h(@page.body) %>
+	<%= cell "Corpo da página", @page.body %>
 
 	<%= cell_separator %>
 	

@@ -1,44 +1,6 @@
 # Portuguese localization for Ruby on Rails
 # by Ricardo Otero <oterosantos@gmail.com>
 pt:
-  flash:
-    admin:
-      contents:
-        create:
-          notice: "Conteúdo foi criado com sucesso"
-        update:
-          notice: "Conteúdo foi actualizado com sucesso"
-        destroy:
-          notice: "Conteúdo foi apagado com sucesso"
-      news:
-        create:
-          notice: "A notícia foi criada com sucesso"
-        update:
-          notice: "A notícia foi actualizada com sucesso"
-        destroy:
-          notice: "A notícia foi apagada com sucesso"
-      pages:
-        create:
-          notice: "A página foi criada com sucesso"
-        update:
-          notice: "A página foi actualizada com sucesso"
-        destroy:
-          notice: "A página foi apagada com sucesso"
-      images:
-        create:
-          notice: "A imagem foi criada com sucesso"
-        update:
-          notice: "A imagem foi actualizada com sucesso"
-        destroy:
-          notice: "A imagem foi apagada com sucesso"
-      users:
-        create:
-          notice: "O utilizador foi criado com sucesso"
-        update:
-          notice: "O utilizador foi actualizado com sucesso"
-        destroy:
-          notice: "O utilizador foi apagado com sucesso"
-
   hello: "Olá mama"
   go_back: "&laquo; Voltar atrás"
   gototop: "Ir para o topo"
@@ -167,7 +129,57 @@ pt:
     not_found: "Profile not be found"
     not_found_text: "The profile you requested does not exist."
     profile: "Perfil"
-    
+  flash:
+    admin:
+      contents:
+        create:
+          notice: "Conteúdo foi criado com sucesso"
+        update:
+          notice: "Conteúdo foi actualizado com sucesso"
+        destroy:
+          notice: "Conteúdo foi apagado com sucesso"
+      themes:
+        create:
+          notice: "Tema foi criado com sucesso"
+        update:
+          notice: "Tema foi actualizado com sucesso"
+        destroy:
+          notice: "Tema foi apagado com sucesso"
+      news:
+        create:
+          notice: "A notícia foi criada com sucesso"
+        update:
+          notice: "A notícia foi actualizada com sucesso"
+        destroy:
+          notice: "A notícia foi apagada com sucesso"
+      pages:
+        create:
+          notice: "A página foi criada com sucesso"
+        update:
+          notice: "A página foi actualizada com sucesso"
+        destroy:
+          notice: "A página foi apagada com sucesso"
+      users:
+        create:
+          notice: "O utilizador foi criado com sucesso"
+        update:
+          notice: "O utilizador foi actualizado com sucesso"
+        destroy:
+          notice: "O utilizador foi apagado com sucesso"
+      pictures:
+        create:
+          notice: "A imagem foi criada com sucesso"
+        update:
+          notice: "A imagem foi actualizada com sucesso"
+        destroy:
+          notice: "A imagem foi apagada com sucesso"
+      files:
+        create:
+          notice: "O ficheiro foi criado com sucesso"
+        update:
+          notice: "O ficheiro foi actualizado com sucesso"
+        destroy:
+          notice: "O ficheiro foi apagado com sucesso"    
 
 
     # Used in array.to_sentence.
@@ -351,11 +363,16 @@ pt:
       content: "Conteúdo"
       setting: "Definições"
       news: "Notícia"
+      file: "Ficheiros"
+      image: "Imagens"
+      picture: "Imagens"
+      theme: "Tema"
     attributes: 
       user: 
         name: "Nome"
         email: "E-Mail"
         created_at: "Data Criação"
+        activated_at: "Data de Activação"
         updated_at: "Data de Actualização"
       page: 
         name: "Nome"
@@ -388,4 +405,23 @@ pt:
          read: "Lida"
          message: "Mensagem"
          created_at: "Data Criação"
-         updated_at: "Data de Actualização"         
+         updated_at: "Data de Actualização"
+      theme: 
+         name: "Nome"
+         created_at: "Data Criação"
+         updated_at: "Data de Actualização"
+      file: 
+        data_file_name: "Ficheiro"
+        data_content_type: "Tipo"
+        data_file_size: "Tamanho"
+        created_at: "Data Criação"
+        updated_at: "Data de Actualização"
+      picture: 
+         data_file_name: "Ficheiro"
+         data_content_type: "Tipo"
+         data_file_size: "Tamanho"
+         created_at: "Data Criação"
+         updated_at: "Data de Actualização"
+       
+           
+                  

@@ -6,21 +6,19 @@
 	<p class="cssbutton">
 		<%%= link_to '<span>Novo <%= file_name.capitalize -%></span>', new_admin_<%= file_name -%>_path %>
 	</p>
+	<%%= render :partial=>'help' %>
 <%% end -%>
 
-<table class="index tablesorter" id="mytable">
-<thead>
-  <tr>
-<%- for attribute in attributes -%>
-	<th><%= attribute.name %></th>
-<%end%>
-  </tr>
-</thead>
+<%% render :layout => "/admin/shared/table_header" do %>
+	<%- file_name.capitalize.camelize.constantize.columns.reject do |attribute| -%>
+	<th><%%= link_to_sort(<%= file_name.capitalize -%>.human_attribute_name(:<%= attribute.name.to_s%>), :<%=attribute.name.to_s%>) %></th>
+	<%end%>
+<%% end %>
 <thbody>
-<%% for <%= file_name -%> in @<%= file_name.pluralize -%> %>
+<%% @<%= file_name.pluralize -%>.each do |<%= file_name -%>| %>
   <tr>
 	<%- file_name.capitalize.camelize.constantize.columns.reject do |attribute| -%>
-		<td><%= h attribute.name  %></td>
+	<td><%%= <%=file_name%>.<%= attribute.name -%> %></td>
 	<%end%>	
 	<td class="actions">
 		<%%= link_to 'Editar', edit_admin_<%= file_name -%>_path(<%= file_name -%>) %>
@@ -29,8 +27,5 @@
   </tr>
 <%% end %>
 </thbody>
-</table>
-<%%= render :partial=>"/admin/shared/table_sorter_jquery"%>
-
+</table> 
 <%%= will_paginate @<%= file_name.pluralize -%> %>
-

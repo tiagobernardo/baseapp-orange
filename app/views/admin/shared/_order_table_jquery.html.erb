@@ -1,12 +1,29 @@
-
 <script type="text/javascript">
 	$(document).ready(function() {
+	
 		$('#orderthis').tableDnD({
 		  onDrop: function(table, row) {
-  
-		$.post('<%= sort_admin_pages_path %>', '_method=put&authenticity_token='+AUTH_TOKEN+'&'+$.tableDnD.serialize()+'&page=<%= params[:id]%>'+'&rowid='+row.id+'&nextid='+row.nextSibling.id+'&previd='+row.previousSibling.id);
+		var prev="";
+		var next="";
+		
+		if(row.nextSibling!=null){
+			prev=row.nextSibling.id;
+		}
+		if(row.previousSibling!=null){
+			prev=row.previousSibling.id;
+		}		
+		
+		$.post('/<%= params[:controller]%>/sort', '_method=put&authenticity_token='+AUTH_TOKEN+'&'+$.tableDnD.serialize()+'&page=<%= params[:id]%>'+'&rowid='+row.id+'&nextid='+next+'&previd='+prev);
 		  },
 		  dragHandle: "dragHandle"
 		});
+
+	});
+	
+	$(document).ajaxSend(function(event, request, settings) {
+	  if (typeof(AUTH_TOKEN) == "undefined") return;
+	  // settings.data is a serialized string like "foo=bar&baz=boink" (or null)
+	  settings.data = settings.data || "";
+	  settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
 	});
 </script>

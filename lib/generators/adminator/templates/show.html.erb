@@ -1,5 +1,5 @@
 <%% content_for :header do -%>
-	Ver <%= file_name.capitalize -%> de <%%= configatron.site_name %>
+	Ver <%= file_name.capitalize -%> 
 <%% end -%>
 
 <%% content_for :sidebar do -%>
@@ -11,7 +11,7 @@
 	<%%= cell_separator %>
 
 	<%- file_name.capitalize.camelize.constantize.columns.reject do |attribute| -%>
-		<%%= cell "Nome", h(@<%= attribute.name %>) %> 
+	<%%= cell <%= file_name.capitalize -%>.human_attribute_name(:<%= attribute.name.to_s%>), h(@<%=file_name%>.<%= attribute.name %>) %> 
 	<%- end -%>
 
 	<%%= cell_separator %>

@@ -1,0 +1,30 @@
+<% content_for :header do -%>
+	 Imagens
+<% end -%>
+<%= render :partial=>'/admin/shared/tabs_assets'%>
+<% content_for :sidebar do -%>
+	<p><h2 class="help"><img src="/images/icons/lightbulb.png" class="icon"/>Ajuda</h2></p>	
+	<p>Aqui é possível gerir as imagens cujo upload é feito através do ckeditor.</p>
+<% end -%>
+
+<% render :layout => "/admin/shared/table_header" do %>
+	<th>Preview</th>
+	<th><%= link_to_sort(Picture.human_attribute_name(:data_file_name), :data_file_name) %></th>
+	<th><%= link_to_sort(Picture.human_attribute_name(:data_file_size), :data_file_size) %></th>
+	<th><%= link_to_sort(Picture.human_attribute_name(:created_at), :created_at) %></th>
+<% end %>
+<thbody>
+<% @pictures.each do |picture| %>
+  <tr>
+	<td><%= image_tag picture.data(:thumb), :width=>'35px' %></td>
+	<td><%= link_to picture.data_file_name, picture.data.url, :target=>'_new' %></td>
+	<td><%= picture.data_file_size %></td>
+	<td><%= data_pt picture.created_at %></td>
+	<td class="actions">
+	<%= link_to 'Apagar', admin_picture_url(picture), :method => :delete, :confirm => "Tem a certeza?" %>		
+	</td>
+  </tr>
+<% end %>
+</thbody>
+</table> 
+<%= will_paginate @pictures %>

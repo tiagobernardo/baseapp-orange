@@ -1,5 +1,5 @@
 <% content_for :header do -%>
-	Editar tema de <%= configatron.site_name %>
+	Editar Tema 
 <% end -%>
 
 <% content_for :sidebar do -%>
@@ -9,9 +9,10 @@
 <%= error_messages_for :theme	 %>
 
 <% form_for @theme, :url => admin_theme_path, :html => { :multipart => true } do |f| -%>
+
 	<%= render :partial=> "form", :locals=>{:f=>f}%>
- 
-	<span class="roundbutton"><input type="image" src="<%= t('button.edit')%>" name="image" width="144" height="47"/></span> <span class="goback"><%= link_to t('go_back'), admin_themes_path %></span>
+
+	<span class="roundbutton"><input type="image" src="<%= t('button.create') %>" name="image" width="144" height="47"/></span> <span class="goback"><%= link_to t('go_back'), admin_themes_path %></span>
 	<div class="clear"></div>
 <% end -%>
-
+ 

@@ -1,5 +1,5 @@
 <% content_for :header do -%>
-	Ver Theme de <%= configatron.site_name %>
+	Ver Tema 
 <% end -%>
 
 <% content_for :sidebar do -%>
@@ -10,8 +10,9 @@
 	<%= cell "ID", h(@theme.id) %>
 	<%= cell_separator %>
 
-	<%= cell "Nome", h(@theme.name) %>
-	<%= cell "Descrição", h(@theme.description) %>
+	<%= cell Theme.human_attribute_name(:id), h(@theme.id) %> 
+	<%= cell Theme.human_attribute_name(:name), h(@theme.name) %> 
+	<%= cell Theme.human_attribute_name(:controller), h(@theme.controller) %> 
 
 	<%= cell_separator %>
 	
@@ -19,5 +20,5 @@
 	<%= cell "Última actualização", data_pt(@theme.updated_at ) %>
 </table>
 
-<%= link_to 'Editar', edit_admin_theme_path(@theme) %> | <%= link_to 'Voltar ', admin_themes_path %>
+<%= link_to 'Editar', edit_admin_theme_path(@theme) %> | <%= link_to t('go_back'), admin_themes_path %>
 

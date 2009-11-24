@@ -1,0 +1,13 @@
+<ul class="tabs">
+	<% tabs.each do |tab|%>
+	<li><a href="#"><%=tab%></a></li>
+	<%end%>
+</ul>
+<div class="panes">
+	<%= yield %>
+</div>
+<script type="text/javascript">
+	$(window).bind('load', function() {
+    	$("ul.tabs").tabs("div.panes > div"); 
+	});
+</script>

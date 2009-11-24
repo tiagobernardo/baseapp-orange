@@ -6,24 +6,20 @@
 	<p class="cssbutton">
 		<%= link_to '<span>Novo Tema</span>', new_admin_theme_path %>
 	</p>
+	<%= render :partial=>'help' %>
 <% end -%>
 
-
-<table class="index tablesorter" id="mytable">
-<thead>
-  <tr>
-	<th>ID</th>
-	<th>Nome</th>
-   	<th>Data Criação</th>
-	<th>Acções</th>
-  </tr>
-</thead>
+<% render :layout => "/admin/shared/table_header" do %>
+	<th><%= link_to_sort(Theme.human_attribute_name(:name), :name) %></th>
+	<th><%= link_to_sort(Theme.human_attribute_name(:controller), :controller) %></th>
+	<th><%= link_to_sort(Theme.human_attribute_name(:created_at), :created_at) %></th>
+<% end %>
 <thbody>
-<% for theme in @themes %>
+<% @themes.each do |theme| %>
   <tr>
-	<td><%= h theme.id %></td>
-	<td><%= link_to h(theme.name), admin_theme_url(theme) %></td>
-  	<td><%= h data_pt theme.created_at %></td>
+	<td><%= theme.name %></td>
+	<td><%= theme.controller %></td>
+	<td><%= data_pt theme.created_at %></td>
 	<td class="actions">
 		<%= link_to 'Editar', edit_admin_theme_path(theme) %>
 		<%= link_to 'Apagar', admin_theme_url(theme), :method => :delete, :confirm => "Tem a certeza?" %>		
@@ -31,9 +27,5 @@
   </tr>
 <% end %>
 </thbody>
-</table>
-<%= render :partial=>"/admin/shared/table_sorter_jquery"%>
-
-
+</table> 
 <%= will_paginate @themes %>
-
