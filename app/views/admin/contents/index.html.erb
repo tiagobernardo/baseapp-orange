@@ -1,10 +1,10 @@
 <% content_for :header do -%>
 	 Textos
 <% end -%>
-
+<%= render :partial=>'/admin/shared/tabs_pages'%>
 <% content_for :sidebar do -%>
 	<p class="cssbutton">
-		<%= link_to '<span>Novo Content</span>', new_admin_content_path %>
+		<%= link_to '<span>Novo Texto</span>', new_admin_content_path %>
 	</p>
 	<%= render :partial=>'help' %>
 <% end -%>
