@@ -13,7 +13,7 @@ class AddTranslatableModels < ActiveRecord::Migration
     add_column :contents, :name_en, :string
     add_column :contents, :body_pt, :text
     add_column :contents, :body_en, :text
-    remove_column :contents, :description
+    #remove_column :contents, :description
     remove_column :contents, :name
     
     #news
