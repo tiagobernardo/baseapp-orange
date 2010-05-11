@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2009, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -36,6 +36,7 @@ CKEDITOR.plugins.add( 'pagebreak',
 				'border-top: #999999 1px dotted;' +
 				'border-bottom: #999999 1px dotted;' +
 				'height: 5px;' +
+				'page-break-after: always;' +
 
 			'}' );
 	},
@@ -55,7 +56,8 @@ CKEDITOR.plugins.add( 'pagebreak',
 					{
 						div : function( element )
 						{
-							var style = element.attributes.style,
+							var attributes = element.attributes,
+								style = attributes && attributes.style,
 								child = style && element.children.length == 1 && element.children[ 0 ],
 								childStyle = child && ( child.name == 'span' ) && child.attributes.style;
 
@@ -91,6 +93,11 @@ CKEDITOR.plugins.pagebreakCmd =
 
 			range.splitBlock( 'p' );
 			range.insertNode( breakObject );
+			if ( i == ranges.length - 1 )
+			{
+				range.moveToPosition( breakObject, CKEDITOR.POSITION_AFTER_END );
+				range.select();
+			}
 		}
 	}
 };

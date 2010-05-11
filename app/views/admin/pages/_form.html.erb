@@ -4,34 +4,35 @@
 		$('.on_off_state :checkbox').iphoneStyle({ checkedLabel: 'Activo', uncheckedLabel: 'Draft' });
 	});
 </script>
+
 <ul class="tabs">
 	<li><a href="#">Básico</a></li>
+	<li><a href="#">Opções</a></li>
 	<li><a href="#">Tradução (EN)</a></li>
  	<li><a href="#">SEO</a></li>
 </ul>
 
 <div class="panes"> 
 <div>
-<p><label for="name">Nome</label> <%= f.text_field :name_pt %></p>
+	<p><label for="name">Nome</label> <%= f.text_field :name_pt %></p>
 
-<p><label for="parent_id">Página Superior</label> 
-<%= f.select :parent_id, nested_set_options(Page, @page) {|i| "#{'-' * i.level} #{i.name}" }, :prompt => 'Escolhe uma opção' %></p>
+	<p><%= f.cktext_area :body_pt,  :width=>'95%'  %></p>
 
-<p><%= f.cktext_area :body_pt,  :width=>'95%'  %></p>
-
-
-<p><label for="theme_id">Tema</label> 
-<%= f.collection_select :theme_id , Theme.find(:all), :id, :name, {:include_blank => true,:prompt => 'Escolhe uma opção'} %></p>
-
- 
 <ol class="on_off_state">
    <li>
      <p><label class="left" for="state">Estado</label>
      <%= f.check_box(:state, STATES,'active','draft' ) %>
 	 </p>
    </li>
-</ol> 
- 
+</ol>  
+</div>
+<div>
+		<p><label for="parent_id">Página Superior</label> 
+		<%= f.select :parent_id, nested_set_options(Page, @page) {|i| "#{'-' * i.level} #{i.name}" }, :prompt => 'Escolhe uma opção' %></p>
+
+	<p><label for="theme_id">Tema</label> 
+	<%= f.collection_select :theme_id , Theme.find(:all), :id, :name, {:include_blank => true,:prompt => 'Escolhe uma opção'} %></p>
+
 </div>
 <div>
 	<p><label for="name">Nome</label> 

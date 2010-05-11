@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2009, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -135,8 +135,14 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 		// Apply indenting or outdenting on the array.
 		var baseIndent = listArray[ lastItem.getCustomData( 'listarray_index' ) ].indent;
-		for ( i = startItem.getCustomData( 'listarray_index' ) ; i <= lastItem.getCustomData( 'listarray_index' ) ; i++ )
-			listArray[i].indent += indentOffset;
+		for ( i = startItem.getCustomData( 'listarray_index' ); i <= lastItem.getCustomData( 'listarray_index' ); i++ )
+		{
+			listArray[ i ].indent += indentOffset;
+			// Make sure the newly created sublist get a brand-new element of the same type. (#5372)
+			var listRoot = listArray[ i ].parent;
+			listArray[ i ].parent = new CKEDITOR.dom.element( listRoot.getName(), listRoot.getDocument() );
+		}
+
 		for ( i = lastItem.getCustomData( 'listarray_index' ) + 1 ;
 				i < listArray.length && listArray[i].indent > baseIndent ; i++ )
 			listArray[i].indent += indentOffset;
@@ -159,7 +165,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 				for ( i = count - 1 ; i >= 0 ; i-- )
 				{
-					if( ( child = children.getItem( i ) ) && child.is && child.is( 'li' )  )
+					if ( ( child = children.getItem( i ) ) && child.is && child.is( 'li' )  )
 						pendingLis.push( child );
 				}
 			}
@@ -177,7 +183,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 					followingList = li;
 
 				// Nest preceding <ul>/<ol> inside current <li> if any.
-				while( ( followingList = followingList.getNext() ) &&
+				while ( ( followingList = followingList.getNext() ) &&
 					   followingList.is &&
 					   followingList.getName() in listNodeNames )
 				{
@@ -225,7 +231,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				if ( indentStep < 1 )
 					block.$.className = className;
 				else
-					block.addClass( editor.config.indentClasses[ indentStep - 1 ] );
+					block.$.className = CKEDITOR.tools.ltrim( className + ' ' + editor.config.indentClasses[ indentStep - 1 ] );
 			}
 			else
 			{
@@ -255,6 +261,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 		}
 		else
 			this.indentCssProperty = editor.config.contentsLangDirection == 'ltr' ? 'margin-left' : 'margin-right';
+		this.startDisabled = name == 'outdent';
 	}
 
 	indentCommand.prototype = {
@@ -321,3 +328,54 @@ CKEDITOR.tools.extend( CKEDITOR.config,
 		indentUnit : 'px',
 		indentClasses : null
 	});
+
+/**
+ * Size of each indentation step
+ * @type Number
+ * @example
+ * config.indentOffset = 40;
+ */
+
+ /**
+ * Unit for the indentation style
+ * @type String
+ * @example
+ * config.indentUnit = 'px';
+ */
+
+ /**
+ * List of classes to use for indenting the contents.
+ * @type Array
+ * @example
+ * // Don't use classes for indenting. (this is the default value)
+ * config.indentClasses = null;
+ * @example
+ * // Use the classes 'Indent1', 'Indent2', 'Indent3'
+ * config.indentClasses = ['Indent1', 'Indent2', 'Indent3'];
+ */
+
+/**
+ * Size of each indentation step
+ * @type Number
+ * @default 40
+ * @example
+ * config.indentOffset = 4;
+ */
+
+ /**
+ * Unit for the indentation style
+ * @type String
+ * @default 'px'
+ * @example
+ * config.indentUnit = 'em';
+ */
+
+ /**
+ * List of classes to use for indenting the contents. If it's null, no classes will be used
+ * and instead the {@link #indentUnit} and {@link #indentOffset} properties will be used.
+ * @type Array
+ * default null
+ * @example
+ * // Use the classes 'Indent1', 'Indent2', 'Indent3'
+ * config.indentClasses = ['Indent1', 'Indent2', 'Indent3'];
+ */

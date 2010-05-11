@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2009, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -70,6 +70,8 @@ if ( !CKEDITOR.env )
 			mac	: ( agent.indexOf( 'macintosh' ) > -1 ),
 
 			quirks : ( document.compatMode == 'BackCompat' ),
+
+			mobile : ( agent.indexOf( 'mobile' ) > -1 ),
 
 			isCustomDomain : function()
 			{
@@ -176,12 +178,13 @@ if ( !CKEDITOR.env )
 		 *     alert( "Your browser is pretty cool!" );
 		 */
 		env.isCompatible =
+			!env.mobile && (
 			( env.ie && version >= 6 ) ||
 			( env.gecko && version >= 10801 ) ||
 			( env.opera && version >= 9.5 ) ||
 			( env.air && version >= 1 ) ||
 			( env.webkit && version >= 522 ) ||
-			false;
+			false );
 
 		// The CSS class to be appended on the main UI containers, making it
 		// easy to apply browser specific styles to it.

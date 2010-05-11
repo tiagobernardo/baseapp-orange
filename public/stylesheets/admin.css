@@ -26,13 +26,13 @@ select{padding-top:1px;padding-bottom:1px;padding:2px;}
 /*******************
 HEADER AND TABS style
 *******************/
-#header { border-bottom: 0px solid #2A2A2A;  background: #00A0B9 url(/images/admin/bgtoblue.png) repeat-x bottom left; }
-#tabs {	height: 29px;}
-	#tabs a {color: #fff;padding: 5px 8px 7px 8px; background: #ddd url(/images/admin/bgtoblue.png) repeat-x top left;
+#header { border-bottom: 0px solid #2A2A2A;  
+	background: #00A0B9 url(/images/admin/bgtoblue.png) repeat-x bottom left; }
+#tabs {	height: 30px;}
+	#tabs a {color: #fff;
+		padding: 5px 8px 7px 8px; background: #ddd url(/images/admin/bgtoblue.png) repeat-x top left;
  		-moz-border-radius-topright: 3px; -moz-border-radius-topleft: 3px;
-		-khtml-border-radius-topright: 3px; -khtml-border-radius-topleft: 3px;
 		-webkit-border-radius-topright: 3px; -webkit-border-radius-topleft: 3px;
-		border-radius: 3px;
 	}
 	#tabs li a:hover {background: #fff;color:#4B4B4B;}
 	#tabs li a.current {color: #000;background: #fff;}
